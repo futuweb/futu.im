@@ -11,6 +11,8 @@ category: Express
 
  	express是一个高度包容，快速，极简的nodeJs应用程序框架。
 
+<!--more-->
+
 ### 如何快速启动Express
 
 1、全局安装express-generator：
@@ -33,7 +35,6 @@ category: Express
     
      $DEBUG=myapp:* npm start
 
-<!--more-->
      
 ### express generator生成的目录结构
 
