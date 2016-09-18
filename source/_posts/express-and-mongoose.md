@@ -1,16 +1,14 @@
 ---
-title: 如何搭建express和mongoose
+title: 如何搭建Express和Mongoose
 date: 2016-08-04 21:56
 tags: [Express]
-category: express
+category: Express
 ---
-
-如何搭建express和mongoose
-==========================
 
 ## 一、Express
 
 ### express是什么
+
  	express是一个高度包容，快速，极简的nodeJs应用程序框架。
 
 ### 如何快速启动Express
@@ -34,6 +32,8 @@ category: express
 5、启动程序：
     
      $DEBUG=myapp:* npm start
+
+<!--more-->
      
 ### express generator生成的目录结构
 
