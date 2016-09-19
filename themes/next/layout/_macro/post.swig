@@ -57,6 +57,20 @@
             </time>
           </span>
 
+          {% if post.author %}
+            <span class="post-author" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-user"></i>
+              </span>
+                <span itemprop="about" itemscope itemtype="https://schema.org/Person">
+                  <a href="/author/{{post.author}}" itemprop="url" rel="index">
+                    <span itemprop="name">{{ post.author }}</span>
+                  </a>
+                </span>
+            </span>
+          {% endif %}
+
           {% if post.categories and post.categories.length %}
             <span class="post-category" >
               &nbsp; | &nbsp;
