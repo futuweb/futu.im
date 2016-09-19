@@ -241,7 +241,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: futu-im
 
 # Disqus
 #disqus_shortname:
@@ -265,7 +265,7 @@ mathjax:
 
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-71722593-5
 
 # CNZZ count
 #cnzz_siteid:
