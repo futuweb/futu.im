@@ -5,7 +5,7 @@ type: "page"
 comments: false
 ---
 
-![Avatar](/images/Diandian/avatar.jpg)
+![Avatar](/images/Diandian/avater.jpg)
 
 工卡照一枚。
 
