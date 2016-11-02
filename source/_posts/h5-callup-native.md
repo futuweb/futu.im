@@ -15,6 +15,7 @@ author: AlanZhang
 
 - 当前native客户端内置webview中，比较常用的是通过schema打开登陆页、触发分享入口的显示；而在外部浏览器或者webview中唤醒公司的客户端目前还没有太多尝试，有据此展开研究的必要性，以便日后在真实的需求中使用！
 
+<!--more-->
 
 ## 唤醒native APP 的几种方式
 在Android端，常用的方式是Schame + Android Itent，在IOS端，常用的方式是Schema ＋　Universal links（IOS9+）；
