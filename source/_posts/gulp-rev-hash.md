@@ -1,5 +1,10 @@
-# gulp-rev-hash3
-=============
+---
+title: 文件hash作为静态资源版本组件的改进-gulp-rev-hash3
+date: 2016-11-02 10:00
+tags: [gulp-rev-hash3]
+category: 技术预研
+author: AlanZhang
+---
 
 ## 背景
 为了解决项目中js，css等静态资源的缓存，会在指定的js，css标签后加上hash值作为版本号，只有文件内容改变，作为版本号的hash值才会改变；最初使用的是gulp-rev-hash组件，但是项目中的静态资源多数都使用了CDN来加速，gulp-rev-hash在计算文件hash值时无法获取远程文件的hash值,于是fork了原组件的代码并做了改进和优化，对外发布为gulp-rev-hash3。
