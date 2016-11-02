@@ -2,6 +2,9 @@
 # Site Information Settings
 # ---------------------------------------------------------------
 
+# CDN镜像
+cdn: //og04qw2xm.bkt.clouddn.com/
+
 # Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 
@@ -76,7 +79,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host: //fonts.gmirror.org
+  host: //fonts.css.network
 
   # Global font settings used on <body> element.
   global:

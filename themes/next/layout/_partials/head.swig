@@ -1,7 +1,7 @@
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<script src="/scripts/main.js"></script>
+<script src="{{ theme.cdn }}scripts/main.js"></script>
 
 {# #238, Disable Baidu tranformation #}
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -39,7 +39,7 @@
 {% endif %}
 <link href="{{ font_awesome_uri }}" rel="stylesheet" type="text/css" />
 
-<link href="{{ url_for(theme.css) }}/main.css?v={{ theme.version }}" rel="stylesheet" type="text/css" />
+<link href="{{ theme.cdn }}{{ url_for(theme.css) }}/main.css?v={{ theme.version }}" rel="stylesheet" type="text/css" />
 
 {% if page.keywords %}
   <meta name="keywords" content="{{ page.keywords }}" />
@@ -59,7 +59,7 @@
 
 
 {% if theme.favicon %}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ theme.cdn }}{{ url_for(theme.favicon) }}?v={{ theme.version }}" />
 {% endif %}
 
 
