@@ -1,5 +1,5 @@
 ---
-title: 关于通过H5页面唤NNtive户端的介绍
+title: 关于通过H5页面唤Native户端的介绍
 date: 2016-11-02 10:00
 tags: [H5,Native,schema]
 category: 技术预研
@@ -50,19 +50,19 @@ Android上注册schema协议，可以参考博文：[Android手机上实现WebAp
 ```
     intent:
     login                                           // 特定的schema uri，例如login表示打开NN登陆页
-    #Intent; 
+    #Intent;
       package=cn.xxxx.xxxxxx;                       // NN apk 信息
       action=android.intent.action.VIEW;            // NN apk 信息
       category=android.intent.category.DEFAULT;     // NN apk 信息
       component=[string];                           // NN apk 信息,可选
       scheme=xxxx;                                  // 协议头
       S.browser_fallback_url=[url]                  // 可选，schema启动客户端失败时的跳转页，一般为下载页，需编码
-    end; 
+    end;
 ```
 2. 构造一个a标签，将上面schame 字符串作为其href值，当点击a标签时，即为通过schema打开某客户端登陆页，如果未安装客户端，则会跳转到指定页，这里会跳转到下载页；
 
         <a href="intent://loin#Intent;scheme=ftnn;package=cn.futu.trader;category=android.intent.category.DEFAULT;action=android.intent.action.VIEW;S.browser_fallback_url=http%3A%2F%2Fa.app.qq.com%2Fo%2Fsimple.jsp%3Fpkgname%3Dcn.futu.trader%26g_f%3D991653;end">打开登录页</a>
-        
+
 
 #### Universal links
 Universal links为 iOS 9 上一个所谓 通用链接 的深层链接特性，一种能够方便的通过传统 HTTP 链接来启动 APP, 使用相同的网址打开网站和 APP；通过唯一的网址, 就可以链接一个特定的视图到你的 APP 里面, 不需要特别的 schema；
@@ -70,7 +70,7 @@ Universal links为 iOS 9 上一个所谓 通用链接 的深层链接特性，�
 在IOS中，对比schema的方式，Universal links有以下优点：
 
 1. 通过schema启动app时，浏览器会有弹出确认框提示用户是否打开，而Universal links不会提示，体验更好；
-    
+
 
 2. Universal link可在再微信浏览器中打开外部App；
 
@@ -88,11 +88,11 @@ Universal links为 iOS 9 上一个所谓 通用链接 的深层链接特性，�
 在不考虑IOS9 Universal links唤醒方式的条件下，可以分为这几个步骤；
 
 1. **生成schema字符串**
-    
+
 首先判断浏览器UA，如果为Chrome for Android，则必须安装 Android Intent的方式来组织schema字符串；如果为其他浏览器，则按照普通的schema方式来返回即可；
 ![](http://i.imgur.com/fVd8LQ5.png)
 
-> 注意参数中包含的url地址需要进行encodeURIComponent编码 
+> 注意参数中包含的url地址需要进行encodeURIComponent编码
 
 2 .**通过iframe或者a标签来加载schema**
 
@@ -126,9 +126,9 @@ opera对于iframe.src和a.href的方式都能支持，所以对chrome及先关�
 此时，有几个事件比较关键：
 
     pagehide: 页面隐藏时触发
-    
+
     visibilitychange： 页面隐藏没有在当前显示时触发，比如切换tab，也会触发该事件
-    
+
     document.hidden 当页面隐藏时，该值为true，显示时为false
 
 为了尽可能的兼容多的浏览器，所以讲这几个事件都进行绑定！
