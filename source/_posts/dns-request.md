@@ -1,7 +1,7 @@
 ---
 title: DNS 请求报文详解
-categories: [Node.js,JavaScript,DNS]
-tags: [dns,dgram,http/s]
+category: Node.js
+tags: [dns,dgram,JavaScript]
 author: Jin
 ---
 
