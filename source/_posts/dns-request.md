@@ -87,7 +87,7 @@ DNS报文格式，不论是请求报文，还是DNS服务器返回的应答报�
 
 ### Question 查询字段
 
-*   `QNAME`  无符号`16bit`整数表示查询名(广泛的说就是：域名).
+*   `QNAME`  无符号`8bit`为单位长度不限表示查询名(广泛的说就是：域名).
 *   `QTYPE`  无符号`16bit`整数表示查询的协议类型.
 *   `QCLASS` 无符号`16bit`整数表示查询的类,比如，`IN`代表Internet.
 
@@ -450,6 +450,8 @@ var question = {};
   server.bind({port:53,address:'8.8.8.8'});//address需要指定到你要用于进行代理的机器ip
 
 ```
+
+下一篇： [DNS 响应报文详解](./dns-response.md)
 
 ### 参考资料
 
