@@ -25,7 +25,7 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 1. `hexo server`让hexo在本机跑起来，这样可以通过`http://localhost:4000`进行预览
 2. `hexo new title-in-english`新建一篇文章
 
-## 二逼青年版
+### 二逼青年版
 
 从`source/_posts`中复制一篇，或者参考格式，自己新建一个`title-in-english.md`文件
 
