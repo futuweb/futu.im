@@ -12,5 +12,5 @@ Allen，前端工程师，就职于富途网络。
 喜欢JS, 有点懒, 爱运动, 爱抽疯
 
 - 博客 孵化中……
-- Github [@dragon](https://github.com/dragonhub)
+- Github [@dragonhub](https://github.com/dragonhub)
 
