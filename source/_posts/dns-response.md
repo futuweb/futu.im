@@ -318,6 +318,7 @@ author: Jin
   };
 ```
 
+上一篇： [DNS 请求报文详解](/posts/dns-request)
 
 ## 参考资料
 

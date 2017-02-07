@@ -452,7 +452,7 @@ var question = {};
 
 ```
 
-下一篇： [DNS 响应报文详解](./dns-response.md)
+下一篇： [DNS 响应报文详解](/posts/dns-response)
 
 ### 参考资料
 
