@@ -8,7 +8,7 @@ author: futu
 
 腾讯系互联网券商——富途证券web开发团队招人啦!!!
 
-![富途证券-中国最佳互联网券商](/images/2017-invate/futu.png)
+![富途证券-中国最佳互联网券商](/images/2017-invate/futu.jpg)
 
 <!-- more -->
 
