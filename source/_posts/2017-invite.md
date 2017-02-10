@@ -3,7 +3,7 @@ title: 富途证券WEB前端团队招募令
 date: 2017-02-09 12:00
 category: 招聘
 tags: [web前端,招聘]
-author: futu
+author: Jin
 ---
 
 腾讯系互联网券商——富途证券web前端团队招人啦！！！
