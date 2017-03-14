@@ -21,6 +21,8 @@ author: Young
 
 <img src="https://raw.githubusercontent.com/newbieYoung/NewbieWebArticles/master/images/understanding-experience-0.jpg">
 
+<!--more-->
+
 ## 前言
 
 首先得声明一下这只是某个程序员粗略浏览《匠心体验-智能手机与平板电脑的用户体验设计》之后为方便和加深自己理解而记录的读后感，主要内容基本可以概括为：从一个适合自己理解的角度来简要复述上述书籍的内容。
