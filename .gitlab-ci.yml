@@ -6,6 +6,8 @@ pages:
     - node_modules/
 
   script:
+  - npm config set user 0
+  - npm config set unsafe-perm true
   - npm install hexo-cli -g
   - npm install
   - hexo deploy
