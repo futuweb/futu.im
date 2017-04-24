@@ -79,7 +79,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host: //fonts.css.network
+  host: //fonts.113.im
 
   # Global font settings used on <body> element.
   global:
