@@ -21,7 +21,7 @@ Timi，半路上的全栈工程师，现就职于富途网络。
     <script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 </section>
 <section>
-    <h3><a href="http://www.douban.com/people/58221836" target="_blank">豆瓣 Douban</a></h3>
-    <script src="http://www.douban.com/service/badge/58221836/?selection=random&amp;picsize=small&amp;hideself=on&amp;show=collection&amp;n=20&amp;hidelogo=on&amp;cat=drama%7Cmovie%7Cbook%7Cmusic&amp;columns=8"></script>
+    <h3><a href="https://www.douban.com/people/58221836" target="_blank">豆瓣 Douban</a></h3>
+    <script src="https://www.douban.com/service/badge/58221836/?selection=random&amp;picsize=small&amp;hideself=on&amp;show=collection&amp;n=20&amp;hidelogo=on&amp;cat=drama%7Cmovie%7Cbook%7Cmusic&amp;columns=8"></script>
 </section>
 
