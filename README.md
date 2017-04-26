@@ -67,7 +67,7 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 例如：
 
-![futu.im博客规范](/images/readme/issues.png)
+![futu.im博客规范](source/images/readme/issues.png)
 
 ## 托管和发布
 
@@ -86,7 +86,7 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 
 ## 附录
-![futu.im博客规范](/images/readme/01.png)
+![futu.im博客规范](source/images/readme/01.png)
 
 ## 常见问题
 
