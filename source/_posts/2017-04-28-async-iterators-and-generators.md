@@ -37,6 +37,8 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 <!-- more -->
 
 ## Async iterators
+
+
 异步迭代器和常规迭代器的工作方式非常相似，但是异步迭代器包含promise:
     
     async function example() {
@@ -60,6 +62,8 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 两种迭代器都有一个.return()方法，这个方法通知迭代器提早结束，并且做它需要做的清理工作。
 
 ##迭代器&循环
+
+
 直接使用迭代器对象的情况十分少见，通常在循环上用更合适，它是在幕后使用迭代器对象的：
     
     
@@ -103,6 +107,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 
 ##异步生成器：创建你自己的异步迭代器
 
+
 就像可以使用生成器来创建迭代器工厂一样，可以使用生成器来创建异步迭代器工厂。
 异步生成器是一系列异步函数和生成器的混合体。假设我们想要生成一个返回随机数的迭代器，但是那些随机数来自一个web服务：
 
@@ -134,6 +139,8 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 用web service来获取随机数是一个有点糊涂的例子，可以看一些更实际的东西。
 
 ##使流迭代起来
+
+
 像我在文章开头提到的那样，很快可以这样做：
 
     async function example() {
@@ -216,6 +223,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 注意这里没有把```streamAsyncIterator``` 归类到```ReadableStream.prototype[Symbol.asyncIterator]```。这会起作用--允许我们直接在流上迭代，但是也弄乱了不属于我们的对象。如果流变成严格意义上的异步迭代器，如果说明书上的行为和我们的不同，可能会以奇怪的bug结束。
 
 ##更简洁的实现
+
 
 你不需要用异步生成器来生成异步可迭代对象，你可以自己生成迭代器对象。这是[Domenic Denicola](https://twitter.com/domenic/)所做的事情。这里是他的实现：
 
