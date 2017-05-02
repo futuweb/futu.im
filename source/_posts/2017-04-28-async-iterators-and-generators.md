@@ -20,7 +20,7 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
     }
 
 
-多亏有了async函数，使得这段代码的可读性不错（如果不熟悉，这里有个[说明](https://developers.google.com/web/fundamentals/getting-started/primers/async-functions)）。但是，还是有点难以理解。
+多亏有了async函数（如果不熟悉，这里有个[说明](https://developers.google.com/web/fundamentals/getting-started/primers/async-functions)），使得这段代码的可读性不错。但是，还是有点难以理解。
 
 值得庆幸的是，异步迭代器很快会到来，可以使得代码看上去更整洁：
     
@@ -57,10 +57,10 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
     }
 
 
-两种迭代器都有一个.return()方法，这个方法通知迭代器早些结束，并且做需要做任何的清理工作。
+两种迭代器都有一个.return()方法，这个方法通知迭代器提早结束，并且做它需要做的清理工作。
 
 ##迭代器&循环
-直接使用迭代器对象十分少见，通常在循环上用更合适，它是在幕后使用迭代器对象的：
+直接使用迭代器对象的情况十分少见，通常在循环上用更合适，它是在幕后使用迭代器对象的：
     
     
     async function example() {
@@ -77,7 +77,7 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 
 for-of循环会通过调用```thing[Symbol.iterator]```拿到对应的迭代器。而for-await循环会通过调用```asyncThing[Symbol.asyncIterator]```拿到对应的迭代器，在它已经定义的情况下,没定义的情况会回落到```asyncThing[Symbol.iterator]```。
 
-for-await 会给出一次每个值```asyncIterator.next()```决定。因为这里包含了正在等待的promise,在迭代过程中，主线程上其他事情可以发生。```asyncIterator.next()```不会被下个条目调用，直到正确的迭代完成。意味着要按顺序获得条目，并且循环的迭代器不会重叠。
+一旦```asyncIterator.next()``` resolve，for-await 会给出每个值。因为这里包含了awaiting promise,在迭代过程中，主线程上其他事情可以发生。直到正进行的迭代完成，```asyncIterator.next()```才会被下个条目调用。这意味着要按顺序获得条目，并且循环的迭代器不会重叠。
 
 for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组一样使用它和常规迭代器：
     
@@ -104,7 +104,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 ##异步生成器：创建你自己的异步迭代器
 
 就像可以使用生成器来创建迭代器工厂一样，可以使用生成器来创建异步迭代器工厂。
-异步生成器是一系列异步函数和生成器的混合体。我们想要生成一个返回随机数的迭代器，但是那些随机数来自一个web服务：
+异步生成器是一系列异步函数和生成器的混合体。假设我们想要生成一个返回随机数的迭代器，但是那些随机数来自一个web服务：
 
     // Note the * after "function"
     async function* asyncRandomNumbers() {
@@ -144,7 +144,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
       }
     }
 
-...但是仍然不够投机。可以写个我们自己的异步生成器，在流上进行迭代。我们想要：
+...但是仍然不能说明。可以写个自己的异步生成器，在流上进行迭代。我们想要：
 
 1.在流上加个锁，这样当我们在迭代的时候，没有其他东西可以使用流。
 
@@ -152,7 +152,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 
 3.完成之后释放掉锁。
 
-释放锁很重要。如果开发者中断了循环，我们想要从中断的地方可以继续使用流。所以：
+释放锁很重要。如果开发者中断了循环，我们希望可以从中断的地方继续使用流。所以：
     
     async function* streamAsyncIterator(stream) {
       // Get a lock on the stream
@@ -187,7 +187,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 
 [在线实例](https://jsbin.com/codapog/edit?js,console "在线示例") 
 
-解锁意味着你在循环之后仍然可以控制流。看下我们想要在HTML spec里面找到第一个“J”字节的位置：
+解锁意味着你在循环之后仍然可以控制流。假设我们想要在HTML spec里面找到第一个“J”字节的位置：
 
     async function example() {
       const find = 'J';
@@ -211,13 +211,13 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
     }
 [在线实例](https://jsbin.com/gucesat/edit?js,console "在线示例")
 
-这里当我们找到一个匹配的时候，跳出了循环。由于```streamAsyncIterator```在流上释放了锁，我们可以取消剩下的部分，节省带宽。
+这里当我们找到一个匹配的时候，跳出了循环。由于```streamAsyncIterator```在流上释放了锁，我们可以取消剩下的部分，来节省带宽。
 
-注意这里没有把```streamAsyncIterator``` 归类到```ReadableStream.prototype[Symbol.asyncIterator]```.这个会起作用--允许我们直接在流上迭代，但是也弄乱了不属于我们的对象。如果流变成严格意义上的异步迭代器，如果说明的行为和我们的不一样，我们可能以奇怪的bug结束。
+注意这里没有把```streamAsyncIterator``` 归类到```ReadableStream.prototype[Symbol.asyncIterator]```。这会起作用--允许我们直接在流上迭代，但是也弄乱了不属于我们的对象。如果流变成严格意义上的异步迭代器，如果说明书上的行为和我们的不同，可能会以奇怪的bug结束。
 
-##一个更短的实现
+##更简洁的实现
 
-你不需要用异步生成器来生成异步可迭代对象，你自己可以生成迭代器对象。这就是[Domenic Denicola](https://twitter.com/domenic/)所做的.这里是他的实现：
+你不需要用异步生成器来生成异步可迭代对象，你可以自己生成迭代器对象。这是[Domenic Denicola](https://twitter.com/domenic/)所做的事情。这里是他的实现：
 
     function streamAsyncIterator(stream) {
       // Get a lock on the stream:
@@ -241,7 +241,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
       };
     }
 
-可以在Chrome Canary里面运行上面所有的例子，启动的时候要加标志位```--js-flags=--harmony-async-iteration```。如果现在想把这些用于生产环境，Babel可以转。
+可以在Chrome Canary里面运行上面所有的例子，启动的时候要加标志位```--js-flags=--harmony-async-iteration```。如果现在想把这些用于生产环境，Babel可以做转换。
     
 原文：[https://jakearchibald.com/2017/async-iterators-and-generators/](https://jakearchibald.com/2017/async-iterators-and-generators/)
 
