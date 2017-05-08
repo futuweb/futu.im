@@ -5,8 +5,9 @@ category: 翻译
 tags: [JS,技术]
 author: Linda
 ---
-Chrome,Edge,Safari都支持了流式获取，有点像这样：
-
+Chrome，Edge，Safari都支持了流式获取，有点像这样：
+	
+	```js
     async function getResponseSize(url) {
       const response = await fetch(url);
       const reader = response.body.getReader();
@@ -23,7 +24,8 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 多亏有了async函数（如果不熟悉，这里有个[说明](https://developers.google.com/web/fundamentals/getting-started/primers/async-functions)），使得这段代码的可读性不错。但是，还是有点难以理解。
 
 值得庆幸的是，异步迭代器很快会到来，可以使得代码看上去更整洁：
-    
+
+    ```js
     async function getResponseSize(url) {
       const response = await fetch(url);
       let total = 0;
@@ -41,6 +43,7 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 
 异步迭代器和常规迭代器的工作方式非常相似，但是异步迭代器涉及promise:
     
+	```js
     async function example() {
       // Regular iterator:
       const iterator = createNumberIterator();
@@ -66,17 +69,17 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 
 直接使用迭代器对象的情况十分少见，通常在循环上用更合适，它是在幕后使用迭代器对象的：
     
-    
+    ```js
     async function example() {
-      // Regular iterator:
-      for (const item of thing) {
-    // …
-      }
-    
-      // Async iterator:
-      for await (const item of asyncThing) {
-    // …
-      }
+	      // Regular iterator:
+	      for (const item of thing) {
+	    	// …
+	      }
+	    
+	      // Async iterator:
+	      for await (const item of asyncThing) {
+	    	// …
+	      }
     }
 
 for-of循环会通过调用```thing[Symbol.iterator]```取到对应的迭代器。而for-await循环在```asyncThing[Symbol.asyncIterator]```已经定义的情况下会通过调用它取到对应的迭代器，否则会回落到```asyncThing[Symbol.iterator]```。
@@ -85,7 +88,7 @@ for-of循环会通过调用```thing[Symbol.iterator]```取到对应的迭代器�
 
 for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作用于像数组这种常规可迭代的对象：
     
-    
+    ```js
     async function example() {
       const arrayOfFetchPromises = [
 	    fetch('1.txt'),
@@ -103,6 +106,8 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
     	console.log(item); // Logs a response
       }
     }
+
+
 在这种情况下，for-await从数组中取每个条目，并且等待它resolve。可以得到第一个响应，即使第二个响应仍然没有准备好，但是总是会按照正确的顺序获得响应。
 
 ## 异步生成器：创建你自己的异步迭代器
@@ -111,6 +116,7 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 就像可以使用生成器来创建迭代器工厂一样，可以使用异步生成器来创建异步迭代器工厂。
 异步生成器是一系列异步函数和生成器的混合体。假设我们想要生成一个返回随机数的迭代器，但是那些随机数来自一个web服务：
 
+	```js
     // Note the * after "function"
     async function* asyncRandomNumbers() {
       // This is a web service that returns a random number
@@ -122,8 +128,10 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
     	yield Number(text);
       }
     }
+
 这个迭代器不会自然的结束--会一直获取数字。庆幸的是，可以用```break```来结束：
 
+	```js
     async function example() {
       for await (const number of asyncRandomNumbers()) {
 	    console.log(number);
@@ -134,7 +142,7 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 
 像常规的生成器一样，可以yield值，但和常规生成器不同的是，可以await promise。
 
-和所有的for循环一样，可以在你想要break的时候break。这致使循环调用```iterator.return()```,会导致生成器会像在现在的（或下一个）yield后面有个return声明一样运行。
+和所有的for循环一样，可以在你想要break的时候break。这致使循环调用```iterator.return()```，会导致生成器会像在现在的（或下一个）yield后面有个return声明一样运行。
 
 用web service来获取随机数是一个有点没意义的例子，可以看一些更实际的东西。
 
@@ -142,7 +150,8 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 
 
 像我在文章开头提到的那样，很快可以这样做：
-
+	
+	```js
     async function example() {
       const response = await fetch(url);
     
@@ -161,6 +170,7 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 
 释放锁很重要。如果开发者中断了循环，我们希望可以从中断的地方继续使用流。所以：
     
+	```js
     async function* streamAsyncIterator(stream) {
       // Get a lock on the stream
       const reader = stream.getReader();
@@ -183,7 +193,8 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 这里的finally从句相当重要。如果用户在循环中跳出，会导致我们的异步生成器在现在的（或下一个）yield点返回。如果这情况发生了，我们仍然想解reader上的锁，```finally```是唯一可以在```return```之后执行的东西。
 
 就是这样！现在可以：
-
+	
+	```js
     async function example() {
       const response = await fetch(url);
     
@@ -196,6 +207,7 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 
 解锁意味着你在循环之后仍然可以控制流。假设我们想要在HTML spec里面找到第一个“J”字节的位置：
 
+	```js
     async function example() {
       const find = 'J';
       const findCode = find.codePointAt(0);
@@ -227,6 +239,7 @@ for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作�
 
 你不需要用异步生成器来生成异步可迭代对象，你可以自己生成迭代器对象。这是[Domenic Denicola](https://twitter.com/domenic/)所做的事情。这里是他的实现：
 
+	```js
     function streamAsyncIterator(stream) {
       // Get a lock on the stream:
       const reader = stream.getReader();
