@@ -37,7 +37,8 @@ async function getResponseSize(url) {
 }
 ```
 
-异步迭代器在Chrome Canary里面可用，启动时需要加上标志位```--js-flags=--harmony-async-iteration```。下面就看下怎么运行的，可以怎么使流迭代起来。
+异步迭代器在Chrome Canary里面可用，启动时需要加上标志位`--js-flags=--harmony-async-iteration`。下面就看下怎么运行的，可以怎么使流迭代起来。
+
 <!-- more -->
 
 ## Async iterators
@@ -85,11 +86,11 @@ async function example() {
 }
 ```
 
-for-of循环会通过调用```thing[Symbol.iterator]```取到对应的迭代器。而for-await循环在```asyncThing[Symbol.asyncIterator]```已经定义的情况下会通过调用它取到对应的迭代器，否则会回落到```asyncThing[Symbol.iterator]```。
+for-of循环会通过调用`thing[Symbol.iterator]`取到对应的迭代器。而for-await循环在`asyncThing[Symbol.asyncIterator]`已经定义的情况下会通过调用它取到对应的迭代器，否则会回落到`asyncThing[Symbol.iterator]`。
 
-一旦```asyncIterator.next()``` resolve，for-await 会给出每个值。因为这里涉及了awaiting promise，在迭代过程中，主线程上其他事情可以执行。直到正进行的迭代完成，```asyncIterator.next()```才会被下个条目调用。这意味着要按顺序获得条目，并且循环的迭代不会重叠。
+一旦`asyncIterator.next()` resolve，for-await 会给出每个值。因为这里涉及了awaiting promise，在迭代过程中，主线程上其他事情可以执行。直到正进行的迭代完成，`asyncIterator.next()`才会被下个条目调用。这意味着要按顺序获得条目，并且循环的迭代不会重叠。
 
-for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作用于像数组这种常规可迭代的对象：
+for-await可以回落到`Symbol.iterator`非常cool。这意味着它可作用于像数组这种常规可迭代的对象：
     
 ```js
 async function example() {
@@ -133,7 +134,7 @@ async function* asyncRandomNumbers() {
 }
 ```
 
-这个迭代器不会自然的结束--会一直获取数字。庆幸的是，可以用```break```来结束：
+这个迭代器不会自然的结束--会一直获取数字。庆幸的是，可以用`break`来结束：
 
 ```js
 async function example() {
@@ -148,7 +149,7 @@ async function example() {
 
 像常规的生成器一样，可以yield值，但和常规生成器不同的是，可以await promise。
 
-和所有的for循环一样，可以在你想要break的时候break。这致使循环调用```iterator.return()```，会导致生成器会像在现在的（或下一个）yield后面有个return声明一样运行。
+和所有的for循环一样，可以在你想要break的时候break。这致使循环调用`iterator.return()`，会导致生成器会像在现在的（或下一个）yield后面有个return声明一样运行。
 
 用web service来获取随机数是一个有点没意义的例子，可以看一些更实际的东西。
 
@@ -198,7 +199,7 @@ async function* streamAsyncIterator(stream) {
 }
 ```
 
-这里的finally从句相当重要。如果用户在循环中跳出，会导致我们的异步生成器在现在的（或下一个）yield点返回。如果这情况发生了，我们仍然想解reader上的锁，```finally```是唯一可以在```return```之后执行的东西。
+这里的finally从句相当重要。如果用户在循环中跳出，会导致我们的异步生成器在现在的（或下一个）yield点返回。如果这情况发生了，我们仍然想解reader上的锁，`finally`是唯一可以在`return`之后执行的东西。
 
 就是这样！现在可以：
 	
@@ -241,9 +242,9 @@ async function example() {
 
 [在线实例](https://jsbin.com/gucesat/edit?js,console "在线示例")
 
-这里当我们找到一个匹配的时候，跳出了循环。由于```streamAsyncIterator```在流上释放了锁，我们可以取消剩下的部分，来节省带宽。
+这里当我们找到一个匹配的时候，跳出了循环。由于`streamAsyncIterator`在流上释放了锁，我们可以取消剩下的部分，来节省带宽。
 
-注意这里没有把```streamAsyncIterator``` 赋值给```ReadableStream.prototype[Symbol.asyncIterator]```。如果这样做的话，我们是可以直接迭代流，但是也弄脏了不属于我们的对象。如果以后流天然支持异步迭代，且其规范化的实现与我们的实现不同，那么我们将会遇到奇怪的 bug。
+注意这里没有把`streamAsyncIterator` 赋值给`ReadableStream.prototype[Symbol.asyncIterator]`。如果这样做的话，我们是可以直接迭代流，但是也弄脏了不属于我们的对象。如果以后流天然支持异步迭代，且其规范化的实现与我们的实现不同，那么我们将会遇到奇怪的 bug。
 
 ## 更简洁的实现
 
@@ -274,7 +275,7 @@ function streamAsyncIterator(stream) {
 }
 ```
 
-可以在Chrome Canary里面运行上面所有的例子，启动的时候要加标志位```--js-flags=--harmony-async-iteration```。如果现在想把这些用于生产环境，Babel可以做转换。
+可以在Chrome Canary里面运行上面所有的例子，启动的时候要加标志位`--js-flags=--harmony-async-iteration`。如果现在想把这些用于生产环境，Babel可以做转换。
     
 原文：[https://jakearchibald.com/2017/async-iterators-and-generators/](https://jakearchibald.com/2017/async-iterators-and-generators/)
 
