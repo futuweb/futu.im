@@ -6,8 +6,6 @@ tags: [css,技术]
 author: Linda
 ---
 
-## 使用CSS Grid替换bootstrap布局
-
 3月份的时候，Mozilla发布了Firefox 52，加入了对CSS Grid布局的支持。如果不熟悉CSS Grid，它是一个二维的网页布局系统，允许开发者在浏览器中创建内部布局图案。这也就是说，可以只用几行的CSS很容易的重建熟悉的网格。也意味着我们可以用CSS和布局做很多之前不可能的东西...但会比之前的多一点点。
 
 一条笔记：这文章原本不是CSS Grid的综合入门读物，并且假设读者对CSS Grid有个基本了解。如果对CSS Grid还不熟悉，推荐看看MDN上这篇不错的文章[CSS Grid Layout page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)。
