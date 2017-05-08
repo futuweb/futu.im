@@ -20,7 +20,7 @@ web上的布局总是很复杂。web第一次被引入的时候，没有提供�
 现在CSS Grid布局是一个现实，我想看看用CSS Grid代替现有的网格框架是什么样。为了这个实验，我选了流行的Bootstrap框架。
 
 我以用Bootstrap创建一个基础网站为开始：
-![](futu.im/source/images/2017-css-grid/css_layouts.jpg)
+![css_layouts](/images/2017-css-grid/css_layouts.jpg)
 
 代码在这里：
 [布局实例](http://codepen.io/slightlyoffbeat/pen/dvEbLV)
