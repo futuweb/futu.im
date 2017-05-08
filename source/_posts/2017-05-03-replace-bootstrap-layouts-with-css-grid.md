@@ -12,6 +12,8 @@ author: Linda
 
 一条笔记：这文章原本不是CSS Grid的综合入门读物，并且假设读者对CSS Grid有个基本了解。如果对CSS Grid还不熟悉，推荐看看MDN上这篇不错的文章[CSS Grid Layout page](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)。
 
+<!-- more -->
+
 web上的布局总是很复杂。web第一次被引入的时候，没有提供布局的方式。然后迎来了table布局（一个table套一个table套一个table）。这样很怪异，但是是可以运作的。当CSS在90年代后期被引入的时候，开发者可以开始用div和float进行设计和布局了。这最终导致框架和网格系统
 ，助力了弄清所有的“陷阱”，比如清除浮动，负边距，响应式设计等。现在这状况持续了几年。有数千的网格系统，但是他们都，或多或少，是一样的。
 
