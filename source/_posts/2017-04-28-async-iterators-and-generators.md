@@ -39,7 +39,7 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
 ## Async iterators
 
 
-异步迭代器和常规迭代器的工作方式非常相似，但是异步迭代器包含promise:
+异步迭代器和常规迭代器的工作方式非常相似，但是异步迭代器涉及promise:
     
     async function example() {
       // Regular iterator:
@@ -79,11 +79,11 @@ Chrome,Edge,Safari都支持了流式获取，有点像这样：
       }
     }
 
-for-of循环会通过调用```thing[Symbol.iterator]```拿到对应的迭代器。而for-await循环会通过调用```asyncThing[Symbol.asyncIterator]```拿到对应的迭代器，在它已经定义的情况下,没定义的情况会回落到```asyncThing[Symbol.iterator]```。
+for-of循环会通过调用```thing[Symbol.iterator]```取到对应的迭代器。而for-await循环在```asyncThing[Symbol.asyncIterator]```已经定义的情况下会通过调用它取到对应的迭代器，否则会回落到```asyncThing[Symbol.iterator]```。
 
-一旦```asyncIterator.next()``` resolve，for-await 会给出每个值。因为这里包含了awaiting promise,在迭代过程中，主线程上其他事情可以发生。直到正进行的迭代完成，```asyncIterator.next()```才会被下个条目调用。这意味着要按顺序获得条目，并且循环的迭代器不会重叠。
+一旦```asyncIterator.next()``` resolve，for-await 会给出每个值。因为这里涉及了awaiting promise，在迭代过程中，主线程上其他事情可以执行。直到正进行的迭代完成，```asyncIterator.next()```才会被下个条目调用。这意味着要按顺序获得条目，并且循环的迭代不会重叠。
 
-for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组一样使用它和常规迭代器：
+for-await可以回落到```Symbol.iterator```非常cool。这意味着它可作用于像数组这种常规可迭代的对象：
     
     
     async function example() {
@@ -103,12 +103,12 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
     	console.log(item); // Logs a response
       }
     }
-在这种情况下，for-await从数组中取每个条目，并且等待它决策。可以得到第一个响应，即使第二个响应仍然没有准备好，但是总是会按照正确的顺序获得响应。
+在这种情况下，for-await从数组中取每个条目，并且等待它resolve。可以得到第一个响应，即使第二个响应仍然没有准备好，但是总是会按照正确的顺序获得响应。
 
 ## 异步生成器：创建你自己的异步迭代器
 
 
-就像可以使用生成器来创建迭代器工厂一样，可以使用生成器来创建异步迭代器工厂。
+就像可以使用生成器来创建迭代器工厂一样，可以使用异步生成器来创建异步迭代器工厂。
 异步生成器是一系列异步函数和生成器的混合体。假设我们想要生成一个返回随机数的迭代器，但是那些随机数来自一个web服务：
 
     // Note the * after "function"
@@ -136,7 +136,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 
 和所有的for循环一样，可以在你想要break的时候break。这致使循环调用```iterator.return()```,会导致生成器会像在现在的（或下一个）yield后面有个return声明一样运行。
 
-用web service来获取随机数是一个有点糊涂的例子，可以看一些更实际的东西。
+用web service来获取随机数是一个有点没意义的例子，可以看一些更实际的东西。
 
 ## 使流迭代起来
 
@@ -151,7 +151,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
       }
     }
 
-...但是仍然不能说明。可以写个自己的异步生成器，在流上进行迭代。我们想要：
+...但是还没有被规范化。那么，我们来实现一个迭代流的异步迭代器吧！它有如下特性：
 
 1.在流上加个锁，这样当我们在迭代的时候，没有其他东西可以使用流。
 
@@ -220,7 +220,7 @@ for-await回落到```Symbol.iterator```非常cool。这意味着可以像数组�
 
 这里当我们找到一个匹配的时候，跳出了循环。由于```streamAsyncIterator```在流上释放了锁，我们可以取消剩下的部分，来节省带宽。
 
-注意这里没有把```streamAsyncIterator``` 归类到```ReadableStream.prototype[Symbol.asyncIterator]```。这会起作用--允许我们直接在流上迭代，但是也弄乱了不属于我们的对象。如果流变成严格意义上的异步迭代器，如果说明书上的行为和我们的不同，可能会以奇怪的bug结束。
+注意这里没有把```streamAsyncIterator``` 赋值给```ReadableStream.prototype[Symbol.asyncIterator]```。如果这样做的话，我们是可以直接迭代流，但是也弄脏了不属于我们的对象。如果以后流天然支持异步迭代，且其规范化的实现与我们的实现不同，那么我们将会遇到奇怪的 bug。
 
 ## 更简洁的实现
 
