@@ -43,15 +43,18 @@ const growKeyframes = {
 ```
 
 第二种`keyframes`的表示方法是用数组，数组每个元素表示相应时间轴上的一点，这样可以讲css属性和值与这点对应。
+
 ```js
 const growKeyframes = [  
     { transform: 'none' },
     { transform: 'scale(2)' }
 ]
 ```
+
 默认情况下，每个点在时间轴上是等分的。比方说时间轴上如果有5个点，那么每个点之间的动效时间都等于20%的总时间。
 
 如果我们想调节时间，可以在`keyframes`的第二种写法里加上`offset`属性，值是一个0到1之间的数，代表动画运行的时间点。用一下css举例：
+
 ```css
 @keyframes alteredGrow {
     0% { transform: none; }
@@ -60,7 +63,9 @@ const growKeyframes = [
     100% { transform: scale(2); }
 }
 ```
+
 考虑到不等分的时间点，我们可以这样写：
+
 ```js
 const alteredGrowKeyframes = [  
     { transform: 'none' },
@@ -86,6 +91,7 @@ const alteredGrowKeyframes = [
 | *iterationStart* | 动画的开始播放点 |
 
 以`alteredGrow`这个动画举例，用css我们设置总时间为3秒，无限循环，互换方向，延时2秒开始：
+
 ```css
 .animated-element {
     animation-name: alteredGrow;
@@ -95,7 +101,9 @@ const alteredGrowKeyframes = [
     animation-delay: 2s;
 }
 ```
+
 用web动画API，我们可以这样写：
+
 ```js
 const alteredGrowOptions = {  
     duration: 3000,
@@ -107,11 +115,14 @@ const alteredGrowOptions = {
 
 ### 使用动画
 将动画应用到一个元素是通过调用其本身的`animate()`方法，并传入`keyframes`和`options`参数。
+
 ```js
 const element = document.querySelector('.animated-element');  
 element.animate(alteredGrowKeyframes, alteredGrowOptions);
 ```
+
 方法一被调用，动画会自动开始播放。不过我们也可以通过`play()`和`pause()`方法来控制动画的开始和暂停。
+
 ```js
 const element = document.querySelector('.animated-element');  
 const myAnimation = element.animate(alteredGrowKeyframes, alteredGrowOptions);
@@ -125,6 +136,7 @@ myAnimation.play();
 
 ## bitsofcode Logo动画
 我重构了一下之前的css动画，比较如下：
+
 <video width="640" controls="" muted="" playsinline="" poster="http://res.cloudinary.com/ireaderinokun/video/upload/v1493313196/Animating_bitsofcode_pa16yn.jpg">  
     <source type="video/webm" src="http://res.cloudinary.com/ireaderinokun/video/upload/v1493313196/Animating_bitsofcode_pa16yn.webm">
     <img src="http://res.cloudinary.com/ireaderinokun/video/upload/v1493313196/Animating_bitsofcode_pa16yn.jpg">
@@ -147,6 +159,7 @@ logo左半部分（bitso）动画效果概况如下：
 ![timeline](https://bitsofco.de/content/images/2017/04/timline-bitsofcode.png)
 
 根据时间轴可以写出`keyframes`对象:
+
 ```js
 const logoSectionLeftKeyframes = [  
   { transform: 'none' },
@@ -161,10 +174,12 @@ const logoSectionLeftKeyframes = [
   { transform: 'none' }
 ];
 ```
+
 因为需要使用`offset`属性，我决定用数组形式表示`keyframes`。
 
 ### 设置Options
 每段动画对应的options很简单，运行3秒，无限循环。
+
 ```js
 const logoSectionOptions = {  
   duration: 3000,
