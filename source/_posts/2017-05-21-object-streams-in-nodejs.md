@@ -1,5 +1,5 @@
 ---
-title: 【【译】Node.js之Stream（流）对象权威指南
+title: 【译】Node.js之Stream（流）对象权威指南
 date: 2017-05-21 14:00
 category: 翻译
 tags: [nodejs,tutorial,gulp.js,object streams]
@@ -317,9 +317,9 @@ server.listen(8000);
 ## 进一步阅读
 如果你想深入了解流,我可以推荐一些资源:
 
-* [《前端工具之Gulo,Bower和Yeoman》](https://www.manning.com/books/front-end-tooling-with-gulp-bower-and-yeoman/?a_aid=fettblog&a_bid=238ac06a)。书中有一些章节是讲流工具的像合并流以及后面有章节讲转移流。
+* [《前端工具之Gulo,Bower和Yeoman》](https://www.manning.com/books/front-end-tooling-with-gulp-bower-and-yeoman/?a_aid=fettblog&a_bid=238ac06a)书中有一些章节是讲流工具的像合并流以及后面有章节讲转移流。
 * [Fettblog](https://fettblog.eu/) 我的博客有很多关于`Gulp`和`Gulp`插件的文章。因为所有`Gulp`插件被编写为对象,你可以学习写一个或从中学习到其它东西。
-* [Substack' 的一本关于流的电子书](https://github.com/substack/stream-handbook)。了解流的原理。
+* [Substack的一本关于流的电子书](https://github.com/substack/stream-handbook)。了解流的原理。
 * [Rod Vagg 对流核心的讲解](https://r.va.gg/2014/06/why-i-dont-use-nodes-core-stream-module.html)。有点老，但是依然是很不错的：Rod Vagg 解释为什么使用流类型的NPM包。
 
 
