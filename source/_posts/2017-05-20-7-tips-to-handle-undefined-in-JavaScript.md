@@ -2,7 +2,7 @@
 title: 7个处理javascript的`undefined`的tips
 date: 2017-05-20 16:30
 category: 翻译
-tags: [JS,技术]
+tags: [javascript,undefined]
 author: Cynthia
 ---
 
@@ -13,7 +13,8 @@ author: Cynthia
 <!-- more -->
 
 在javascript中，当访问一个尚未初始化的变量或对象属性时，解释器会返回`undefined`。如下：
-```javascript
+
+```js
 let company;  
 company;    // => undefined  
 let person = { name: 'John Smith' };  
@@ -22,7 +23,8 @@ person.age; // => undefined
 
 另一方面，`null`代表一个缺失的对象引用。javascript自身不会将变量或对象属性设为`null`。  
 一些像`String.prototype.match()`的原生方法可以返回`null`以表示为缺失对象。看一下这个例子：
-```javascript
+
+```js
 let array = null;  
 array;                // => null  
 let movie = { name: 'Starship Troopers',  musicBy: null };  
@@ -36,41 +38,41 @@ movie.musicBy;        // => null
 
 - `TypeError: 'undefined' is not a function`
 - `TypeError: Cannot read property '<prop-name>' of undefined`
-- 类似的*类型*错误。
+- 类似的*类型错误*。
 
 JavaScript开发人员应该可以理解这个笑话里的讽刺：
 
-```javascript
+```js
 function undefined() {  
   // problem solved
 }
 ```
 
-为减少这类错误的风险，你必须了解`undefined`在什么时候生成。更重要的是，要在你的程序中抑制它的出现和传播，以提高代码的持久性。
+为减少这类错误的风险，你必须了解`undefined`会在什么时候生成。更重要的是，要在你的程序中抑制它的出现和传播，以提高代码的健壮性。
 
-让我们详细地探索说明`undefined`及其对代码安全的影响。
+让我们详细地探明`undefined`对代码安全性的影响。
 
 
 ## 1. 什么是`undefined`
 
 javascript 有6种基本类型
 
-- Boolean: `true` or `false`
-- Number: `1`, `6.7`, `0xFF`
-- String: `"Gorilla and banana"`
-- Symbol: `Symbol("name")` (始于ES2015)
-- Null: `null`
-- Undefined: `undefined`.
+- ***Boolean***: `true` or `false`
+- ***Number***: `1`, `6.7`, `0xFF`
+- ***String***: `"Gorilla and banana"`
+- ***Symbol***: `Symbol("name")` (始于ES2015)
+- ***Null***: `null`
+- ***Undefined***: `undefined`.
 
 和一种单独的对象类型：`{name: "Dmitri"}, ["apple", "orange"]`
 
 在这6种基本类型中，`undefined`是一个特殊的值，它有自己的类型Undefined。[根据ECMAScript规范](https://www.ecma-international.org/ecma-262/7.0/#sec-undefined-value):
 
-> Undefined value primitive value is used when a variable has not been assigned a value(当一个变量没有被赋值时,undefined值作为原始值使用)
+> **Undefined value** primitive value is used when a variable has not been assigned a value.(当一个变量没有被赋值时，`undefined`值作为原始值使用。)
 
 规范明确定义了，在访问未初始化变量，不存在的对象属性，不存在的的数组元素等时，将得到`undefined`值。举例：
 
-```javascript
+```js
 let number;  
 number;     // => undefined  
 let movie = { name: 'Interstellar' };  
@@ -81,25 +83,25 @@ movies[3];  // => undefined
 
 如上所示，当访问:
 
-- 一个未初始化变量 `number`
-- 一个不存在的对象属性 `movie.year`
-- 或一个不存在的数组元素 `movies[3]`
+- 一个*未初始化*变量 `number`
+- 一个*不存在的*对象属性 `movie.year`
+- 或一个*不存在的*数组元素 `movies[3]`
 
 会被赋值为`undefined`
 
-ECMAScript规范定义了`undefined`值的类型
+ECMAScript规范定义了`undefined`值的类型：
 
-> Undefined type is a type whose sole value is the `undefined` value.(Undefined类型的唯一值是`udnefined`)
+> **Undefined type** is a type whose sole value is the `undefined` value.(Undefined类型的唯一值是`udnefined`)
 
 从这个意义上讲，用`typeof`运算符操作一个`undefined`值，返回`'undefined'`字符串。
 
-```javascript
+```js
 typeof undefined === 'undefined'; // => true
 ```
 
 当然，`typeof` 可以很好地验证一个变量是否为`undefined`值。
 
-```javascript
+```js
 let nothing;  
 typeof nothing === 'undefined';   // => true 
 ```
@@ -108,10 +110,11 @@ typeof nothing === 'undefined';   // => true
 
 ### 2.1未初始化变量
 
->A declared variable that is not yet assigned with a value (uninitialized) is by default `undefined`.(一个未赋值(未初始化)的已声明的变量默认为`undefined`。)
+>A declared variable that is not yet assigned with a value (**uninitialized**) is by default `undefined`.(一个未赋值(未初始化)的已声明的变量默认为`undefined`。)
 
 一个平淡朴素的例子：
-```javascript
+
+```js
 let myVariable;  
 myVariable; // => undefined
 ```
@@ -126,11 +129,11 @@ myVariable; // => undefined
 
 当一个变量只赋值一次，且不再改变时，我建议使用`const`声明。它创建了一个[不可变的绑定关系](https://mathiasbynens.be/notes/es6-const)。
 
-`const`的特征之一是，你必须给变量赋值，`const myVariable = 'initial'`，该变量不会暴露在未初始化状态，所以是不可能访问到`undefined`。
+`const`的特征之一是，你必须给*变量赋值*，`const myVariable = 'initial'`，该变量不会暴露在未初始化状态，所以是不可能访问到`undefined`。
 
 让我们检查一下这个函数，验证一个单词是否为回文:
 
-```javascript
+```js
 function isPalindrome(word) {  
   const length = word.length;
   const half = Math.floor(length / 2);
@@ -149,13 +152,13 @@ isPalindrome('hello'); // => false
 
 如果你需要重新绑定变量（即多次赋值），用`let`声明，无论如何尽可能给它赋予初始值，如`let index=0`.
 
-那旧的`var`了？就ES2015而言，我建议是停止使用它。
+那旧的`var`了？就ES2015而言，我建议是[停止使用它](https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75#.hvdxtd30t)。
 
 ![忘记`var`，使用`const`或`let`](/images/2017-05-20-7-tips-to-handle-undefined-in-JavaScript/1.png)
 
-`var`声明的问题是，在整个函数作用域内的变量提升。你在函数的尾部声明一个`var`变量，但仍可以在声明之前访问它：你将得到`undefined`。
+`var`声明的问题是，在整个函数作用域内的[变量提升](https://rainsoft.io/javascript-hoisting-in-details/#hoistingandvar)。你在函数的尾部声明一个`var`变量，但仍可以在声明之前访问它：你将得到`undefined`。
 
-```javascript
+```js
 function bigFunction() {  
   // code...
   myVariable; // => undefined
@@ -169,11 +172,11 @@ bigFunction();
 
 `myVariable`是可以访问的，但在声明行`var myVariable = 'Initial value'`之前为`undefined`。
 
-相反，一个`let`(包括`const`)变量在声明语句之前都无法访问。这是因为变量在声明之前处于临时死区。这很好，因为你很少有机会得到`undefined`
+相反，一个`let`(包括`const`)变量在声明语句之前都无法访问。这是因为变量在声明之前处于[临时死区](https://rainsoft.io/variables-lifecycle-and-why-let-is-not-hoisted/#5letvariableslifecycle)。这很好，因为你很少有机会得到`undefined`。
 
 将上面的例子改为`let`(而不是`var`)，会抛出`ReferenceError`，因为在临时死区的变量是不可访问的。
 
-```javascript
+```js
 function bigFunction() {  
   // code...
   myVariable; // => Throws 'ReferenceError: myVariable is not defined'
@@ -193,14 +196,14 @@ bigFunction();
 
 高内聚是可取的，因为它建议设计模块的元素时只关注单任务，它使得模块：
 
-- 专注和可理解的：更容易理解模块所做的事情
-- 可维护和易于重构：模块的更改影响更少的模块
-- 可重用:专注于单个任务，使模块更易于重用。
-- 可测试的:您将更容易地测试一个专注于单一任务的模块
+- *专注和可理解的*：更容易理解模块所做的事情
+- *可维护和易于重构*：模块的更改影响更少的模块
+- *可重用*：专注于单个任务，使模块更易于重用
+- *可测试的*：您将更容易地测试一个专注于单一任务的模块
 
 ![高内聚](/images/2017-05-20-7-tips-to-handle-undefined-in-JavaScript/2.svg)
 
-高内聚和低耦合是设计良好的系统的特点。
+高内聚和[低耦合](https://en.wikipedia.org/wiki/Loose_coupling)是设计良好的系统的特点。
 
 代码块本身就可能被认为是一个小模块。为了从高内聚的好处中获益，你需要尽可能使变量靠近调用它的代码块。
 
@@ -208,7 +211,7 @@ bigFunction();
 
 在函数中使用`for`循环是变量不必要延伸的典型例子：
 
-```javascript
+```js
 function someFunc(array) {  
   var index, item, length = array.length;
   // some code...
@@ -223,11 +226,11 @@ function someFunc(array) {
 
 `index`，`item`，`length`在函数体的顶部就被声明，但它们却只在尾部时才被调用，那这种方法的有什么问题呢？
 
-在顶部的声明和for语句的使用之间，`index`，`item`，`length`都没有初始化，且暴露为`undefined`，它们在整个函数作用域内有一个很长的生命周期，这是不合理的。
+在顶部的声明和`for`语句的使用之间，`index`，`item`，`length`都没有初始化，且暴露为`undefined`，它们在整个函数作用域内有一个很长的生命周期，这是不合理的。
 
-更好的方法是将这些变量尽可能地移到它们的使用位置附近:
+更好的方法是将这些变量尽可能地移到它们的使用位置附近：
 
-```javascript
+```js
 function someFunc(array) {  
   // some code...
   // some code...
@@ -240,7 +243,8 @@ function someFunc(array) {
 }
 ```
 
-`index`，`item`只存在于for语句的块级作用域中，在for语句外它们没有任何意义。     
+`index`，`item`只存在于`for`语句的块级作用域中，在`for`语句外它们没有任何意义。 
+
 `length`也在接近其使用的源代码时才声明。
 
 为什么修改后的版本比初始版本更好？我们看：
@@ -251,24 +255,24 @@ function someFunc(array) {
 
 ### 2.2访问不存在的属性
 
->When accessing a non-existing object property, JavaScript returns `undefined`.(当访问一个不存在的属性，javascript返回`undefined`)
+>When accessing a ***non-existing object property***, JavaScript returns `undefined`.(当访问一个不存在的属性，javascript返回`undefined`)
 
 我们用例子演示一下：
 
-```javascript
+```js
 let favoriteMovie = {  
   title: 'Blade Runner'
 };
 favoriteMovie.actors; // => undefined
 ```
 
-对象`favoriteMovie`只有一个属性`title`，当使用属性访问器`favoriteMovie.actors`访问一个不存在的对象属性`actors`时，被认为是`undefined`。
+对象`favoriteMovie`只有一个属性`title`，当使用属性访问器`favoriteMovie.actors`访问一个不存在的对象属性`actors`时将返回`undefined`。
 
 当访问一个不存在的属性时不会抛出错误。但试图从一个不存在的属性值中获取数据时，真正的问题就出现了。这是最常见的`undefined`的相关问题，这反映在众所周知的错误消息中：`TypeError: Cannot read property <prop> of undefined.`
 
 让我们稍微修改前面的代码来说明`TypeError`的抛出：
 
-```javascript
+```js
 let favoriteMovie = {  
   title: 'Blade Runner'
 };
@@ -276,7 +280,8 @@ favoriteMovie.actors[0];
 // TypeError: Cannot read property '0' of undefined
 ```
 
-`favoriteMovie`没有属性`actors`，所以`favoriteMovie.actors`的值为`undefined`。      
+`favoriteMovie`没有属性`actors`，所以`favoriteMovie.actors`的值为`undefined`。
+
 因此，访问表达式`favoriteMovie.actors[0]`，即求`undefined`值的第一项，就会抛出`TypeError`异常。
 
 javascript允许访问不存在属性的宽容本质是混乱的来源：属性可能设置了，但也可能没有。绕过这个问题的理想方法是始终定义对象的属性以限制对象。
@@ -292,7 +297,7 @@ javascript允许访问不存在属性的宽容本质是混乱的来源：属性�
 
 第一个版本的`append()`，有些天真，看起来像这样：
 
-```javascript
+```js
 function append(array, toAppend) {  
   const arrayCopy = array.slice();
   if (toAppend.first) {
@@ -312,15 +317,15 @@ append([8, 16], { first: 4 });            // => [4, 8, 16]
 
 如果属性不存在，属性访问器则返回`undefined`，第一个诱惑出现，检查`first`和`last`属性是否存在,是通过验证它们是否为`undefined`。这我们在条件语句`if(toAppend.first){}`和`if(toAppend.last){}`中验证...
 
-没这么快，这种方法有个严重的缺陷，`undefined`，以及`false`，`null`，`0`，`NaN`都是[falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)值。
+*没这么快*，这种方法有个严重的缺陷，`undefined`，以及`false`，`null`，`0`，`NaN`都是[falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)值。
 
 在`append()`的实现中，函数不允许插入假值。
 
-```javascript
+```js
 append([10], { first: 0, last: false }); // => [10]
 ```
 
-`0`和`false`都为falsy，因为`if(toAppend.first){}` 和 `if(toAppend.last){}`实际上和falsy比较，因此元素并没有插入数组中，函数返回初始数组`[10]`，没有被修改。
+`0`和`false`都为*falsy*，因为`if(toAppend.first){}` 和 `if(toAppend.last){}`实际上和*falsy*比较，因此元素并没有插入数组中，函数返回初始数组`[10]`，没有被修改。
 
 下面的提示解释了如何正确地检查属性的存在。
 
@@ -343,7 +348,7 @@ append([10], { first: 0, last: false }); // => [10]
 
 让我们用`in`运算符改善一下`append(array，toAppend)`函数：
 
-```javascript
+```js
 function append(array, toAppend) {  
   const arrayCopy = array.slice();
   if ('first' in toAppend) {
@@ -360,14 +365,15 @@ append([10], { first: 0, last: false });  // => [0, 10, false]
 
 当相应的属性存在，`'first' in toAppend` (和 `'last' in toAppend`)为`true`，否则为`false`。
 
-`in`运算符的使用解决了插入falsy元素`0`或`false`的问题。现在，插入这些元素在`[10]`的头部和尾部得到了预期的结果`[0, 10, false]`。
+`in`运算符的使用解决了插入*falsy*元素`0`或`false`的问题。现在，插入这些元素在`[10]`的头部和尾部得到了预期的结果`[0, 10, false]`。
 
 **Tip 4: 解构访问对象属性**
 
 当访问一个对象属性时，有时如果属性不存在，则需要指出默认值。
 
 你可以用三元运算符实现它：
-```javascript
+
+```js
 const object = { };  
 const prop = 'prop' in object ? object.prop : 'default';  
 prop; // => 'default' 
@@ -380,7 +386,7 @@ prop; // => 'default'
 
 实际上，现在的属性提取看起来很短，更有意义：
 
-```javascript
+```js
 const object = {};  
 const { prop = 'default' } = object;  
 prop; // => 'default'
@@ -393,7 +399,7 @@ prop; // => 'default'
 
 应用对象解构的好处，让我们实现`quote()`:
 
-```javascript
+```js
 function quote(str, config) {  
   const { char = '"', skipIfQuoted = true } = config;
   const length = str.length;
@@ -415,7 +421,7 @@ quote('"Welcome"', { skipIfQuoted: true }); // => '"Welcome"'
 
 让我们将解构赋值移到参数部分。且给`config`参数设置一个默认值（一个空对象`{}`）.当默认设置够用时，跳过第二个参数。
 
-```javascript
+```js
 function quote(str, { char = '"', skipIfQuoted = true } = {}) {  
   const length = str.length;
   if (skipIfQuoted
@@ -448,7 +454,7 @@ ES2015的`Object.assign(target, source1, source2, ...)`方法用于将所有可�
 - 定义一个对象`defaults`，它包含所有默认属性。
 - 调用`Object.assign({ }, defaults, unsafeOptions)`生成一个新的对象`options`。这个新对象接收`unsafeOptions`的所有属性，缺失的属性从`defaults`中获得。
 
-```javascript
+```js
 const unsafeOptions = {  
   fontSize: 18
 };
@@ -472,7 +478,7 @@ options.color;    // => 'black'
 
 不是调用`Object.assign()`，而是用对象扩展语句，从源对象中复制自身的所有可枚举的属性到目标对象中:
 
-```javascript
+```js
 const unsafeOptions = {  
   fontSize: 18
 };
@@ -490,15 +496,15 @@ options.color;    // => 'black'
 
 对象初始化器从源对象`defaults`和`unsafeOptions`中扩展属性。指定的源对象的顺序很重要：后面的源对象的属性会覆盖前者的。
 
-用默认的属性值填充一个不完整的对象是一种有效的策略，可以使您的代码更安全、更持久。无论什么情况，对象总要包含完整的属性集：那`undefined`不会生成。
+用默认的属性值填充一个不完整的对象是一种有效的策略，可以使您的代码更安全、更健壮。无论什么情况，对象总要包含完整的属性集：那`undefined`不会生成。
 
 ### 2.3 函数参数
 
 >The function parameters implicitly default to `undefined`.（函数参数隐式默认为`undefined`）
 
-通常，一个用特定数量的参数定义的函数应该用相同数量的参数来调用.在这种情况下，参数得到您所期望的值:
+通常，一个用特定数量的参数定义的函数应该用相同数量的参数来调用。在这种情况下，参数得到您所期望的值：
 
-```javascript
+```js
 function multiply(a, b) {  
   a; // => 5
   b; // => 3
@@ -507,13 +513,13 @@ function multiply(a, b) {
 multiply(5, 3); // => 15 
 ```
 
-调用`multiply(5, 3)`使得参数`a`和`b`得到相应的值`5`和`3`.乘法按预期计算：`5 * 3 = 15`。
+调用`multiply(5, 3)`使得参数`a`和`b`得到相应的值`5`和`3`。乘法按预期计算：`5 * 3 = 15`。
 
 当你在调用时省略一个参数会发生什么事？函数内的参数会变成`undefined`。
 
 让我们稍微改动一下之前的例子，使之只用一个参数调用函数。
 
-```javascript
+```js
 function multiply(a, b) {  
   a; // => 5
   b; // => undefined
@@ -531,7 +537,7 @@ multiply(5); // => NaN
 
 回到之前的例子，让我们做一些改善。如果参数`b`是`undefined`的话，我们为之设定默认值`2`：
 
-```javascript
+```js
 function multiply(a, b) {  
   if (b === undefined) {
     b = 2;
@@ -552,7 +558,7 @@ multiply(5); // => 10
 
 修改之前的例子，使之使用默认参数`b`。这看起来更好了。
 
-```javascript
+```js
 function multiply(a, b = 2) {  
   a; // => 5
   b; // => 2
@@ -562,17 +568,17 @@ multiply(5);            // => 10
 multiply(5, undefined); // => 10  
 ```
 
-在函数签名中，`b=2`保证了当`b`为`undefined`时，参数能默认为`2`。
+在[函数签名](https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function)中，`b=2`保证了当`b`为`undefined`时，参数能默认为`2`。
 
 ES2015的特性默认参数值直观且有表现能力，总是使用它，为可选参数设定默认值。
 
 ### 2.4函数返回值
 
->Implicitly, without `return` statement, a JavaScript function returns `undefined`.（没有`return`语句，javascript函数默认返回`undefined`）
+>*Implicitly, without `return` statement, a JavaScript function returns `undefined`*.（没有`return`语句，javascript函数默认返回`undefined`）
 
-在javascript中，函数没有任何`return`语句，则默认返回`undefined`.
+在javascript中，函数没有任何`return`语句，则默认返回`undefined`。
 
-```javascript
+```js
 function square(x) {  
   const res = x * x;
 }
@@ -583,7 +589,7 @@ square(2); // => undefined
 
 当`return`语句存在，但后面没有任何表达式，将得到一样的结果。
 
-```javascript
+```js
 function square(x) {  
   const res = x * x;
   return;
@@ -591,11 +597,11 @@ function square(x) {
 square(2); // => undefined 
 ```
 
-`return;`语句被执行，但它没有返回任何表达式。调用的结果依然是`undefined`.
+`return;`语句被执行，但它没有返回任何表达式。调用的结果依然是`undefined`。
 
 当然，如果指明`return`后的表达式，那将返回预期值。
 
-```javascript
+```js
 function square(x) {  
   const res = x * x;
   return res;
@@ -619,7 +625,7 @@ square(2); // => 4
 
 如果你使用了上述的语句，请确保在句末指明一个分号。
 
-```javascript
+```js
 function getNum() {  
   // Notice the semicolons at the end
   let num = 1; 
@@ -636,7 +642,7 @@ getNum(); // => 1
 
 在ASI的帮助下，你可以对之前的例子删除分号：
 
-```javascript
+```js
 function getNum() {  
   // Notice that semicolons are missing
   let num = 1
@@ -655,7 +661,7 @@ getNum() // => 1
 
 例如，我们研究一下调用`getPrimeNumbers()`后的返回结果。
 
-```javascript
+```js
 function getPrimeNumbers() {  
   return 
     [ 2, 3, 5, 7, 11, 13, 17 ]
@@ -665,7 +671,7 @@ getPrimeNumbers() // => undefined
 
 在`return`语句和数组字面量之间存在一个换行符，javascript会自动在`return`语句后插入分号，解析后的代码如下：
 
-```javascript
+```js
 function getPrimeNumbers() {  
   return; 
   [ 2, 3, 5, 7, 11, 13, 17 ];
@@ -677,7 +683,7 @@ getPrimeNumbers(); // => undefined
 
 通过移除`return`语句和数组字面量之间的换行符可以解决这个问题。
 
-```javascript
+```js
 function getPrimeNumbers() {  
   return [ 
     2, 3, 5, 7, 11, 13, 17 
@@ -694,7 +700,7 @@ getPrimeNumbers(); // => [2, 3, 5, 7, 11, 13, 17]
 
 `void expression`对给定的表达式进行求值，并无论结果是什么，都返回`undefined`。
 
-```javascript
+```js
 void 1;                    // => undefined  
 void (false);              // => undefined  
 void {name: 'John Smith'}; // => undefined  
@@ -707,7 +713,7 @@ void Math.min(1, 3);       // => undefined
 
 当访问超过数组的边界索引的元素时，你会得到一个`undefined`值。
 
-```javascript
+```js
 const colors = ['blue', 'white', 'red'];  
 colors[5];  // => undefined  
 colors[-1]; // => undefined  
@@ -723,7 +729,7 @@ colors[-1]; // => undefined
 
 下面的例子生成了稀疏数组，并尝试访问它们的空隙:
 
-```javascript
+```js
 const sparse1 = new Array(3);  
 sparse1;       // => [<empty slot>, <empty slot>, <empty slot>]  
 sparse1[0];    // => undefined  
@@ -747,7 +753,7 @@ sparse2[1];    // => undefined
 
 让我们在一些例子中探索这些区别：
 
-```javascript
+```js
 let number;  
 number; // => undefined 
 ```
@@ -756,7 +762,7 @@ number; // => undefined
 
 未初始化的对象属性被访问时，同样未初始化的概念也会发生。
 
-```javascript
+```js
 const obj = { firstName: 'Dmitri' };  
 obj.lastName; // => undefined
 ```
@@ -767,7 +773,7 @@ obj.lastName; // => undefined
 
 例如，函数`clone()`是用于克隆普通的对象，它预期返回一个对象：
 
-```javascript
+```js
 function clone(obj) {  
   if (typeof obj === 'object' && obj !== null) {
     return Object.assign({}, obj);
@@ -783,7 +789,7 @@ clone(null);           // => null
 
 `typeof`操作符能对这两个值作出区别：
 
-```javascript
+```js
 typeof undefined; // => 'undefined'  
 typeof null;      // => 'object'
 ```
