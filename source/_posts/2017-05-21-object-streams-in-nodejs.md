@@ -6,19 +6,19 @@ tags: [nodejs,tutorial,gulp.js,object streams]
 author: Jin
 ---
 
-`Stream`流对象为Node.js带来了强大的力量：你可以使用异步的方式处理输入和输出，可以根据所依赖的步骤来对数据进行转换。**本教程中，我将带你熟悉理论，并教你如何灵活使用`Stream`对象，就像使用`Gulp`一样。**
+Node.js的`Srtream`具有强大的功能：你可以使用异步的方式处理输入和输出，可以根据所依赖的步骤来对数据进行转换。**本教程中，我将带你熟悉理论，并教你如何灵活使用`Stream`对象，就像使用`Gulp`一样。**
 
 ***
 
-当我在写一本名为 [《前端工具之Gulp，Brower和Yeoman》](https://www.manning.com/books/front-end-tooling-with-gulp-bower-and-yeoman/?a_aid=fettblog&a_bid=238ac06a) 的书时，我决定不仅要展示API和使用案例，还需要关注底层的实现思想。
+当我在写一本名为 [《前端工具之Gulp，Brower和Yeoman》](https://www.manning.com/books/front-end-tooling-with-gulp-bower-and-yeoman/?a_aid=fettblog&a_bid=238ac06a) 的书时，我决定不仅要展示API和使用案例，还需要关注以下的概念。
 
 
-你要知道特别是在JavaScript中，工具和框架的更新换代比你为它们注册域名和Github团队的速度还要快。**例如[Gulp.js](http://gulpjs.com/)，最重要的一个概念是流！**
+你要知道特别是在JavaScript中，工具和框架的更新换代比你为它们注册域名和创建Github团队的速度还要快。**例如[Gulp.js](http://gulpjs.com/)，最重要的一个概念是流！**
 
 <!-- more -->
 
 ## 约50年的流
-在`Gulp`里，你想要读取一些文件数据转换为指定的数据输出，加载一些`JavaScript`文件并打包成一个文件。这些操作`Gulp`的API已经提供了一些方法来读取，转换，和写入文件，所有的这些方法都是基于流来实现的。
+在`Gulp`里，你想要读取一些文件的数据转换为指定的数据输出，加载一些`JavaScript`文件并打包成一个文件。这些操作`Gulp`的API已经提供了一些方法来读取，转换，和写入文件，所有的这些方法都是基于流来实现的。
 
 >  在计算机中流是一个很老的概念，,源自1960年代早期Unix。
 
