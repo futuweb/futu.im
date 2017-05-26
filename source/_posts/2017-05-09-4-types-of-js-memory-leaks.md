@@ -1,5 +1,5 @@
 ---
-title: 4中javascript的内存泄露及避免方法
+title: 4种javascript的内存泄露及避免方法
 date: 2017-05-09 10:30
 category: 翻译
 tags: [JS,技术]
