@@ -1,5 +1,5 @@
 ---
-title: 7个处理javascript的`undefined`的tips
+title: 【译】7个处理javascript的`undefined`的tips
 date: 2017-05-20 16:30
 category: 翻译
 tags: [javascript,undefined]

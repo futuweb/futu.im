@@ -1,5 +1,5 @@
 ---
-title: 使用CSS Grid替换Bootstrap布局
+title: 【译】使用CSS Grid替换Bootstrap布局
 date: 2017-05-03 10:30
 category: 翻译
 tags: [css,技术]

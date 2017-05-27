@@ -1,5 +1,5 @@
 ---
-title: CSS动画 vs Web动画API
+title: 【译】CSS动画 vs Web动画API
 date: 2017-05-08 12:22
 category: 翻译
 tags: [JS,技术,css,animation]
