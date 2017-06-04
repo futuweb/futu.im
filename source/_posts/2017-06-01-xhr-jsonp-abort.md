@@ -250,7 +250,7 @@ jsonp算起来应该就是通过`script`加载实现的跨域请求。其中重�
 
 犯难的问题来了，`script`并没有真正的`abort`方法给我们使用。我们所做的就是尽最大的努力提供类似于abort功能的方法。
 
-思路就是使用`Event`函数。触发`script`的`error`监听事件。所以我们得对`jsonp`函数添加一个`trigger`辅助函数进行触发`error`事件。
+思路就是使用`Event`事件对象。触发`script`的`error`监听事件。所以我们得对`jsonp`函数添加一个`trigger`辅助函数进行触发`error`事件。
 
 ```js
 //[trigger 触发事件]
