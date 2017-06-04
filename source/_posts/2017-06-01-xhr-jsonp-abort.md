@@ -289,6 +289,7 @@ function jsonp(url,jsonp,successCallback , errorCallback){
     return trigger(script,'error');
   };
   document.head.append(script);
+  return script;
 }
 ```
 
