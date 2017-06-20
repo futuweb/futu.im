@@ -7,7 +7,7 @@ author: Linda
 ---
 # passive事件监听
 
-passive事件监听，是[DOM规范](https://dom.spec.whatwg.org/#dom-eventlisteneroptions-passive)的新特性，它允许开发者通过避免滚动来阻止touch和wheel事件监听，而选择更好的滚动性能。开发者可以通过```{passive:true}```来表明他们不会调用```preventDefault```，注释掉touch和wheel监听。这个特性出现在[Chrome51](https://www.chromestatus.com/features/5745543795965952)，[FireFox49](https://bugzilla.mozilla.org/show_bug.cgi?id=1266066)，[登陆了Webkit](https://bugs.webkit.org/show_bug.cgi?id=158601)。
+passive事件监听，是[DOM规范](https://dom.spec.whatwg.org/#dom-eventlisteneroptions-passive)的新特性，它允许开发者通过避免滚动来阻止touch和wheel事件监听，而选择更好的滚动性能。开发者可以通过`{passive:true}`来表明他们不会调用`preventDefault`，注释掉touch和wheel监听。这个特性出现在[Chrome51](https://www.chromestatus.com/features/5745543795965952)，[FireFox49](https://bugzilla.mozilla.org/show_bug.cgi?id=1266066)，[登陆了Webkit](https://bugs.webkit.org/show_bug.cgi?id=158601)。
 
 看看下面的passive事件监听的并行操作视频：
 
@@ -16,17 +16,17 @@ passive事件监听，是[DOM规范](https://dom.spec.whatwg.org/#dom-eventliste
 
 ## 问题所在
 
-对于优秀的web体验，流畅的滑动性能是必须的，尤其在触屏设备上。所有现代浏览器在重JavaScript运行的时候，有一个允许滚动流畅进行的线性滚动特性，但是这个优化因为需要等待```touchstart```和 ```touchmove```操作的结果，会部分失败。```touchstart```等操作在事件中可能会通过调用[preventDefault()](https://www.w3.org/TR/touch-events/#the-touchstart-event)完全阻止滚动。当有作者确定要阻止滚动的特定场景时，分析显示，web上的多数的touch事件处理函数实际上从来不调用```preventDefault()```，所以浏览器通常不需要阻断滚动。例如，在安卓Chrome中，80%的阻止滚动的touch事件实际上从未阻止过。这些事件中的10%在滚动前添加了多于100毫秒的延迟。在1%的滚动中会添加至少500毫秒的毁灭性延迟。
+对于优秀的web体验，流畅的滑动性能是必须的，尤其在触屏设备上。所有现代浏览器在重JavaScript运行的时候，有一个允许滚动流畅进行的线性滚动特性，但是这个优化因为需要等待`touchstart`和 `touchmove`操作的结果，会部分失败。`touchstart`等操作在事件中可能会通过调用[preventDefault()](https://www.w3.org/TR/touch-events/#the-touchstart-event)完全阻止滚动。当有作者确定要阻止滚动的特定场景时，分析显示，web上的多数的touch事件处理函数实际上从来不调用`preventDefault()`，所以浏览器通常不需要阻断滚动。例如，在安卓Chrome中，80%的阻止滚动的touch事件实际上从未阻止过。这些事件中的10%在滚动前添加了多于100毫秒的延迟。在1%的滚动中会添加至少500毫秒的毁灭性延迟。
 
 许多开发者了解到[在document中简单添加一个空的touch处理函数](http://rbyers.github.io/janky-touch-scroll.html)会对滚动性能有显著负面影响很惊讶。开发者很合理的期望监听一个事件的操作[不应该有任何负面影响](https://dom.spec.whatwg.org/#observing-event-listeners)。
 
 这里的基本问题不是限制touch事件。[wheel事件](https://w3c.github.io/uievents/#events-wheelevents)也遭遇同样的问题。作为对比，[指针事件处理函数](https://w3c.github.io/pointerevents/)设计为从不延迟滚动（即使开发者可以通过touch-action css特性声明滚动），所以不用面临这个问题。基本上，passive事件监听建议带来了touch和wheel事件的性能特性。
 
-这个建议，提供了作者指明在处理函数注册时，处理函数是否在事件中调用```preventDefault()```的方法(是否需要一个[可以取消](https://dom.spec.whatwg.org/#dom-event-cancelable)的事件)。当在包含可取消事件特定的点上没有touch或wheel处理函数时，用户代理空闲到可以立即开始滚动事件，不用等待JavaScript。那就是，passive监听对性能没有意外的负面影响。
+这个建议，提供了作者指明在处理函数注册时，处理函数是否在事件中调用`preventDefault()`的方法(是否需要一个[可以取消](https://dom.spec.whatwg.org/#dom-event-cancelable)的事件)。当在包含可取消事件特定的点上没有touch或wheel处理函数时，用户代理空闲到可以立即开始滚动事件，不用等待JavaScript。那就是，passive监听对性能没有意外的负面影响。
 
 ## 事件监听选项
 
-首先，我们需要对事件监听附加额外信息的机制。```addEventListener```中的```capture```参数是最贴近的例子，但是它的用法十分不透明：
+首先，我们需要对事件监听附加额外信息的机制。`addEventListener`中的`capture`参数是最贴近的例子，但是它的用法十分不透明：
 
 ```js
 document.addEventListener('touchstart', handler, true);
@@ -42,7 +42,7 @@ document.addEventListener('touchstart', handler, {capture: true});
 
 ## 解决方案：passive选项
 
-现在我们在事件处理函数注册时，对于指定选项有了扩展语法，我们可以添加一个新```passive```选项，可以前置声明监听函数在事件中从不调用```preventDefault()```。如果它调用，用户代理会忽略请求（理想状态生成至少一个控制台警告），就像它已经用```Event.cancelable=false```调用过一样。开发者可以通过查询```Event.defaultPrevented```在调用```preventDefault()```之前和之后确认这个。例如：
+现在我们在事件处理函数注册时，对于指定选项有了扩展语法，我们可以添加一个新`passive`选项，可以前置声明监听函数在事件中从不调用`preventDefault()`。如果它调用，用户代理会忽略请求（理想状态生成至少一个控制台警告），就像它已经用`Event.cancelable=false`调用过一样。开发者可以通过查询`Event.defaultPrevented`在调用`preventDefault()`之前和之后确认这个。例如：
 
 ```js
 addEventListener(document, "touchstart", function(e) {
@@ -59,7 +59,7 @@ passive监听无负面影响。
 
 ## 特性检测
 
-由于老式浏览器会把```capture```的第三个参数传的任何对象看作```true```值，开发者用这个API时，使用特性检测或[polyfill](https://github.com/WebReflection/dom4)就很重要，以避免不可预期的结果。对于指定选项的特性检测可以像下面这样：
+由于老式浏览器会把`capture`的第三个参数传的任何对象看作`true`值，开发者用这个API时，使用特性检测或[polyfill](https://github.com/WebReflection/dom4)就很重要，以避免不可预期的结果。对于指定选项的特性检测可以像下面这样：
 
 ```js
 // Test via a getter in the options object to see if the passive property is accessed
@@ -94,33 +94,33 @@ elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : fa
 
 2.全屏游戏
 
-在这些情况下，由于滚动自身是被一直阻止的，现有行为（阻止滚动优化）完全够。在这些情况下没有使用passive监听的需求，即使通常添加```touch-action: none```CSS规则来使你的意图清晰，是个好想法（例如支持浏览器pointer事件，但不是touch事件）。
+在这些情况下，由于滚动自身是被一直阻止的，现有行为（阻止滚动优化）完全够。在这些情况下没有使用passive监听的需求，即使通常添加`touch-action: none`CSS规则来使你的意图清晰，是个好想法（例如支持浏览器pointer事件，但不是touch事件）。
 
 然而，在一系列场景中，事件不需要阻塞滚动。例如：
 
 1.只想知道用户最后活跃是在什么时间的用户动态监控
 
-2.隐藏一些活动UI（像工具栏）的```touchstart```处理函数。
+2.隐藏一些活动UI（像工具栏）的`touchstart`处理函数。
 
-3.改变UI元素样式的```touchstart```和```touchend```处理函数（不阻止onclick事件）。
+3.改变UI元素样式的`touchstart`和`touchend`处理函数（不阻止onclick事件）。
 
-在这些场景下，不改其他代码，```passive```选项可以加上去（要有适当的特性检测），致使有了显著的更流畅的滑动体验。
+在这些场景下，不改其他代码，`passive`选项可以加上去（要有适当的特性检测），致使有了显著的更流畅的滑动体验。
 
 有一些在确定条件下，处理函数只想阻止滑动的，更复杂的场景，就像：
 
 1.横向滑动转传送带，打散一个物体或展示抽屉，但仍然允许垂直滚动。
 
-1).这种情况下，使用```touch-action: pan-y```声明式的使沿水平轴的滚动失效，不必须调用```preventDefault()```。
+1).这种情况下，使用`touch-action: pan-y`声明式的使沿水平轴的滚动失效，不必须调用`preventDefault()`。
 
-2).为了继续在所有浏览器中可以正常运行，```preventDefault()```的调用应当在缺少特定的```touch-action```的条件下使用（Safari9现在只支持 ```touch-action:manipulation```）。
+2).为了继续在所有浏览器中可以正常运行，`preventDefault()`的调用应当在缺少特定的`touch-action`的条件下使用（Safari9现在只支持 `touch-action:manipulation`）。
 
-2.一个在水平滚轮事件滑动的UI元素（就像YouTube的声音调节滑动条），不会改变滚垂直滚轮的行为。由于对于wheel来说没有```touch-action```的等价事件，这个情况只能用非passive滚轮监听来实现。
+2.一个在水平滚轮事件滑动的UI元素（就像YouTube的声音调节滑动条），不会改变滚垂直滚轮的行为。由于对于wheel来说没有`touch-action`的等价事件，这个情况只能用非passive滚轮监听来实现。
 
 3.事件代理模式的添加监听的代码，不会知道用户是否会取消事件。
 
 1).这里的一个选项是单独代理passive和非passive监听（就好像他们是完全不同种类的事件一样）。
 
-2).像上面那样发挥```touch-action```的影响力也是可以的。
+2).像上面那样发挥`touch-action`的影响力也是可以的。
 
 ## 调试及权衡利益
 
