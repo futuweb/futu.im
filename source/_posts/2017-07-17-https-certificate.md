@@ -22,6 +22,8 @@ HTTPS服务是工作在SSL/TLS上的HTTP。
 
 ![https-demo](/images/2017-07-17-https-certificate/demo.png)
 
+<!-- more -->
+
 可以看到浏览器上面展示的url前面会加一把绿色的锁，表示这个是安全的HTTPS url。要达到这个目标需要什么：
 
 1. HTTPS服务器：server私钥 + CA签发的证书  
