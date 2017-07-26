@@ -1,6 +1,6 @@
 ---
 title: 小马的大前端之路——Node.js初探
-date: 2017-07-26-first-time-use-node.js-07-26 20:00
+date: 2017-07-26 20:00
 category: Node.js
 tags: [angular.js v1.x,koa2,webpack2]
 author: Jin
