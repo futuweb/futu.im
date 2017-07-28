@@ -8,4 +8,4 @@ echo $FUTU_IM_PUB > $HOME/.ssh/id_rsa.pub
 
 zip -r ./futu.zip ./public
 
-scp ./futu.zip https://www.futu.im/
+scp ./futu.zip root@futu.im:/data/web/futu.im/pub
