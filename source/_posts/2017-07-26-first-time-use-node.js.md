@@ -379,8 +379,6 @@ node --inspect server/index.js
 
 如果你正在考虑要不要使用Node.js，我是无法给出答案的。
 
-done
-
 原创：Jin
 
 原文链接：[https://www.futu.im/posts/2017-07-26-first-time-use-node.js](https://www.futu.im/posts/2017-07-26-first-time-use-node.js)
