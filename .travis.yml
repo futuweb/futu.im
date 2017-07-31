@@ -14,7 +14,7 @@ script:
   - hexo clean
   - hexo g
 after_script:
-  - node ./key.js $HOME $FUTU_IM_KEY $FUTU_IM_PUB
+  - bash scp.sh
 branches:
   only:
     - master
