@@ -11,4 +11,6 @@ cd ./public
 zip -r ../futu.zip .
 cd ..
 
-scp ./futu.zip root@futu.im:/data/web/futu.im/pub
+scp ./futu.zip futu@futu.im:/data/web/futu.im/pub
+
+ssh futu@futu.im "sh /data/web/futu.im/pub/pub.sh"
