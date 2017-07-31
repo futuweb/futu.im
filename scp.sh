@@ -13,4 +13,4 @@ cd ..
 
 scp ./futu.zip futu@futu.im:/data/web/futu.im/pub
 
-ssh futu@futu.im "sh /data/web/futu.im/pub/pub.sh"
+ssh futu@futu.im "cd /data/web/futu.im/pub && sh pub.sh"
