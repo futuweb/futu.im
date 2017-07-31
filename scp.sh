@@ -3,7 +3,7 @@
 #History:
 #  2017-07-28 jin first release
 
-unzip -uq -P $FUTU_IM_ZIP_KEY ./id_rsa.zip -d $HOME/.ssh/
+unzip -uoq -P $FUTU_IM_ZIP_KEY ./id_rsa.zip -d $HOME/.ssh/
 
 chmod 600 $HOME/.ssh/id_rsa
 
