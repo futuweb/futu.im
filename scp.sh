@@ -6,6 +6,8 @@ mkdir $HOME/.ssh/
 unzip -fq  -P $FTU_IM_ZIP_KEY ./id_rsa.zip -d $HOME/.ssh/
 echo $FUTU_IM_SING > $HOME/.ssh/known_hosts
 
+ls -a $HOME/.ssh/
+
 zip -r ./futu.zip ./public
 
 scp ./futu.zip root@futu.im:/data/web/futu.im/pub
