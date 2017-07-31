@@ -381,4 +381,4 @@ node --inspect server/index.js
 
 原创：Jin
 
-原文链接：[https://www.futu.im/posts/2017-07-26-first-time-use-node.js](https://www.futu.im/posts/2017-07-26-first-time-use-node.js)
+原文链接：[https://futu.im/posts/2017-07-26-first-time-use-node.js](https://futu.im/posts/2017-07-26-first-time-use-node.js)
