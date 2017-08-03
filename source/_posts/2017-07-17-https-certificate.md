@@ -109,6 +109,104 @@ server
 
 具体而言，证书大约等于“公钥+身份+签名”三部分。身份主要就是服务器的相关信息，其中一个非常重要的信息就是域名。而签名的过程则是数字证书中心（CA）对身份表示认可，然后使用自己的私钥对这个身份进行签署，表示“我（CA）证明，这个身份是真的”。
 
+使用OpenSSL可以非常方便地查看证书：
+
+```sh
+openssl x509 -in futu.im.crt -noout -text
+```
+
+如果证书格式是没有BASE64编码过的，则可能是`DER`二进制格式，需要加一个参数：
+
+```sh
+openssl x509 -inform der -in futu.im.crt -noout -text
+```
+
+下面是<https://futu.im>的证书：
+
+```
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            03:8b:7b:f9:68:43:6c:c9:0f:8b:c9:24:42:ea:78:b6:05:51
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=US, O=Let's Encrypt, CN=Let's Encrypt Authority X3
+        Validity
+            Not Before: Jul 20 09:21:00 2017 GMT
+            Not After : Oct 18 09:21:00 2017 GMT
+        Subject: CN=futu.im
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:db:b4:f5:9d:31:d0:7b:1b:76:c0:3a:06:30:a1:
+                    da:a9:33:e9:1d:3e:d3:bf:8a:15:d3:b0:17:21:77:
+                    2f:e3:f4:59:f9:96:79:a2:b0:80:0c:01:a1:04:4e:
+                    b7:c1:fc:da:e6:d0:79:8f:5c:25:64:48:31:58:07:
+                    48:fb:19:3e:ae:33:5b:22:73:e3:de:6f:f6:b4:d0:
+                    a2:27:26:73:ce:20:4c:d1:05:fc:c8:5e:8a:f4:aa:
+                    d0:88:ae:35:db:3e:c5:8d:f7:4c:6d:64:ad:98:fc:
+                    63:70:90:a9:68:78:2a:72:df:56:93:ac:65:df:1e:
+                    2c:61:ae:bf:a9:d7:32:ff:70:ea:1c:ff:76:60:81:
+                    da:55:69:c7:d9:8c:b4:04:ea:85:84:4e:3e:22:dc:
+                    e9:c4:56:7d:12:4b:8f:f0:93:9b:5d:0f:e1:ee:e7:
+                    37:82:0d:32:41:9e:87:b5:e6:91:2b:b4:28:79:f7:
+                    0e:99:d1:86:13:87:1d:fc:6f:c5:38:fd:38:0e:b0:
+                    5e:b8:ca:b7:e1:fe:7a:86:86:88:8d:1d:e7:0d:cc:
+                    79:82:b2:dd:e2:3d:b7:cc:3b:31:bd:fd:55:12:d8:
+                    ab:35:e1:8d:2b:3e:a8:2a:1c:9c:69:5b:15:0f:14:
+                    7b:6a:55:03:61:aa:a1:30:c8:a6:5d:c4:92:f9:e5:
+                    32:01
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                F2:E3:A5:CF:82:0A:72:A0:B3:67:28:DC:33:67:F9:6F:EA:8E:89:29
+            X509v3 Authority Key Identifier:
+                keyid:A8:4A:6A:63:04:7D:DD:BA:E6:D1:39:B7:A6:45:65:EF:F3:A8:EC:A1
+
+            Authority Information Access:
+                OCSP - URI:http://ocsp.int-x3.letsencrypt.org
+                CA Issuers - URI:http://cert.int-x3.letsencrypt.org/
+
+            X509v3 Subject Alternative Name:
+                DNS:futu.im
+            X509v3 Certificate Policies:
+                Policy: 2.23.140.1.2.1
+                Policy: 1.3.6.1.4.1.44947.1.1.1
+                  CPS: http://cps.letsencrypt.org
+                  User Notice:
+                    Explicit Text: This Certificate may only be relied upon by Relying Parties and only in accordance with the Certificate Policy found at https://letsencrypt.org/repository/
+
+    Signature Algorithm: sha256WithRSAEncryption
+         90:9f:34:67:bc:3c:fb:fa:68:2e:97:38:04:bc:89:0a:bc:d0:
+         a3:6d:e4:da:5a:ef:56:74:fd:ee:ff:ac:4a:e5:14:c9:b5:f6:
+         8a:91:00:a8:42:be:8a:f6:e6:ba:0c:62:bf:f1:9f:a3:e6:e7:
+         f0:b4:ab:9c:36:38:6f:81:b6:fd:eb:5f:8a:90:48:db:69:3b:
+         03:61:b6:0f:84:e6:11:d3:b8:61:6f:9f:b6:da:16:3d:97:ae:
+         a1:ed:21:1f:79:07:fb:95:06:d3:0c:89:d1:a7:fa:58:d0:b8:
+         20:a8:2f:5e:51:77:91:e7:b2:b5:9d:f0:e8:d8:53:2b:c3:af:
+         6c:de:c4:0a:24:dc:7d:25:31:31:af:a6:fd:9f:ea:44:82:ed:
+         97:c5:74:d4:5c:11:3b:be:76:8d:3d:e8:9b:87:d7:d8:ad:21:
+         95:82:16:cd:02:bd:12:3c:75:2b:43:c1:41:87:f9:b4:17:9e:
+         df:0e:d9:ce:d9:e9:64:c8:23:a1:88:85:a8:25:82:4a:69:a4:
+         51:6a:ad:6a:23:bf:7f:ba:98:5f:72:de:a4:25:29:10:e3:27:
+         b5:00:16:60:08:0c:cc:f5:5b:88:df:5c:be:6b:10:3a:05:6a:
+         61:01:c2:83:d5:88:b4:18:ca:cf:58:d7:14:58:1b:92:f4:69:
+         b9:22:a2:3b
+```
+
+可以非常清楚地看到几个部分：
+
+1. `Subject Public Key Info`表示服务器的公钥
+2. `Subject`是服务器的身份，可以看到`CN=futu.im`字样，视不同的证书，`Subject`中还有可能包含更多信息
+3. `Issuer`表示证书的签名机构（CA），最下方则是签名算法和签名出来的结果
+
 那CA又是什么东西呢？它其实就是一些内置在操作系统（浏览器）信任列表中的一些机构，每个机构都拥有自己的根证书，这些证书被操作系统（浏览器）无条件信任。当一个证书被CA签署后，操作系统（浏览器）就会信任这个证书所代表的身份。
 
 CA在签署证书的时候，都会做一些真实性验证，保证只有真实的网站拥有者才可以被签署。因此，当浏览器拿到一个被CA签署过的证书的时候，只要看一下这个CA是不是在信任列表中，就可以决定是否信任这个证书了。
