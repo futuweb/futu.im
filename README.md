@@ -73,9 +73,7 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 源码托管在Github（<https://github.com/futuweb/futu.im>）上，`master`分支为发布分支。
 
-最终发布后的版本托管在Gitlab.com提供的pages服务上。
-
-向Github仓库推送源代码后，1小时之内Gitlab.com会拉取源代码进行自动编译上线。
+master分支提交后，数分钟内上线。
 
 ## 文章推广
 文章发布并不是什么难事，合并到master分支就好。推广的话，需要对文章Review一下，过审才发表出去比较好。一个是对自己的文章负责，二是对读者负责。

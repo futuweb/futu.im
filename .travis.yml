@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "7"
+cache:
+  directories:
+    - "node_modules"
+before_install:
+  - npm config set user 0
+  - npm config set unsafe-perm true
+  - npm install hexo-cli -g
+install:
+  - npm install
+script:
+  - hexo g
+after_script:
+  - bash scp.sh
+branches:
+  only:
+    - master
