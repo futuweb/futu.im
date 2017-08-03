@@ -1,230 +1,118 @@
 ---
-title: HTTPS自签名CA证书
+title: HTTPS自建CA及自签名证书不完全指南（理论篇）
 date: 2017-07-17 18:00
 category: 网络安全
-tags: [OpenSSL,HTTPS,Node.js]
+tags: [OpenSSL,HTTPS,Node.js,nginx]
 author: Jin
 ---
 
-HTTPS服务是工作在SSL/TLS上的HTTP。
+HTTPS 全称 HTTP over SSL，即工作于SSL层之上的HTTP协议。它对开发者和使用者是透明的，只是数据传输部分是加密的。
 
-首先简单区分一下HTTPS，SSL ，TLS ，OpenSSL这四者的关系：
+SSL分为 1.0 / 2.0 / 3.0 等很多版本，随着时间的推移，它也变得越来越不安全，因此现在我们通常使用更安全的 TLS 协议。TLS 协议也有不同版本，目前最新最安全的是 TLS 1.2 。一般情况下，我们不会具体区别 SSL 和 TLS，现在很多场合提到的 SSL 其实也是 TLS 协议。
 
-1. SSL：（Secure Socket Layer，安全套接字层）是在客户端和服务器之间建立一条SSL安全通道的安全协议；
-2. TLS：（Transport Layer Security，传输层安全协议），用于两个应用程序之间提供保密性和数据完整性；
-3. TLS的前身是SSL；
-4. OpenSSL是TLS/SSL协议的开源实现，提供开发库和命令行程序；
-5. HTTPS是HTTP的加密版，底层使用的加密协议是TLS。
-
-结论：SSL/TLS 是协议，OpenSSL是协议的代码实现。
-
-## 图说HTTPS
+## HTTPS安全浏览
 
 ![https-demo](/images/2017-07-17-https-certificate/demo.png)
+
+如果我们正在浏览的网页是安全的 HTTPS 网页，则大部分浏览器会显示一把绿色的锁，表示这是加密的连接，且通信过程是安全的。
+
+而要让浏览器认为这个网页是安全的，则需要满足以下几个条件：
+
+1. HTTPS 协议访问
+2. 服务端出具的证书内容正确（域名、签名方式等正确）
+3. 服务端出具的证书由 CA（数字证书中心） 签发
+4. 签发证书的 CA 在浏览器（或操作系统）的受信任列表中
+
+所谓的 CA（数字证书中心）一般是一个机构，它们被内置在浏览器或操作系统的受信任列表中。一个证书只有被 CA 签名过（也叫由 CA 签发的证书），浏览器才可能在受信任列表中找到它对应的 CA ，然后判断是否应该信任这个证书。
+
+> 事实上第3点和第4点并不完全准确，如果一个证书不是由 CA 签发的，但是存在于浏览器（或操作系统）的受信任列表中，那么它事实上相当于一个CA的根证书，也会被认为是安全的。
+> 
+> 但是，在实际操作中，几乎没有这样的案例，因为几乎没有 CA 会直接拿自己的根证书来让某个网站使用。
 
 <!-- more -->
 
-可以看到浏览器上面展示的url前面会加一把绿色的锁，表示这个是安全的HTTPS url。要达到这个目标需要什么：
+## HTTPS服务器的搭建
 
-1. HTTPS服务器：server私钥 + CA签发的证书  
-2. client客户端：CA证书
-3. nginx
-4. 配置hosts
+在 Node.js 中配置一个 HTTPS 服务器非常简单。Node.js底层引入了OpenSSL开源库，并直接提供了`https`模块：
 
-## 一个简单的HTTPS服务器
-Node.js底层引入了OpenSSL开源库，OpenSSL是HTTPS模块的安全保障。下面来创建一个HTTPS服务器。
-
-```js
+```javascript
+// 引入https模块
 const https = require('https');
 const fs = require('fs');
+
+// 创建HTTPS服务需要私钥和证书文件
 let options = {
-  key: fs.readFileSync('./server.key'),//私钥
-  cert: fs.readFileSync('./server.crt')//数字证书
+  key: fs.readFileSync('./server.key'), //私钥
+  cert: fs.readFileSync('./server.crt') //数字证书
 };
+
+// 创建HTTPS服务器
 https.createServer(options , (req , res)=>{
-  console.log('server got it');
   res.writeHead(200);
-  res.end('hello https is work');
-}).listen(8888);
-console.log('server start');
+  res.end('https is working');
+}).listen(443);
 ```
 
-可以发现https服务器比http服务器要多一个`options`参数。`options`里面包含的是https服务器的密钥和数字证书。
+可以发现创建https服务器比我们熟悉的创建http服务器要多一个`options`参数。`options`里面包含的是https服务器的私钥和数字证书。
 
-问题来了：
-
-1. 密钥是什么？
-2. 数字证书（CA：Certificate Authority）是什么？
-
-### SSL/TLS密钥
-SSL/TLS是一个公钥和私钥的结构，非对称结构，每个客户端和服务器端都有自己的公钥和私钥。公钥用来加密数据，私钥用来对数据解密。
-
-![ssl](/images/2017-07-17-https-certificate/ssl.jpg)
-
-总结：解决数据加密和解密的问题。
-
-好，现在通过命令行执行OpenSSL生成服务器私钥：
+如果使用`nginx`来创建https服务器，则可能是这样：
 
 ```
-openssl genrsa -out server.key 1024
-```
-
-> 没有安装openssl命令行的需要自行安装。
-
-### 数字证书
-数据都加密了，为什么还要数字证书啊？
-
-公私钥的非对称加密虽然好，但是网络还是可能存在窃听的情况。典型的例子：中间人攻击。
-
-![ssl-ca](/images/2017-07-17-https-certificate/ssl_ca.jpg)
-
-原理和HTTP代理服务器一样。
-
-为了确保数据安全引入了CA。CA会给上面创建的HTTPS服务器颁发数字证书。
-
-现在有权威的CA机构的证书费用都很昂贵，有钱的可以去买，没钱的只能自签名CA证书了。
-
-## 自签名证书
-所谓的自签名证书，就是自己扮演CA机构，给自己的服务器颁发签名证书。
-
-### CA机构
-自己扮演CA角色，必须要准备好CA机构相关的文件。包括：私钥，CSR文件，CA证书。
-
-1.命令行生成CA私钥:
-
-```
-openssl genrsa -out ca.key 1024
-```
-
-2.命令行生成CSR文件：
-
-```
-openssl req -new -key ca.key -out ca.csr
-```
-
-![ca](/images/2017-07-17-https-certificate/ca.png)
-
-CSR是Cerificate Signing Request的英文缩写（即证书请求文件），是证书申请者向证书颁发机构（CA）申请证书时需要提供的文件。里面包含了一些申请者的基本信息，比如Common Name、 Organization等。同时也包含了申请者的公钥。
-
-3.命令行生成CA自签名证书：
-
-```
-openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt
-```
-
-CA机构的文件准备完毕，可以准备为HTTPS服务器颁发证书咯。
-
-### 颁发签名证书
-HTTPS服务器的私钥（上文的：`server.key`）已经生成。通过服务器私钥生成CSR文件提交给CA机构，CA机构通过自己的证书，私钥和服务器的CSR文件来给服务器颁发带CA认证的证书。
-
-1.首先HTTPS服务器得准备CSR文件：
-
-```
-openssl req -new -key server.key -out server.csr
-```
-
-![server](/images/2017-07-17-https-certificate/server.png)
-
-2.CA机构颁发服务器证书：
-
-```
-openssl x509 -req -sha256 -extfile v3.ext -CA ca.crt -CAkey ca.key -CAcreateserial -in server.csr -out server.crt
-```
-
-上面指定了证书的版本号为[X.509](https://en.wikipedia.org/wiki/X.509)的（v3）第3个扩展版本。 上面还指定了CA机构的证书和私钥。还包括服务器的证书申请文件，以及指定的保存服务器证书的文件。
-
-默认的v3.ext 文件：
-
-```txt
-authorityKeyIdentifier=keyid,issuer
-basicConstraints=CA:FALSE
-keyUsage=digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-subjectAltName=@alt_names
-
-[alt_names]
-DNS.1=www.test.com
-```
-
-> 注意：`DNS.1=www.test.com` 这里指定了给哪个domain，与自己服务器域名要保持一致。
-
-一句话概括：CA机构给服务器颁发哪个版本的证书。
-
-## 实战之谈
- 准备工作都做好了，现在就来访问一下呗。
-
-1.启动server：
-
- ```
- node server.js
- ```
-
-2.配置nginx
-
-```
-server{
-    listen 443;
-    server_name www.test.com;
-    client_max_body_size 128M;
-
+server
+{
+    listen 443 ssl;
+    server_name  ssltest.com;
     index index.html index.htm;
-    error_log D:/Wnmp/logs/error_test.com.log;
-    access_log D:/Wnmp/logs/access_test.com.log combined;
-    
-    ssl             on;
-    ssl_certificate E:/node/https/server.crt;
-    ssl_certificate_key     E:/node/https/server.key;
+    root /data/ssltest;
 
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-    ssl_ciphers "EECDH+ECDSA+AESGCM EECDH+aRSA+AESGCM EECDH+ECDSA+SHA384EECDH+ECDSA+SHA256 EECDH+aRSA+SHA384 EECDH+aRSA+SHA256 EECDH+aRSA+RC4EECDH EDH+aRSA RC4 !aNULL !eNULL !LOW !3DES !MD5 !EXP !PSK !SRP !DSS !MEDIUM";
-    ssl_prefer_server_ciphers on;
+    ssl_certificate /data/ssltest.crt;
+    ssl_certificate_key     /data/ssltest.key;
 
-    add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
-
-    location / {
-        proxy_pass https://127.0.0.1:8888/;
-        proxy_redirect default ;
-    }
 }
 ```
 
-3.配置host:
+同样，在上方的配置文件中，需要使用`ssl_certificate_key`和`ssl_certificate`来指定私钥和数字证书。
 
-```
-127.0.0.1    www.test.com
-```
+问题来了：私钥和数字证书分别是什么？
 
-现在让我们打开chrome浏览器：https://www.test.com
+## 科普：HTTPS相关知识
 
-![https_403](/images/2017-07-17-https-certificate/https_403.png)
+本文将介绍一些与我们接下来生成证书相关的知识。为了简单起见，有一些和实际操作关系不大的、理论性比较强的内容忽略不计。
 
-靠。。。。。被忽悠了吗？什么情况？？？？？？
+### HTTPS是如何通信的？
 
-回想一下，漏掉了什么吗？
+我们都知道HTTPS是加密通信的，但是对于具体的过程，却并不是人人都知道。事实上，HTTPS的通信过程，大致上可以分为握手（非对称加密）和通信（对称加密）两个过程。
 
-### CA证书安装
-没错我们客户端的CA证书还没有安装啊。自己签发的证书是需要自己手动安装的。
+握手的部分是使用非对称加密的。既然是非对称加密，就会涉及到公钥、私钥的问题。在经典的非对称加密体系中，公钥用来加密，私钥用来签名，也即如果A同学要向B同学发一个加密信息，那么A同学必须拥有B同学的公钥。同理，如果B同学也要向A同学发加密信息，他也必须拥有A同学的私钥。
 
-1.找到生成好的`ca.crt`证书，双击点击安装：
+在HTTPS中，也是同样的情况，如果双向通信都需要加密的话，那么服务端和客户端各需要一套密钥（私钥+公钥）。而事实上，在握手的部分，客户端的密钥是可选的，常见的HTTPS通信中都没有客户端密钥的参与。那这个过程具体是怎样的呢？
 
-![ca_install](/images/2017-07-17-https-certificate/ca_install.png)
+1. 客户端向服务端打个招呼，并告诉服务端，自己要访问哪个域名（SNI），这一步是不加密的
+2. 服务端向客户端打招呼，出示自己的证书，同时证书中包含了服务端的公钥，这一步也是不加密的
+3. 客户端验证服务端的证书是否合法，如果不合法就中止请求并报错
+4. 客户端生成一个后续使用密钥（用于对称加密），使用服务端的公钥对这个密钥进行加密，发送到服务端
+5. 服务端对上一步客户端发来的加密消息进行解密并验证
 
-2.选择安装为受信任的根证书颁发机构：
+接下来，就使用对称加密来通信了。
 
-![ca_save](/images/2017-07-17-https-certificate/ca_save.png)
+### 如何确定通信是安全的
 
+在这个过程中涉及到很多我们接下来会接触到的知识点。
 
-好了，关闭浏览器重新访问：
+首先，服务端用于加密通信的私钥和公钥都是由自己生成的，稍后我们将看到具体的生成方式。但是，我们从一开始到现在出现过很多次的所谓“证书”是什么呢？以及客户端又是如何验证这个证书是否合法的呢？
 
-![https-demo](/images/2017-07-17-https-certificate/demo.png)
+我们可以想象一下，如果在客户端和服务端中间，存在一个中间人，就像代理一样。对于客户端来说，它是服务端，对于服务端来说，它又是客户端。这样它就可以两边同时通信，直接窃听整个通信过程，这样我们的加密就毫无意义了。因此必须要有一种机制，来防止中间人攻击。而证书正是这样一种身份验证的机制。
 
-ok ， 大功告成！！！！！
+具体而言，证书大约等于“公钥+身份+签名”三部分。身份主要就是服务器的相关信息，其中一个非常重要的信息就是域名。而签名的过程则是数字证书中心（CA）对身份表示认可，然后使用自己的私钥对这个身份进行签署，表示“我（CA）证明，这个身份是真的”。
 
-## 总结
-现在回顾一下这整个颁发证书的流程：
+那CA又是什么东西呢？它其实就是一些内置在操作系统（浏览器）信任列表中的一些机构，每个机构都拥有自己的根证书，这些证书被操作系统（浏览器）无条件信任。当一个证书被CA签署后，操作系统（浏览器）就会信任这个证书所代表的身份。
 
-![https_ca](/images/2017-07-17-https-certificate/https_ca.jpg)
+CA在签署证书的时候，都会做一些真实性验证，保证只有真实的网站拥有者才可以被签署。因此，当浏览器拿到一个被CA签署过的证书的时候，只要看一下这个CA是不是在信任列表中，就可以决定是否信任这个证书了。
 
+所以这就有了防中间人攻击的关键点：合法的证书是无法伪造的。如果中间人替换了这个证书，浏览器就不会信任这次握手，将中止通信。
 
-项目目录结构：
+那么，在不替换证书的前提下，为什么中间人就无法拦截通信了呢？这是因为证书中包含了服务器的公钥，客户端会使用这个公钥加密信息，而这个信息只有拥有私钥的人才可以解密。很显然，只有真实的服务器才有这个私钥，因此中间人是无法解密了。
 
-![dir](/images/2017-07-17-https-certificate/dir.png)
+## 小结
+
+至此，我们比较详细地了解了HTTPS的通信过程以及安全机制。中间涉及到了私钥、公钥、CA、签名等比较重要的概念。下一篇中，我们将看到如何使用OpenSSL进行自签名证书。
