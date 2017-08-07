@@ -7,8 +7,9 @@
 
 <html class="{{ html_class | lower }}">
 <head>
-  {% include '_partials/head.swig' %}
+  <meta charset="UTF-8"/>
   <title>{% block title %}{% endblock %}</title>
+  {% include '_partials/head.swig' %}
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
