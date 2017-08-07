@@ -16,7 +16,7 @@ passive事件监听，是[DOM规范](https://dom.spec.whatwg.org/#dom-eventliste
 
 ## 问题所在
 
-对于web，尤其是移动设备上的web来说，流畅的滚动性能会直接决定用户体验。所有现代浏览器都有一个单独的线程处理页面滚动，即使是在JavaScript运行的时候也能流畅地滚动，但是这个优化有局限性，因为在需要等待`touchstart`和 `touchmove`操作的结果时就无法进行优化。这是因为`touchstart`等事件处理函数中可能会调用[preventDefault】()](https://www.w3.org/TR/touch-events/#the-touchstart-event)完全阻止滚动。在实际开发中，确实有需要阻止滚动的场景，但是分析结果表明，web上的多数的touch事件处理函数实际上从来不调用`preventDefault()`，所以浏览器通常不需要阻止滚动。例如，在安卓Chrome中，对滚动性能造成影响的情况中，有80%的事件都没有被阻止 。有10%的情况导致滚动延迟多于100毫秒。1%的情况导致延迟至少500毫秒，简直是毁灭性的影响。
+对于web，尤其是移动设备上的web来说，流畅的滚动性能会直接决定用户体验。所有现代浏览器都有一个单独的线程处理页面滚动，即使是在JavaScript运行的时候也能流畅地滚动，但是这个优化有局限性，因为在需要等待`touchstart`和 `touchmove`操作的结果时就无法进行优化。这是因为`touchstart`等事件处理函数中可能会调用[preventDefault()](https://www.w3.org/TR/touch-events/#the-touchstart-event)完全阻止滚动。在实际开发中，确实有需要阻止滚动的场景，但是分析结果表明，web上的多数的touch事件处理函数实际上从来不调用`preventDefault()`，所以浏览器通常不需要阻止滚动。例如，在安卓Chrome中，对滚动性能造成影响的情况中，有80%的事件都没有被阻止 。有10%的情况导致滚动延迟多于100毫秒。1%的情况导致延迟至少500毫秒，简直是毁灭性的影响。
 
 许多开发者注意到[在document中简单添加一个空的touch处理函数](http://rbyers.github.io/janky-touch-scroll.html)会对滚动性能有非常明显的负面影响。他们觉得很惊讶，监听一个事件的操作[不应该有任何负面影响](https://dom.spec.whatwg.org/#observing-event-listeners)。
 
