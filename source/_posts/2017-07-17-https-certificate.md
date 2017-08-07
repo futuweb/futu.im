@@ -12,7 +12,7 @@ SSL分为 1.0 / 2.0 / 3.0 等很多版本，随着时间的推移，它也变得
 
 ## HTTPS安全浏览
 
-![https-demo](/images/2017-07-17-https-certificate/demo.png)
+![HTTPS安全浏览](/images/2017-07-17-https-certificate/01-demo.png)
 
 如果我们正在浏览的网页是安全的 HTTPS 网页，则大部分浏览器会显示一把绿色的锁，表示这是加密的连接，且通信过程是安全的。
 
@@ -95,7 +95,7 @@ server
 
 接下来，就使用对称加密来通信了。
 
-![https-demo](/images/2017-07-17-https-certificate/steps.png)
+![HTTPS握手步骤](/images/2017-07-17-https-certificate/02-steps.png)
 
 ### 如何确定通信是安全的
 
@@ -105,7 +105,7 @@ server
 
 我们可以想象一下，如果在客户端和服务端中间，存在一个中间人，就像代理一样。对于客户端来说，它是服务端，对于服务端来说，它又是客户端。这样它就可以两边同时通信，直接窃听整个通信过程，这样我们的加密就毫无意义了。因此必须要有一种机制，来防止中间人攻击。而证书正是这样一种身份验证的机制。
 
-![https-demo](/images/2017-07-17-https-certificate/mith.jpg)
+![中间人攻击示意图](/images/2017-07-17-https-certificate/03-mith.jpg)
 
 具体而言，证书大约等于“公钥+身份+签名”三部分。身份主要就是服务器的相关信息，其中一个非常重要的信息就是域名。而签名的过程则是数字证书中心（CA）对身份表示认可，然后使用自己的私钥对这个身份进行签署，表示“我（CA）证明，这个身份是真的”。
 
@@ -281,17 +281,17 @@ CA在拿到CSR文件之后就会去做一些合法性判断，例如判断域名
 
 下面是windows机器设置信任根证书的方法，注意第二步中，一定要选择“受信任的根证书颁发机构”这一项才能生效。
 
-![https-demo](/images/2017-07-17-https-certificate/ca_install.png)
+![windows安装CA证书](/images/2017-07-17-https-certificate/04-win_ca_install.png)
 
-![https-demo](/images/2017-07-17-https-certificate/ca_save.png)
+![windows安装CA证书](/images/2017-07-17-https-certificate/05-win_ca_save.png)
 
 Mac下设置信任的方法：
 
-![https-demo](/images/2017-07-17-https-certificate/ca_trust_mac.png)
+![Mac信任根证书](/images/2017-07-17-https-certificate/06-mac_ca_trust.png)
 
 如果我们将证书的CommonName和网站的域名设置成一致的，我们就可以直接拿这个根证书去配置HTTPS服务了。
 
-![https-demo](/images/2017-07-17-https-certificate/ca_root_trust.png)
+![根证书直接配置HTTPS](/images/2017-07-17-https-certificate/07-ca_root_trust.png)
 
 可以看到，此时证书只有一级，即根证书，但是因为根证书的CommonName就用的ssltest.com，因此被信任了。
 
@@ -306,8 +306,8 @@ Mac下设置信任的方法：
 
 接下来我们需要配置网站的时候，就需要再生成一个私钥和CSR，然后由CA对CSR中的主体和公钥进行签名，得到一个证书。这样就有了一个CA签名的证书，可以用于服务器的配置。
 
-![https-demo](/images/2017-07-17-https-certificate/ca_signed_cert.png)
+![根证书签名后受信任](/images/2017-07-17-https-certificate/08-ca_signed_cert.png)
 
 ## 小结
 
-至此，我们比较详细地了解了HTTPS的通信过程以及安全机制。中间涉及到了私钥、公钥、CA、签名等比较重要的概念。下一篇中，我们将看到如何使用OpenSSL进行自签名证书。
+至此，我们比较详细地了解了HTTPS的通信过程以及安全机制。中间涉及到了私钥、公钥、CA、签名等比较重要的概念。[下一篇](/posts/2017-08-03-https-certificate/)中，我们将看到如何使用OpenSSL进行自签名证书。
