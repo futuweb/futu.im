@@ -1,5 +1,6 @@
 ---
 title: Linda
+author: Linda
 date: 2017-04-25 13:05:00
 type: "page"
 comments: false

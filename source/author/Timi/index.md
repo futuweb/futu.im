@@ -1,5 +1,6 @@
 ---
 title: Timi
+author: Timi
 date: 2017-04-24 15:37:00
 type: "page"
 comments: false

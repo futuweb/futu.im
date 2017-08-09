@@ -1,5 +1,6 @@
 ---
 title: Diandian
+author: Diandian
 date: 2016-10-31 12:10
 type: "page"
 comments: false

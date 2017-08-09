@@ -36,7 +36,20 @@
         </div>
       </div>
     {% else %}
+      {% if page.path.indexOf('author/') > -1 %}
+        <h1>{{page.author}}</h1>
+      {% endif %}
       {{ page.content }}
+      {% if page.path.indexOf('author/') > -1 %}
+        <h2>文章列表</h2>
+        <ul>
+        {% for post in site.posts.sort('-date') %}
+          {% if page.author == post.author %}
+            <li>{{post.date.format('YYYY-MM-DD')}} <a href="{{url_for(post.path)}}" target="_blank">{{post.title}}</a></li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+      {% endif %}
     {% endif %}
   </div>
 

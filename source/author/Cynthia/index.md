@@ -1,5 +1,6 @@
 ---
 title: Cynthia
+author: Cynthia
 date: 2016-11-05 12:10
 type: "page"
 comments: false

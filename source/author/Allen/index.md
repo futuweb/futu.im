@@ -1,5 +1,6 @@
 ---
 title: Allen
+author: Allen
 date: 2016-12-19 14:27:00
 type: "page"
 comments: false

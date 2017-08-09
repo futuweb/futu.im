@@ -1,5 +1,6 @@
 ---
 title: TooBug
+author: TooBug
 date: 2016-09-25 13:05:00
 type: "page"
 comments: false
