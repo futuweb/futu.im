@@ -70,3 +70,13 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+# RSS
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+# sitemap
+sitemap:
+  path: sitemap.xml

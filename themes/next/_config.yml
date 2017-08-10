@@ -9,7 +9,7 @@ cdn: //futuim-10001549.file.myqcloud.com
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "futu, web"
+keywords: "富途,futu,web,web前端,JavaScript,Node.js,CSS,HTML"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -149,7 +149,7 @@ social_icons:
 
 # Table Of Contents in the Sidebar
 toc:
-  enable: true
+  enable: false
 
   # Automatically add list number to toc.
   number: true
@@ -172,7 +172,7 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggler.
-  display: post
+  display: remove
   #display: always
   #display: hide
   #display: remove
@@ -244,7 +244,7 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-duoshuo_shortname: futu-im
+# duoshuo_shortname: futu-im
 
 # Disqus
 #disqus_shortname:
@@ -277,10 +277,10 @@ google_analytics: UA-71722593-5
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
+#duoshuo_info:
+#  ua_enable: true
+#  admin_enable: false
+#  user_id: 0
   #admin_nickname: Author
 
 
@@ -340,7 +340,7 @@ baidu_push: false
 #! ---------------------------------------------------------------
 
 # Motion
-use_motion: true
+use_motion: false
 
 # Fancybox
 fancybox: true
