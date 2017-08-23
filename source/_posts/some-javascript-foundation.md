@@ -3,6 +3,7 @@ title: 一些JavaScript基础知识提点
 date: 2016-09-25 20:08
 tags: [JavaScript,基础,面试]
 category: 心得分享
+layout: false
 author: TooBug
 ---
 
