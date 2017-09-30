@@ -1,8 +1,8 @@
 ---
 title: 记一次活动开发遇到的问题
 date: 2017-09-29 20:00
-category: [javascript，技术]
-tags: [touchstart/click/禁止调整字体大小]
+category: JavaScript
+tags: [touchstart,click,禁止调整字体大小]
 author: AlanZhang
 ---
 
