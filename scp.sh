@@ -11,6 +11,6 @@ cd ./public
 zip -r ../futu.zip .
 cd ..
 
-scp ./futu.zip futu@futu.im:/data/web/futu.im/pub
+scp -o "StrictHostKeyChecking no" ./futu.zip futu@futu.im:/data/web/futu.im/pub
 
-ssh futu@futu.im "cd /data/web/futu.im/pub && sh pub.sh"
+ssh -o "StrictHostKeyChecking no" futu@futu.im "cd /data/web/futu.im/pub && sh pub.sh"
