@@ -20,6 +20,8 @@ author: AlanZhang
 
 由于并不是很清楚各个平台（浏览器）放大字体的机制，我分别咨询了我们 iOS 和 Android 的同事，得知在调整字体大小时时，2个客户端的处理方式不同。
 
+<!-- more -->
+
 ### iOS
 
 iOS上需要调整 webview 的字体大小时，是通过给 body 设置 `-webkit-text-size-adjust` 属性实现的：
