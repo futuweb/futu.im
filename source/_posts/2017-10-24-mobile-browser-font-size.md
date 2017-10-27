@@ -174,4 +174,6 @@ $dom.style.fontSize = originFontSize * scaleFactor;
 
 - [如何定制手Q的Webview](http://wiki.open.qq.com/wiki/%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6%E6%89%8BQ%E7%9A%84Webview)
 - [微信sdk](http://qydev.weixin.qq.com/wiki/index.php?title=%E5%BE%AE%E4%BF%A1JS-SDK%E6%8E%A5%E5%8F%A3#.E9.99.84.E5.BD.953-.E6.89.80.E6.9C.89JS.E6.8E.A5.E5.8F.A3.E5.88.97.E8.A1.A8)
-- [禁用微信 webview 调整字体大小](https://zhuanlan.zhihu.com/p/21574121)\
+- [禁用微信 webview 调整字体大小](https://zhuanlan.zhihu.com/p/21574121)
+
+TooBug对本文进行了审校。
