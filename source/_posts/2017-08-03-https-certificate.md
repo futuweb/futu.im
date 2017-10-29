@@ -29,7 +29,7 @@ openssl genrsa -out ca.key 1024
 ### 第二步 生成CSR
 
 ```sh
-openssl req -new -key ca.key -out ca.csr
+openssl req -new -key ca.key -out ca.csr -sha256
 ```
 
 这一步会要求输入一些信息，按提示输入即可。需要注意的是，如果你想直接用根证书来配置服务器，那么Common Name一项必须填写域名，否则可以随意填写。最后，在空一行之后出现的`extra`可以直接回车，不用填。
@@ -47,12 +47,66 @@ openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt
 默认情况下，证书的有效期是一个月。一般我们会通过`-days`参数（单位为天）将CA证书的有效期设得比较长，以免需要不时去更换：
 
 ```sh
-openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -days 3650
+openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -sha256 -days 3650
 ```
 
 至此我们就有了作为CA使用的私钥和根证书。
 
-### 根证书直接使用
+## 使用CA签发证书
+
+前文说过，直接使用CA配置服务器并不是很方便，因为要为每个证书配置信任关系。更好的方式是生成一次根证书，然后使用根证书的私钥为不同的域名签署不同的证书。具体的步骤和生成CA证书基本一致，只有最后签名的一步略有不同。
+
+### 生成私钥
+
+```sh
+openssl genrsa -out server.key 1024
+```
+
+### 生成CSR
+
+```sh
+openssl req -new -key server.key -out server.csr -sha256
+```
+
+同样的需要填写一些信息，最重要的是`CommonName`需要填对。如果你的证书要在多个域名上使用的话，`CommonName`可以只填写一个，其余的到`.ext`中去指定。
+
+### 准备server.ext文件
+
+```
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage=digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+subjectAltName=@alt_names
+
+[alt_names]
+DNS.1=ssltest.com
+```
+
+如果有多个域名的话，分别在`[alt_names]`中指定，一行一个。
+
+### 签署证书
+
+```sh
+openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extfile server.ext -sha256 -days 365
+```
+
+这一步和生成根证书的命令略有不同。
+
+首先我们看到多了`-CA`和`-CAkey`两个参数，分别对应前面生成的CA私钥和CA根证书。表示需要使用CA的私钥来进行签名。
+
+然后，因为我们指定了CA，所以不再需要`-signkey`参数。
+
+最后，多了一个`CAcreateserial`参数。这个参数的作用是用来生成一个`ca.srl`文件。而这个文件的作用是记录当前CA生成的证书的序列号。而如果再次在同样的位置进行命令，OpenSSL会去读取这个文件中的序列号，并自动`+1`作为下一个证书的序列号。
+
+这样，我们就有了服务器的私钥和证书，可以用于配置服务器了。
+
+![根证书签名后的证书受信任](/images/2017-08-03-https-certificate/03-ca_signed_cert.png)
+
+ok ， 大功告成！！！！！
+
+## 附：根证书直接使用
+
+> 注：大部分情况下我们不会拿CA根证书直接用于服务器配置，因此可以不用看本节内容。如果你一定要拿CA证书配置服务器的话，往下看。
 
 前面说过，如果我们在CSR中指定了`CommonName`，是可以直接拿根证书去配置服务器的。但是如果我们将这个证书加入操作系统信任列表，并配置服务器之后，浏览器仍然会报不信任：
 
@@ -124,55 +178,3 @@ openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -days 3650 -extfile ca.
 ```
 
 这样，根证书直接配置服务器的话就可以被浏览器信任了。
-
-## 使用CA签发证书
-
-前文说过，直接使用CA配置服务器并不是很方便，因为要为每个证书配置信任关系。更好的方式是生成一次根证书，然后使用根证书的私钥为不同的域名签署不同的证书。具体的步骤和生成CA证书基本一致，只有最后签名的一步略有不同。
-
-### 生成私钥
-
-```sh
-openssl genrsa -out server.key 1024
-```
-
-### 生成CSR
-
-```sh
-openssl req -new -key server.key -out server.csr
-```
-
-同样的需要填写一些信息，最重要的是`CommonName`需要填对。如果你的证书要在多个域名上使用的话，`CommonName`可以只填写一个，其余的到`.ext`中去指定。
-
-### 准备.ext文件
-
-```
-authorityKeyIdentifier=keyid,issuer
-basicConstraints=CA:FALSE
-keyUsage=digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
-subjectAltName=@alt_names
-
-[alt_names]
-DNS.1=ssltest.com
-```
-
-如果有多个域名的话，分别在`[alt_names]`中指定，一行一个。
-
-### 签署证书
-
-```sh
-openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt -extfile server.ext
-```
-
-这一步和生成根证书的命令略有不同。
-
-首先我们看到多了`-CA`和`-CAkey`两个参数，分别对应前面生成的CA私钥和CA根证书。表示需要使用CA的私钥来进行签名。
-
-然后，因为我们指定了CA，所以不再需要`-signkey`参数。
-
-最后，多了一个`CAcreateserial`参数。这个参数的作用是用来生成一个`ca.srl`文件。而这个文件的作用是记录当前CA生成的证书的序列号。而如果再次在同样的位置进行命令，OpenSSL会去读取这个文件中的序列号，并自动`+1`作为下一个证书的序列号。
-
-这样，我们就有了服务器的私钥和证书，可以用于配置服务器了。
-
-![根证书签名后的证书受信任](/images/2017-08-03-https-certificate/03-ca_signed_cert.png)
-
-ok ， 大功告成！！！！！
