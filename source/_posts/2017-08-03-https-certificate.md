@@ -41,7 +41,7 @@ openssl req -new -key ca.key -out ca.csr -sha256
 生成证书的过程即是CA使用私钥对CSR进行签名的过程。在这里我们使用CA自己的证书对自己的CSR进行签名，即可得到根证书：
 
 ```sh
-openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt
+openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -sha256
 ```
 
 默认情况下，证书的有效期是一个月。一般我们会通过`-days`参数（单位为天）将CA证书的有效期设得比较长，以免需要不时去更换：
