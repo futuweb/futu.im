@@ -6,7 +6,7 @@ type: "page"
 comments: false
 ---
 
-@TooBug,是我师傅,有事找他。
+敦促自己，把握时间。秉承：做中学，学中做。
 
 [飞机入口](https://github.com/Yi-love)
 [博客](http://yi-love.github.io/blog/)
