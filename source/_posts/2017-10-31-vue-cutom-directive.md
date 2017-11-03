@@ -20,43 +20,43 @@ author: Diandian
 
 如果你已经用过vue或者angular的话，对于`v-if`,`v-else`,`v-show`等指令就会比较熟悉了，但是我还是要介绍一些基础的知识，如果你更想直接看例子，可以直接看后文就好了。
 
-以下是使用指令的几种方法，以及示例，这些例子不是规范性的，它们只是用例。这里的`example`代替了实际的指令。
+以下是使用指令的几种方法，以及示例，这些例子并不规范，它们只是示例。这里的`example`代替了实际的指令。
 
-`v-example`-是一个实例化指令，但没有参数。如果不传参数会比较不灵活，但是也可以从DOM元素中删除一些功能。
+`v-example` - 会实例化一个指令，但这个指令没有参数。如果不传参数会比较不灵活，但是这样就已经操作DOM元素的能力了。
 
-`v-example="value"`-这样可以传值到指令中，指令会根据value值来操作html。
+`v-example="value"` - 这样可以传值到指令中，指令会根据`value`值来操作html。
 
 ```html
-<div v-if="stateExample">I will show up if stateExample is true</div>
+<div v-if="stateExample">stateExample为true时会显示</div>
 ```
 
-`v-example="'string'"`-使用字符串作为表达式。
+`v-example="'string'"` - 使用字符串作为表达式。
 
 ```html
 <p v-html="'<strong>this is an example of a string in some text<strong> '"></p>
 ```
 
-`v-example:arg="value"`-  这里可以传参数，在下面的例子中，我们绑定一个class，然后给这个class设置样式。
+`v-example:arg="value"` - 这里可以传参数（`arg`），在下面的例子中，我们绑定一个`class`，然后给这个`class`设置样式。
 
 
 ```html
 <div v-bind:class="someClassObject"></div>
 ```
 
-`v-example:arg.modifier="value"`-使用修饰符，下面的例子可以在click事件上调用`preventDefault()`;
+`v-example:arg.modifier="value"` - 使用修饰符（`modifier`），下面的例子可以在`click`事件上调用`preventDefault()`;
 
 ```html
 <button v-on:submit.prevent="onSubmit"></button>
 ```
 
-### 了解自定义指令
+## 了解自定义指令
 
 现在对指令有了大概的了解后，我们再来学习下如何创建一个自定义指令。自定义指令的典型例子就是创建一个`scroll`事件的指令，下面让我们一起来看一下。
 
 首先创建一个单纯的全局指令（它还没有做任何事情）。
 
-```js
-vue.directive('task');
+```javascript
+vue.directive('tack');
 ```
 
 根据这个指令HTML就是这样的：
@@ -67,36 +67,29 @@ vue.directive('task');
 
 指令定义函数提供了几个钩子函数 (可选)：
 
-1、`bind`-只调用一次，指令第一次绑定到元素时调用。
+1. `bind`-只调用一次，指令第一次绑定到元素时调用。
+2. `insert`-被绑定元素插入父节点时调用。
+3. `update`-所在组件的 VNode 更新时调用，但是可能发生在其子元素的 VNode 更新之前。
+4. `componentUpdated`-所在组件的 VNode 及其子元素的 VNode 全部更新时调用。
+5. `unbind`-只调用一次，指令与元素解绑时调用。
 
-2、`insert`-被绑定元素插入父节点时调用。
-
-3、`update`-所在组件的 VNode 更新时调用，但是可能发生在其子元素的 VNode 更新之前。
-
-4、`componentUpdated`-所在组件的 VNode 及其子元素的 VNode 全部更新时调用。
-
-5、`unbind`-只调用一次，指令与元素解绑时调用。
-
-![hookArguments](https://cdn.css-tricks.com/wp-content/uploads/2017/04/custom-directives-flat.svg)
+![hookArguments](/images/2017-10-31-vue-cutom-directive/01.svg)
 
 我认为这五个钩子函数中`bind`和`update`是最有用的。
 
-他们中的每一个都有可以用的`el`,`binding`和`vnode`参数，除了`update`和`componentUpdated`之外，还会暴露`oldVnode`,以区分传递的旧值和新值。
+他们中的每一个都有可以用的`el`,`binding`和`vnode`参数，除了`update`和`componentUpdated`之外，还会暴露`oldVnode`，以区分传递的旧值和新值。
 
-`el`,指令所绑定的元素，可以用来直接操作 DOM 。
-
-`binding`一个对象，包含以下属性：
-`name`,`value`,`oldValue`,`expression`,`arg`和`modifiers`。
-
-`vnode`Vue 编译生成的虚拟节点。
+- `el` 指令所绑定的元素，可以用来直接操作 DOM 。
+- `binding` 一个对象，包含以下属性：`name`,`value`,`oldValue`,`expression`,`arg`和`modifiers`。
+- `vnode` Vue 编译生成的虚拟节点。
 
 `binding`和`vnode`都是只读。
 
-### 创建一个自定义指令
+## 创建一个自定义指令
 
 了解了自定义指令概念后，来看下如何使用一个自定义指令，下面用一个例子来实现我们刚才所说的：
 
-```js
+```javascript
 Vue.directive('tack',{
     bind(el,binding,vnode){
         el.style.position = 'fixed'
@@ -109,10 +102,9 @@ Vue.directive('tack',{
 <p v-tack>I will now be tacked onto the page</p>
 ```
 
-这样也可以，如果能接受参数，更新，复用的话就会更加灵活。让我们看下如何实现让这个元素离页面顶部有一定的距离：
+这样就可以了，但是还不够灵活。如果能接受参数以便后续更新它的表现或者进行复用的话就会更加灵活。让我们看下如何实现让这个元素离页面顶部有一定的距离：
 
-Js
-```js
+```javascript
 Vue.directive('tack',{
     bind(el,binding,vnode){
         el.style.position = 'fixed';
@@ -121,11 +113,10 @@ Vue.directive('tack',{
 })
 ```
 
-HTML
 ```html
 <div id="app">
-    <p>Scroll down the page</p>
-    <p v-tack="70">stick me 70px from the top of page</p>
+    <p>向下滚动页面</p>
+    <p v-tack="70">我固定在离顶部70px的地方</p>
 </div>
 ```
 
@@ -133,17 +124,13 @@ HTML
 
 <iframe id="cp_embed_0959829d6dfd86f6a1e06be2fd424ec7" src="//codepen.io/sdras/embed/0959829d6dfd86f6a1e06be2fd424ec7?height=265&amp;theme-id=1&amp;slug-hash=0959829d6dfd86f6a1e06be2fd424ec7&amp;default-tab=result&amp;user=sdras&amp;embed-version=2&amp;pen-title=Simple%20custom%20directive" scrolling="no" frameborder="0" height="265" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="Simple custom directive" class="cp_embed_iframe " style="width: 100%; overflow: hidden; height: 100%;"></iframe>
 
-假设我们想要区分是否偏离顶部或者左边的70px,可以通过传递一个参数来实现：
-
-HTML
+假设我们想要区分偏离的70px是在顶部还是左侧，可以通过传递一个参数来实现：
 
 ```html
-<p v-tack:left="70">I‘ll now be offset from the left instead of the top</p>
+<p v-tack:left="70">现在我会在距离左侧70px的地方</p>
 ```
 
-JS
-
-```js
+```javascript
 Vue.directive('tack',{
     bind(el,binding,vnode){
         el.style.position = 'fixed';
@@ -159,17 +146,13 @@ Vue.directive('tack',{
 
 你也可以使用多个值，像自带指令一样用：
 
-HTML
-
 ```html
-<p v-tack="{top:'40',left:'100'}">Stick me 40px from the top of the page and 100px from the left of the page</p>
+<p v-tack="{top:'40',left:'100'}">我固定在离顶部40px、左侧100px的地方</p>
 ```
 
 然后这两个值将会在指令上同时生效：
 
-JS
-
-```js
+```javascript
 Vue.directive('tack',{
     bind(el,binding,vnode){
         el.style.position = 'fixed';
@@ -185,14 +168,12 @@ Vue.directive('tack',{
 
 我们还可以编写更复杂的东西，我们可以根据自定义指令来创建和修改方法。这里，我们简单创建一个滚动动画小例子：
 
-JS
-
-```js
+```javascript
 Vue.directive('scroll',{
     inserted:function(el,binding){
         let f = function(evt){
             if(binding.value(evt,el)){
-                 window.removeEventListener(‘scroll’,f);
+                 window.removeEventListener('scroll',f);
             }
         }
         window.addEventListener('scroll',f);
@@ -218,8 +199,6 @@ new Vue({
 });
 ```
 
-HTML
-
 ```html
 <div class="box" v-scroll="handleScroll">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque amet harum aut ab veritatis earum porro praesentium ut corporis. Quasi provident dolorem officia iure fugiat, eius mollitia sequi quisquam.</p>
@@ -232,7 +211,7 @@ HTML
 
 以上都是很简单的代码来实现效果，在实际的开发中，你可以创建更高级灵活的自定义指令。
 
-在一个实际构建过程中，将指令代码放在`“main.js”`中，这个文件`“src”`目录的根目录下（如果你使用的是Vue-cli版本）。`"App.vue"`及以`'.vue'`后缀名的文件都可以引入使用。同时其他的方法也可以使用它，这是自定义指令在整个应用程序里最灵活的体现。
+在一个实际构建过程中，我会将指令代码放在`main.js`中，这个文件位于`src`目录下（如果你使用的是vue-cli这样的工具的话），这样`App.vue`及以`.vue`后缀名的文件都可以引入使用。你当然也可以使用其他的方式，但这是我认为在实现整个App过程中最灵活的方式。
 
 如果你想了解有关Vue框架的更多知识，请查看[guide](https://css-tricks.com/guides/vue/).
 
@@ -240,4 +219,4 @@ HTML
 
 作者：[SARAH DRASNER ](https://css-tricks.com/author/sdrasner/)
 
-译者：[Diandian]()
+译者：[Diandian](https://futu.im/author/Diandian)
