@@ -120,7 +120,7 @@ Vue.directive('tack',{
 </div>
 ```
 
-完成后的CodePen展示：
+完成后的CodePen展示：(如无法展示效果，点击[链接](https://codepen.io/sdras/pen/0959829d6dfd86f6a1e06be2fd424ec7)查看)
 
 <iframe id="cp_embed_0959829d6dfd86f6a1e06be2fd424ec7" src="//codepen.io/sdras/embed/0959829d6dfd86f6a1e06be2fd424ec7?height=265&amp;theme-id=1&amp;slug-hash=0959829d6dfd86f6a1e06be2fd424ec7&amp;default-tab=result&amp;user=sdras&amp;embed-version=2&amp;pen-title=Simple%20custom%20directive" scrolling="no" frameborder="0" height="265" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="Simple custom directive" class="cp_embed_iframe " style="width: 100%; overflow: hidden; height: 100%;"></iframe>
 
@@ -140,7 +140,7 @@ Vue.directive('tack',{
 })
 ```
 
-完成后的CodePen展示：
+完成后的CodePen展示：(如无法展示效果，点击[链接](https://codepen.io/sdras/pen/4dfeb0b4f8ac1158236d3b9fea71cc9a)查看)
 
 <iframe id="result-iframe" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms" src="https://s.codepen.io/sdras/fullembedgrid/4dfeb0b4f8ac1158236d3b9fea71cc9a?type=embed&amp;animations=run" allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen="true" name="CodePen Preview for Simple directive with arg" title="CodePen Preview for Simple directive with arg" data-src="https://s.codepen.io/sdras/fullembedgrid/4dfeb0b4f8ac1158236d3b9fea71cc9a?type=embed&amp;animations=run"></iframe>
 
@@ -162,7 +162,7 @@ Vue.directive('tack',{
 })
 ```
 
-完成后的CodePen展示：
+完成后的CodePen展示：(如无法展示效果，点击[链接](https://codepen.io/sdras/pen/b307a9dd0449ad8563fb489d9ae4ab95)查看)
 
 <iframe id="cp_embed_b307a9dd0449ad8563fb489d9ae4ab95" src="//codepen.io/sdras/embed/b307a9dd0449ad8563fb489d9ae4ab95?height=265&amp;theme-id=1&amp;slug-hash=b307a9dd0449ad8563fb489d9ae4ab95&amp;default-tab=result&amp;user=sdras&amp;embed-version=2&amp;pen-title=Simple%20directive%20with%20two%20values" scrolling="no" frameborder="0" height="265" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="Simple directive with two values" class="cp_embed_iframe " style="width: 100%; overflow: hidden; height: 100%;"></iframe>
 
@@ -205,7 +205,7 @@ new Vue({
 </div>
 ```
 
-完成后的CodePen展示：
+完成后的CodePen展示：(如无法展示效果，点击[链接](https://codepen.io/sdras/pen/5ca1e0c724d7d900603d8898b5551189)查看)
 
 <iframe id="result-iframe" sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-modals allow-forms" src="https://s.codepen.io/sdras/fullembedgrid/5ca1e0c724d7d900603d8898b5551189?type=embed&amp;animations=run" allowtransparency="true" frameborder="0" scrolling="yes" allowfullscreen="true" name="CodePen Preview for Custom Scroll Directive" title="CodePen Preview for Custom Scroll Directive" data-src="https://s.codepen.io/sdras/fullembedgrid/5ca1e0c724d7d900603d8898b5551189?type=embed&amp;animations=run"></iframe>
 
