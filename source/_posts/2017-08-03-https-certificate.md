@@ -52,6 +52,20 @@ openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -sha256 -days 3650
 
 至此我们就有了作为CA使用的私钥和根证书。
 
+> 2017-11-09更新：在实际使用过程中，发现这样生成的证书无法被正确安装到Android设备上，需要补充一下ext信息。
+
+准备一个ca.ext文件
+
+```
+basicConstraints=CA:FALSE
+```
+
+然后在生成证书的时候带上`-ext`选项：
+
+```sh
+openssl x509 -req -in ca.csr -signkey ca.key -out ca.crt -sha256 -days 3650 -ext ca.ext
+```
+
 ## 使用CA签发证书
 
 前文说过，直接使用CA配置服务器并不是很方便，因为要为每个证书配置信任关系。更好的方式是生成一次根证书，然后使用根证书的私钥为不同的域名签署不同的证书。具体的步骤和生成CA证书基本一致，只有最后签名的一步略有不同。
