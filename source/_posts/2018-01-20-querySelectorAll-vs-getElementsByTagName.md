@@ -15,7 +15,7 @@ author: Jin
 | 返回值类型 | NodeList | HTMLCollection |
 | 返回值状态 | 静态 | 动态 |
 
-由此可知，除了遍历方式都是深度优先之外。其它的都是不同的。
+由此可知，除了遍历方式都是深度优先之外。返回值类型，状态都是有不同的。
 
 <!-- more -->
 
@@ -25,24 +25,34 @@ author: Jin
 
 --摘自《[wikipedia](https://zh.wikipedia.org/wiki/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)》
 
-那么在DOM树中使用该算法遍历也是相同的道理，只不过节点就对应着DOM树中的元素。
+那么使用`querySelectorAll`或者`getElementsByTagName`方法进行DOM树遍历的思路就是深度优先遍历算法，只不过节点就对应着DOM树中的元素。
 
 ![different——01](/images/2018-01-20-querySelectorAll-vs-getElementsByTagName/0101_01.jpg)
 
-从图中可以看出，两个方法返回的顺序都是一样的。
+从图中的浏览器的控制台输出可以看出，两个方法返回的顺序都是一样的。返回的结果都是：
+
+```
+[div.one, div.two, div.three, div.four, div.five, div.six]
+```
 
 ### 返回值
-那么重点还是在返回值上。NodeList 和 HTMLCollection 都是DOM树元素集合的操作对象。
+那么主要的 区别就是返回值。NodeList 和 HTMLCollection 都是DOM树元素集合的操作对象。
 
-动态集合指的就是会随着DOM树元素的增加而增加，减少而减少。静态集合则不会受DOM树元素变化的影响。
+先从定义上区分一下动态和静态集合。动态集合指的就是元素集合会随着DOM树元素的增加而增加，减少而减少；静态集合则不会受DOM树元素变化的影响。
 
-NodeList对象是一个节点的集合，是由`Node.childNodes`和`document.querySelectorAll`返回的。NodeList并不是都是静态的，也就是说`Node.childNodes`返回的也是一个动态的元素集合，`querySelectorAll` 返回的是一个静态集合。
+NodeList对象是一个节点的集合，是由`Node.childNodes`和`document.querySelectorAll`返回的。NodeList并不是都是静态的，也就是说`Node.childNodes`返回的是动态的元素集合；`querySelectorAll` 返回的是一个静态集合。
 
 HTMLCollection 返回一个时时包括所有给定标签名称的元素的HTML集合，也就是动态集合。
 
-对比下来可以发现，NodeList 既可以是静态也可以是动态的，而HTMLCollection则一直是动态的。
+下面来看看静态集合和动态集合的具体表现：
 
-下面的这种情况，NodeList是动态的：
+![different——02](/images/2018-01-20-querySelectorAll-vs-getElementsByTagName/0101_04.jpg)
+
+从上面的图中可以看出，通过`document.querySelectorAll('div')`选择的DOM元素集合`query`的大小不会随着`document.body.appendChild(seven)`增加的一个新的`div`元素而改变。而`document.getElementsByTagName('div')`选择的DOM元素集合`elemts`的大小之前和`query`的大小同为`6`个，在添加入新的`div`元素“seven”之后就变成了`7`个。这就很好的诠释了动态还让静态集合最大的区别。
+
+上面提到 NodeList 既可以是静态也可以是动态的，而HTMLCollection则一直是动态的。那什么情况下NodeList是动态的呢？我们来看下面的这个例子。
+
+下面的代码是往`<div class="one">`这个元素里面插入一个新的`div`元素，会发现插入前和插入后输出的`length`是不一样的。这也就表明NodeList动态集合确实存在。
 
 ```js
 var one = document.querySelector('.one')
@@ -52,11 +62,11 @@ one.appendChild(document.createElement('div'));
 console.log(child.length);//8
 ```
 
-上面的代码是往`<div class="one">`这个元素里面插入一个新的`div`元素，会发现插入前和插入后输出的`length`是不一样的。这也就表明NodeList动态集合确实存在。
-
 ![different——02](/images/2018-01-20-querySelectorAll-vs-getElementsByTagName/0101_02.jpg)
 
-在需要遍历DOM树元素的时候就需要格外注意了，使用动态集合有可能会出现意想不到的结果。
+上面图中`one.childNodes.length`和前面讨论的`document.getElementsByTagName('div')`都会随着DOM树元素的增加或减少而发生变化（集合内）。
+
+所以在需要遍历DOM树元素的时候就需要格外注意了，使用动态集合有可能会出现意想不到的结果。
 
 
 案例HTML代码：
