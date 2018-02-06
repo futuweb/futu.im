@@ -6,7 +6,7 @@ tags: [JS,技术]
 author: Diandian
 ---
 
-有一天，在我研究[ the Zendesk web widget race condition](https://www.bennadel.com/blog/3248-the-zendesk-web-widget-appears-to-have-a-small-hide-show-race-condition.htm)时，我最初想到的是在setTimeout()里通过暴露zEmbed对象的方法来解决。这个方法是可以用的；同时，也让我想到了API文档。在Zendesk web widget文档中，没有提到这个方法是否可以分发来做裸参考。所以，提出这样一个问题：不管是否有效都能这样使用它吗？越想这个问题，我越觉得对象构造-和它继承方法绑定-是API的非常重要的一部分，不管你写没写。方法绑定是理解Javascripts的基础，我想你应该想让大家能用不同的方式使用它。
+有一天，在我研究[the Zendesk web widget race condition](https://www.bennadel.com/blog/3248-the-zendesk-web-widget-appears-to-have-a-small-hide-show-race-condition.htm)时，我最初想到的是在setTimeout()里通过暴露zEmbed对象的方法来解决。这个方法是可以用的；同时，也让我想到了API文档。在Zendesk web widget文档中，没有提到这个方法是否可以分发来做裸参考。所以，提出这样一个问题：不管是否有效都能这样使用它吗？越想这个问题，我越觉得对象构造-和它继承方法绑定-是API的非常重要的一部分，不管你写没写。方法绑定是理解Javascripts的基础，我想你应该想让大家能用不同的方式使用它。
 
 译者注：
 
@@ -32,7 +32,8 @@ setTimeout(zEmbed.show,500);
 
 [lexical.js](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08#file-lexical-js)hosted with ❤ by [GitHub](https://github.com)  
 [view raw](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08/raw/b4bc5811871d4a41824061661bd85ee0b01200ce/lexical.js)
-```
+
+```javascript
 //引入核心模块
 var chalk = require('chalk');
 // ----------------------------------------------------------------------------------- //
@@ -82,7 +83,8 @@ setTimeout(hide,1000);
 
 [mixed.js](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08#file-mixed-js) hosted with ❤ by [GitHub](https://github.com)
 [view raw](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08/raw/b4bc5811871d4a41824061661bd85ee0b01200ce/mixed.js)
-```
+
+```javascript
 // 引入模块
 var chalk = require("chalk");
 // ----------------------------------------------------------------------------------- //
@@ -153,7 +155,8 @@ setTimeout(
 
 [context.js](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08#file-context-js) hosted with ❤ by [GitHub](https://github.com)
 [view raw](https://gist.github.com/bennadel/81040d2bd52c2bf84ac8a1f36d123a08/raw/b4bc5811871d4a41824061661bd85ee0b01200ce/context.js)
-```
+
+```javascript
 //引入模块
 var chalk = require('chalk');
 // ----------------------------------------------------------------------------------- //
