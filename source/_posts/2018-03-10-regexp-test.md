@@ -1,5 +1,5 @@
 ---
-title: 正则表达式RegExp.prototype.test方法使用误区笔记
+title: 正则表达式RegExp.prototype.test方法使用不当笔记
 date: 2018-03-10 12:00
 category: JavaScript
 tags: [web前端,RegExp,regexp.test,javascript]
