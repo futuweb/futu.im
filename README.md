@@ -89,3 +89,21 @@ master分支提交后，数分钟内上线。
 ## 常见问题
 
 略……请查文档……
+
+
+## weekly
+
+JavaScript: [http://javascriptweekly.com/](http://javascriptweekly.com/)
+      [https://medium.com/](https://medium.com/)
+
+CSS: [http://css-weekly.com/archives/](http://css-weekly.com/archives/)
+
+前端：[http://frontendweekly.co/](http://frontendweekly.co/)
+      [https://frontendfoc.us/](https://frontendfoc.us/)
+
+Mb-Dev: [https://mobiledevweekly.com/](https://mobiledevweekly.com/)
+
+WEB: [https://webopsweekly.com/](https://webopsweekly.com/)
+
+Node: [https://nodeweekly.com/](https://nodeweekly.com/)
+
