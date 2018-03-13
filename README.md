@@ -37,14 +37,14 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 写文章还是要有点规范才行，不然太混乱也不好。
 
 1. 文章命名：YY-MM-DD-name.md (例如：2017-04-11-demo-01.md)
-2. github新文章分支命名：new/YY-MM-DD-name (例如：new/2017-04-11-demo-01)
-3. github修改文章分支命名：hotfix/YY-MM-DD-name (例如：hotfix/2017-04-11-demo-01)
 4. 文章上方的meta信息写清楚，包括作者、时间、分类、tags等
 5. 每篇文章必须设置`<!--more-->`标记，否则会在首页将文章全文显示出来，影响浏览
 6. 图片目录按照文章名字命名放在images目录下
 7. 假如你还没有作者简介，请到author目录添加自己的作者简介
 
 所有的文件夹都是针对source目录来的。文章放在_post目录。
+
+编写好后提交master。
 
 ## 文章内容
 小编一下也想不全，大概的罗列了以下的几个主要的类型：
@@ -63,6 +63,8 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 需要注意的是：翻译文章时记得标记你翻译的文章为：`已接单`，翻译完成发布了标记为：`已结单`。
 
+文章的标题请加上`【译】`代表是翻译文章，文章底部加上翻译作者名称以及原创作者和原文链接。
+
 修改评论：@你自己，表示你接的，这样其他人就不会重复翻译了。
 
 例如：
@@ -78,27 +80,23 @@ master分支提交后，数分钟内上线。
 ## 文章推广
 文章发布并不是什么难事，合并到master分支就好。推广的话，需要对文章Review一下，过审才发表出去比较好。一个是对自己的文章负责，二是对读者负责。
 
-1. 发布：将分支合并入master即可
+1. 发布：发布master即可
 2. 推广：review通过，发到相关平台（例如：前端早读课）
-3. review安排：Toobug把关
-
+3. review安排：Toobug，Nick，Jin把关
 
 ## 附录
 ![futu.im博客规范](source/images/readme/01.png)
 
-## 常见问题
-
-略……请查文档……
-
-
 ## weekly
 
 JavaScript: [http://javascriptweekly.com/](http://javascriptweekly.com/)
+
       [https://medium.com/](https://medium.com/)
 
 CSS: [http://css-weekly.com/archives/](http://css-weekly.com/archives/)
 
 前端：[http://frontendweekly.co/](http://frontendweekly.co/)
+
       [https://frontendfoc.us/](https://frontendfoc.us/)
 
 Mb-Dev: [https://mobiledevweekly.com/](https://mobiledevweekly.com/)
