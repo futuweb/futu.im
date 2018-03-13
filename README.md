@@ -77,27 +77,25 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 master分支提交后，数分钟内上线。
 
+1. review安排：Toobug，Nick，Jin把关
+
 ## 文章推广
 文章发布并不是什么难事，合并到master分支就好。推广的话，需要对文章Review一下，过审才发表出去比较好。一个是对自己的文章负责，二是对读者负责。
 
 1. 发布：发布master即可
 2. 推广：review通过，发到相关平台（例如：前端早读课）
-3. review安排：Toobug，Nick，Jin把关
+3. review安排：Toobug，Nick把关
 
 ## 附录
 ![futu.im博客规范](source/images/readme/01.png)
 
 ## weekly
 
-JavaScript: [http://javascriptweekly.com/](http://javascriptweekly.com/)
-
-      [https://medium.com/](https://medium.com/)
+JavaScript: [http://javascriptweekly.com/](http://javascriptweekly.com/) [https://medium.com/](https://medium.com/)
 
 CSS: [http://css-weekly.com/archives/](http://css-weekly.com/archives/)
 
-前端：[http://frontendweekly.co/](http://frontendweekly.co/)
-
-      [https://frontendfoc.us/](https://frontendfoc.us/)
+前端：[http://frontendweekly.co/](http://frontendweekly.co/)  [https://frontendfoc.us/](https://frontendfoc.us/)
 
 Mb-Dev: [https://mobiledevweekly.com/](https://mobiledevweekly.com/)
 
