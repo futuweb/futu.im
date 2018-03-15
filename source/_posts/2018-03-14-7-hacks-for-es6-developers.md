@@ -114,8 +114,8 @@ getStuffNotBad(150, true, true)
 getStuffAwesome({ id: 150, force: true, verbose: true })
 ```
 
-原文：(7 Hacks for ES6 Developers)[https://medium.com/dailyjs/7-hacks-for-es6-developers-4e24ff425d0b]
+原文：[7 Hacks for ES6 Developers](https://medium.com/dailyjs/7-hacks-for-es6-developers-4e24ff425d0b)
 
-作者：(Tal Bereznitskey)[https://medium.com/@ketacode]
+作者：[Tal Bereznitskey](https://medium.com/@ketacode)
 
-译者：(Elly)[https://futu.im/author/Elly/]
+译者：[Elly](https://futu.im/author/Elly/)
