@@ -1,8 +1,8 @@
 ---
 title: HTTP常见状态码学习
 date: 2018-03-20 10:00
-category: HTTP
-tags: [JS,技术]
+category: 科普
+tags: [http,www]
 author: Diandian
 ---
 
