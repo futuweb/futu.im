@@ -303,6 +303,22 @@ operated by the People's Front of Judea.</p>
 
 以上就是常见的一些状态码，如有不正确的地方，欢迎指正。
 
+备注：
+
+（1）RFC  征求意见稿（英语：Request For Comments，缩写为RFC），是由互联网工程任务组（IETF）发布的一系列备忘录。文件收集了有关互联网相关信息，以及UNIX和互联网社区的软件文件，以编号排定。目前RFC文件是由互联网协会（ISOC）赞助发行。
+
+- RFC 2616  Hypertext Transfer Protocol -- HTTP/1.1 （超文本传输协议——HTTP/1.1）
+- RFC 2518  HTTP Extensions for Distributed Authoring -- WEBDAV （分布式的HTTP扩展 -  WEBDAV）
+- RFC 2817  Upgrading to TLS Within HTTP/1.1 （在HTTP / 1.1中升级到TLS）
+- RFC 2295 Transparent Content Negotiation in HTTP（
+HTTP中的透明内容协商）
+- RFC 2774  An HTTP Extension Framework（一个HTTP扩展框架）
+- RFC 4918 Extensions for Web Distributed Authoring and Versioning (WebDAV)（
+Web分布式创作和版本控制（WebDAV）扩展）
+- RFC 6585  Additional HTTP Status Codes （其他HTTP状态码）
+
+（2）WEBDAV 基于Web的分布式创作和版本控制（WebDAV）是超文本传输协议（HTTP）的扩展，有利于用户间协同编辑和管理存储在万维网服务器文档。WebDAV由互联网工程任务组的工作组在RFC 4918中定义。
+
 参考链接：
 - http://blog.csdn.net/hzw05103020/article/details/47276005
 - https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
