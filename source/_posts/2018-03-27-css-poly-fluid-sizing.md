@@ -385,8 +385,6 @@ h1 {
 `poly-fluid-sizing（）`类将对每对视口宽度执行线性插值并设置最小和最大尺寸。您可以将其导入到任何Sass项目中，并轻松使用它，而无需知道任何背后的数学。这是使用此方法的最终[CodePen](https://codepen.io/jakobud/pen/vmKLYb)。
 
 
-![holy-grail-opt](/images/2018-03-27-css-poly-fluid-sizing/holy-grail-opt.png)
-
 ### 一些注释
 
 - 这种方法提供的不仅仅是`font-size`,也适用于任何unit/length属性（`margin`,`padding`等）你可以将所需要的属性名称作为字符串传给类函数就可以。
