@@ -1,62 +1,58 @@
 ---
-title: deviceorientation与devicemotion设备方向运动检测
+title: 移动设备方向检测的WEB运用
 date: 2018-03-31 15:05:53
-category: JavaScript
-tags: [JavaScript,API]
+category: 技术预研
+tags: [JavaScript,API,DeviceOrientationEvent,DeviceMotionEvent]
 author: Cynthia
 ---
 
+HTML5的Device API中提供了几个DOM事件，可以获得设备的物理方向及运动的信息。这些数据来源于设备上的陀螺仪、加速度传感器以及指南针等。
 
-HTML5的Device API中提供了几个DOM事件，可以获得设备的物理方向及运动的信息。这些数据来源于设备上的陀螺仪、加速计以及指南针等。
+这里主要通过介绍的是两个负责处理设备方向信息JavaScript事件，来讲述设备方向检测的运用。事件分别是
 
-这里主要介绍的是两个负责处理处理设备方向信息Javascript事件。分别是
-
-- `DeviceorientationEvent`: 它会在传感器检测到设备在方向上发生变化时触发。
-- `DevicemotionEvent`: 它会在传感器检测到设备的运动加速度发生变化时触发。
+- `DeviceorientationEvent`：它会在加速度传感器检测到设备在方向上发生变化时触发。
+- `DevicemotionEvent`：它会在加速度传感器检测到设备的运动加速度发生变化时触发。
 
 <!-- more -->
 
-## deviceorientation
+## DeviceorientationEvent
 
-`deviceorientation` 事件在方向传感器输出新数据的时候触发。其数据系传感器与地球坐标系相比较所得，也就是说在设备上可能会采用设备地磁计的数据。
-
+`DeviceorientationEvent` 它会在加速度传感器检测到设备在方向上发生变化时触发。其数据是传感器与地球坐标系相比较所得的值，也就是说在设备上可能会采用设备地磁计的数据。
 
 ### 浏览器兼容性
 ![deviceorientation兼容性](/images/2018-03-31-deviceorientation-and-devicemotion/1.png)
 
-### 判断设备是否支持事件
-```javascript
-if(window.DeviceOrientationEvent){//判断设备是否支持运动传感事件。
-        window.addEventListener('deviceorientation', function(event){
-            // 处理event.alpha、event.beta及event.gamma
-        }, false);
+### 判断设备是否支持处理方向（orientation）事件
 
+```js
+if(window.DeviceOrientationEvent){//判断设备是否支持设备方向检测事件。
+    window.addEventListener('deviceorientation', function(event){
+        // 处理event.alpha、event.beta及event.gamma
+    }, false);
 }else{
     // 不支持的处理
 }
 ```
 
-*个人看法*
-在一些pc浏览器上，`window.DeviceOrientationEvent`是返回`true`的，除了刚进入页面是触发了一次之外，我就不知道怎么可以让`deviceorientation`事件触发了（可能是因为我的笔记本上没有相关硬件）。所以个人觉得，判断设备是否支持事件这，是否应该判断一下是否为**移动端设备**？
+#### 需要注意
+在一些非移动设备浏览器上（比如：电脑浏览器），通过`window.DeviceOrientationEvent`判断设备是否支持处理设备方向事件，虽然返回的结果为`true`，但这并不表明，此设备支持操作加速度传感器。这是因为电脑上可能存在一个用于保护存储设备的传感器。
 
+所以个人观点是，在真正运用这一个新特性的时候，不仅需要判断设备是否支持处理设备方向事件，也需要判断是否为**移动端设备**？
 
-### 属性数据
+### deviceorientation事件属性
 
-- absolute: 是否为绝对定位？？
+- absolute: 是否为绝对定位？
 - alpha（只读）:围绕 Z 轴的旋转角度
 - beta（只读): 围绕 X 轴的旋转角度
 - gamma（只读): 围绕 Y 轴的旋转角度
 
-
 #### 设备坐标系
-
 要使用设备方向和动作事件返回的数据，必须理解所提供的值。
-
 
 设备坐标系由 `X`、`Y` 和 `Z` 值表示，以设备的中心为基准。
 **设备坐标系与页面横屏竖屏无关**
 
-|坐标系||
+|坐标系|描述|
 |---|---|
 |X | 处于屏幕平面，正值为设备的右侧|
 |Y  | 处于屏幕平面，正值为设备的顶部|
@@ -66,7 +62,7 @@ if(window.DeviceOrientationEvent){//判断设备是否支持运动传感事件�
 
 #### absolute
 
-```javascript
+```js
 var absolute = DeviceOrientationEvent.absolute;
 ```
 
@@ -76,7 +72,7 @@ todo:这个没太懂是啥意思，在ios里，`absolute`为`undefined`，在安
 
 #### alpha（只读）
 
-```javascript
+```js
 var alpha = DeviceOrientationEvent.alpha;
 ```
 
@@ -87,7 +83,7 @@ var alpha = DeviceOrientationEvent.alpha;
 *注意事项*
 
 - 不同手机的摆放位置一样时（手机平放在同一水平面，手机头部指向同一个方向），得到的`alpha`值相差较大
-- >当设备的顶部指向正北时 `alpha` 值为 `0`
+- 当设备的顶部指向正北时 `alpha` 值为 `0`
 
 这个说法自测是**不对**（测试中是根据手机的指南针app确定正北方向）
 
@@ -108,7 +104,6 @@ var alpha = DeviceOrientationEvent.alpha;
 0(屏幕向上) -> 90（屏幕向前，顶部在上） -> 180/-180（屏幕向下） -> -90（屏幕向后，底部在上） -> -0（屏幕向上）
 
 ![设备坐标系中 beta 的图示](/images/2018-03-31-deviceorientation-and-devicemotion/beta.png)
-
 
 #### gamma（只读）
 
@@ -141,10 +136,9 @@ var alpha = DeviceOrientationEvent.alpha;
 
 同`deviceorientation`
 
-
 ### 判断设备是否支持事件
 
-```javascript
+```js
 if (window.DeviceMotionEvent) {
     window.addEventListener('devicemotion', function(event){
         // 处理event.acceleration、event.accelerationIncludingGravity、event.rotationRate和event.interval
@@ -172,17 +166,13 @@ acceleration.y : 沿Y轴的加速度
 acceleration.z : 沿Z轴的加速度        
 
 #### accelerationIncludingGravity (只读)
+设备加速度，该值包括重力的影响。并且可能是没有陀螺仪的设备上可用的唯一值。
 
-设备加速度，该值包括重力的影响。并且可能是没有陀螺仪的设备上可用的唯一值
+* `accelerationIncludingGravity.x`：沿X轴的加速度，单位为m/(s*s)；
+* `accelerationIncludingGravity.y`：沿Y轴的加速度；
+* `accelerationIncludingGravity.z`：沿Z轴的加速.
 
-accelerationIncludingGravity.x : 沿X轴的加速度，单位为m/(s*s)        
-accelerationIncludingGravity.y : 沿Y轴的加速度        
-accelerationIncludingGravity.z : 沿Z轴的加速度        
-
-
-
-#### rotationRate （只读）
-
+#### rotationRate（只读）
 设备围绕所有三个轴的旋转速率。
 
 rotationRate.alpha: 围绕Z轴的旋转量，单位为度/秒     
@@ -208,7 +198,7 @@ rotationRate.gamma : 围绕Y轴的旋转量，单位为度/秒
 *思路*
 通过判断前后两次各个属性值之差是否大于阈值
 
-```javascript
+```js
 // 用用户设备的偏转角度判断是否摇了
 if (window.DeviceOrientationEvent) {
     var lastEvent = '';
@@ -284,7 +274,7 @@ if(window.DeviceMotionEvent) {
 </div>
 ```
 
-```javascript
+```js
 // 通过左右晃动，控制小球的左右位置
 if (window.DeviceOrientationEvent) {
     var ball = document.querySelector('.ball');
