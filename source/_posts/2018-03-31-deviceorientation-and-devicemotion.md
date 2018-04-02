@@ -6,6 +6,8 @@ tags: [JavaScript,API,DeviceOrientationEvent,DeviceMotionEvent]
 author: Cynthia
 ---
 
+> 声明：本特性为新特性，在实际开发中请谨慎使用。
+
 HTML5的Device API中提供了几个DOM事件，可以获得设备的物理方向及运动的信息。这些数据来源于设备上的陀螺仪、加速度传感器以及指南针等。
 
 这里主要通过介绍的是两个负责处理设备方向信息JavaScript事件，来讲述设备方向检测的运用。事件分别是
@@ -35,7 +37,7 @@ if(window.DeviceOrientationEvent){//判断设备是否支持设备方向检测�
 ```
 
 #### 需要注意
-在一些非移动设备浏览器上（比如：电脑浏览器），通过`window.DeviceOrientationEvent`判断设备是否支持处理设备方向事件，虽然返回的结果为`true`，但这并不表明，此设备支持操作加速度传感器。这是因为电脑上可能存在一个用于保护存储设备的传感器。
+在一些非移动设备浏览器上（比如：电脑浏览器），通过`window.DeviceOrientationEvent`判断设备是否支持处理设备方向事件，虽然返回的结果为`true`，但这并不表明，此设备支持处理设备方向事件。这是因为电脑上可能存在一个用于保护存储设备的传感器。
 
 所以个人观点是，在真正运用这一个新特性的时候，不仅需要判断设备是否支持处理设备方向事件，也需要判断是否为**移动端设备**？
 
@@ -68,29 +70,20 @@ var absolute = DeviceOrientationEvent.absolute;
 
 如果方向数据跟地球坐标系和设备坐标系有差异，则`absolute`为`true`，如果方向数据由设备本身的坐标系提供，则`absolute`为`false`。 
 
-todo:这个没太懂是啥意思，在ios里，`absolute`为`undefined`，在安卓chrome里，`absolute`为`false`。
+注意：在ios里，`absolute`为`undefined`，在安卓chrome里，`absolute`为`false`。有可能是浏览器实现不同。
 
 #### alpha（只读）
+**围绕 Z 轴的旋转角度**，取值[0,360）。
+
+当设备逆时针旋转时，`alpha` 值增加。
 
 ```js
 var alpha = DeviceOrientationEvent.alpha;
 ```
 
-**围绕 Z 轴的旋转角度**，取值[0,360）。
-
-当设备逆时针旋转时，`alpha` 值增加。
-
-*注意事项*
-
-- 不同手机的摆放位置一样时（手机平放在同一水平面，手机头部指向同一个方向），得到的`alpha`值相差较大
-- 当设备的顶部指向正北时 `alpha` 值为 `0`
-
-这个说法自测是**不对**（测试中是根据手机的指南针app确定正北方向）
-
 ![设备坐标系中 Alpha 的图示](/images/2018-03-31-deviceorientation-and-devicemotion/alpha.png)
 
 #### beta（只读）
-
 **围绕 X 轴的旋转角度**。取值(-180,180)。
 
 *旋转方式与beta值的变化关系*：  
@@ -133,8 +126,9 @@ var alpha = DeviceOrientationEvent.alpha;
 `devicemotion`事件会在加速度发生改变时触发。用于获取移动速度，得到设备移动时相对之前某个时间的差值比
 
 ### 浏览器兼容性
+与上文的`deviceorientation`事件兼容性相同。
 
-同`deviceorientation`
+![deviceorientation兼容性](/images/2018-03-31-deviceorientation-and-devicemotion/1.png)
 
 ### 判断设备是否支持事件
 
@@ -170,7 +164,7 @@ acceleration.z : 沿Z轴的加速度
 
 * `accelerationIncludingGravity.x`：沿X轴的加速度，单位为m/(s*s)；
 * `accelerationIncludingGravity.y`：沿Y轴的加速度；
-* `accelerationIncludingGravity.z`：沿Z轴的加速.
+* `accelerationIncludingGravity.z`：沿Z轴的加速。
 
 #### rotationRate（只读）
 设备围绕所有三个轴的旋转速率。
