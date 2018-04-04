@@ -405,8 +405,8 @@ h1 {
 
 
 
-原文：[How to Write a Perfect Error Message](https://uxplanet.org/how-to-write-a-perfect-error-message-da1ca65a8f36)
+原文：[Fluid Responsive Typography With CSS Poly Fluid Sizing](https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/)
 
-作者：[Vitaly Dulenko](https://uxplanet.org/@atko_o)
+作者：[Vitaly Dulenko](https://www.smashingmagazine.com/author/jake-wilson/)
 
 译者：[Diandian](https://futu.im/author/Diandian)
