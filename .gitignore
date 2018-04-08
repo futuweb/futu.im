@@ -7,3 +7,4 @@ public/
 .deploy*/
 .vscode
 .history
+package-lock.json
