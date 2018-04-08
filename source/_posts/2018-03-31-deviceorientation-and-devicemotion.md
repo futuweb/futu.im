@@ -1,5 +1,5 @@
 ---
-title: 移动设备方向检测的WEB运用
+title: 设备方向检测和加速传感器的运用
 date: 2018-03-31 15:05:53
 category: 技术预研
 tags: [JavaScript,API,DeviceOrientationEvent,DeviceMotionEvent]
@@ -10,7 +10,7 @@ author: Cynthia
 
 HTML5的Device API中提供了几个DOM事件，可以获得设备的物理方向及运动的信息。这些数据来源于设备上的陀螺仪、加速度传感器以及指南针等。
 
-这里主要通过介绍的是两个负责处理设备方向信息JavaScript事件，来讲述设备方向检测的运用。事件分别是
+这里主要通过介绍的是两个负责处理设备方向信息JavaScript事件，来讲述设备方向检测。事件分别是
 
 - `DeviceorientationEvent`：它会在加速度传感器检测到设备在方向上发生变化时触发。
 - `DevicemotionEvent`：它会在加速度传感器检测到设备的运动加速度发生变化时触发。
