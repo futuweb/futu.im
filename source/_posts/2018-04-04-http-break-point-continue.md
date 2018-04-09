@@ -1,7 +1,7 @@
 ---
 title: HTTP文件断点续传理论
 date: 2018-04-04 22:00
-category: 前端
+category: HTTP
 tags: [文件下载,HTTP]
 author: Arlvin
 ---
