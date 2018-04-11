@@ -9,8 +9,6 @@ author: Linda
 代码覆盖率功能最终完成了实验，列入了[Chrome Canary](https://www.google.com/chrome/browser/canary.html)，意味着它很快会变成普遍可用的。这是一个与javascript css一起工作时很有用的，令人兴奋的特性，我想我可以演示一个快速的例子来解释它是如何有用的。
 更新：代码覆盖率的特性正在登录标准Chrome。如果你更新到了最近的版本，就不用Canary了！
 
-
-
 <!-- more -->
 
 ## 它是做什么的？
@@ -33,22 +31,6 @@ LogRocket是一个前端的日志工具，可以帮助重现问题，就像他�
 
 很难保证前端dev是最新的版本。加入我们的每周的邮件列表来了解新的工具，库和最佳实践，可以帮助你构建更好的应用。
 
-
-
-
-
-
-
-
-
-
 译者：[Linda](https://github.com/Linda)
 
 作者：[Ben Edlstein](https://blog.logrocket.com/@edelstein?source=post_header_lockup)
-
-
-
-
-
-
-

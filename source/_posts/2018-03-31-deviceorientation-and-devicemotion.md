@@ -162,7 +162,7 @@ acceleration.z : 沿Z轴的加速度
 #### accelerationIncludingGravity (只读)
 设备加速度，该值包括重力的影响。并且可能是没有陀螺仪的设备上可用的唯一值。
 
-* `accelerationIncludingGravity.x`：沿X轴的加速度，单位为m/(s*s)；
+* `accelerationIncludingGravity.x`：沿X轴的加速度，单位为m/(s\*s)；
 * `accelerationIncludingGravity.y`：沿Y轴的加速度；
 * `accelerationIncludingGravity.z`：沿Z轴的加速。
 
