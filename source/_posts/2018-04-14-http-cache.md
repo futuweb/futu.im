@@ -43,7 +43,7 @@ web缓存可以分为：数据库缓存、CDN缓存、代理服务器缓存、�
 
 今天我们主要讨论和前端密切想着的浏览器HTTP缓存机制。浏览器HTTP缓存可以分为强缓存和协商缓存。强缓存和协商缓存最大区别是：强缓存命中的话不会发请求到服务器（比如chrome中的200 from memory cache），协商缓存一定会发请求到服务器，通过资源的请求首部字段难资源是否命中协商缓存，如果协商缓存命中，服务器会将这个请求返回，但是不会返回这个资源的实体，而是通知客户端可以从缓存中加载这个资源（304 not modifend）。流程图如下：
 
-![](/images/http/161233e63a84f043.png)
+![](/images/2018-04-14-http-cache/161233e63a84f043.png)
 
 #### http报文中与缓存相关的首部字段
 
@@ -117,7 +117,7 @@ ETag是一个响应首部字段，它是根据实体内容生成的一段hash字
 
 > If-None-Match: <etag_value> If-None-Match: <etag_value>, <etag_value>, … If-None-Match: *
 
-![image](/images/http/161233e63a97e53e.png)
+![image](/images/2018-04-14-http-cache/161233e63a97e53e.png)
 
 > 
 ETag属性之间的比较采用的是弱比较算法，即两个文件除了每个比特都相同外，内容一致也可以认为是相同的。例如，如果两个页面仅仅在页脚的生成时间有所不同，就可以认为二者是相同的。
@@ -133,11 +133,11 @@ ETag属性之间的比较采用的是弱比较算法，即两个文件除了每�
 
 ### 整体流程
 
-![image](/images/http/161233e6685e5e73.png)
+![image](/images/2018-04-14-http-cache/161233e6685e5e73.png)
 
 ### 用户行为对浏览器的影响
 
-![image](/images/http/181722532916918.png)
+![image](/images/2018-04-14-http-cache/181722532916918.png)
 
 参考资料：
 
