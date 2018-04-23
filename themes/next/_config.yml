@@ -35,7 +35,7 @@ menu:
   categories: /categories
   #about: /about
   archives: /archives
-  tags: /tags
+  # tags: /tags
   #commonweal: /404.html
 
 
@@ -48,11 +48,11 @@ menu_icons:
   enable: true
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
-  about: user
+  # about: user
   categories: th
-  tags: tags
+  # tags: tags
   archives: archive
-  commonweal: heartbeat
+  # commonweal: heartbeat
 
 
 

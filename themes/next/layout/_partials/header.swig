@@ -27,7 +27,7 @@
 </div>
 
 <nav class="site-nav">
-  {% set hasSearch = theme.swiftype_key || theme.tinysou_Key || config.search %}
+  {# {% set hasSearch = theme.swiftype_key || theme.tinysou_Key || config.search %} #}
 
   {% if theme.menu %}
     <ul id="menu" class="menu">
@@ -43,7 +43,7 @@
         </li>
       {% endfor %}
 
-      {% if hasSearch %}
+      {# {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}
             <a href="javascript:;" class="st-search-show-outputs">
@@ -56,14 +56,14 @@
             {{ __('menu.search') }}
           </a>
         </li>
-      {% endif %}
+      {% endif %} #}
     </ul>
   {% endif %}
 
-  {% if hasSearch %}
+{#   {% if hasSearch %}
     <div class="site-search">
       {% include 'search.swig' %}
     </div>
-  {% endif %}
+  {% endif %} #}
 </nav>
 
