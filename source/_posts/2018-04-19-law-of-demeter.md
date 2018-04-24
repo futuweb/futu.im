@@ -75,7 +75,7 @@ author: Jin
 
 [深入浅出外观模式](https://gof.quanke.name/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%80%EF%BC%89.html)
 
-[中介者模式](https://gof.quanke.name/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F-Mediator%20Pattern.html)
+[深入浅出中介者模式](https://gof.quanke.name/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F-Mediator%20Pattern.html)
 
 [外观模式](http://design-patterns.readthedocs.io/zh_CN/latest/structural_patterns/facade.html)
 
