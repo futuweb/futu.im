@@ -4,7 +4,7 @@
 
 # Site
 title: 富途Web开发团队
-subtitle: 
+subtitle:
 description:
 author: FutuWebTeam
 language: zh-Hans
@@ -20,7 +20,7 @@ permalink_defaults:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
+# tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
