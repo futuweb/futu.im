@@ -35,7 +35,7 @@ author: Ivanxiao
 
 为了快速完成需求，我们决定采用最简单的实现方式：存储到文件，所以我们设计其结构如下：
 
-![1](./images/2018-04-26-DIP-and-IoC/1.png)
+![1](/images/2018-04-26-DIP-and-IoC/1.png)
 
 图 1 显示在应用程序中一共有两个类。"Cache" 类负责调用"FileWrite"类来写入文件。代码实现如下：
 
