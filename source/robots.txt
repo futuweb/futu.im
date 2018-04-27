@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Allow: /archives/
+Allow: /categories/
+Disallow: /tags/
