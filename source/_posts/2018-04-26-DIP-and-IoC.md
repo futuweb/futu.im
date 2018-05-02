@@ -10,8 +10,6 @@ author: Ivanxiao
 
 <!--more-->
 
-
-
 ## 依赖倒置
 
 ### 定义
