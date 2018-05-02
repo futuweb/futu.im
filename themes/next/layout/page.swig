@@ -45,7 +45,7 @@
         <ul>
         {% for post in site.posts.sort('-date') %}
           {% if page.author == post.author %}
-            <li>{{post.date.format('YYYY-MM-DD')}} <a href="{{url_for(post.path)}}" target="_blank">{{post.title}}</a></li>
+            <li>{{post.date.format('YYYY-MM-DD')}} <a href="{{url_for(post.path)}}" target="_blank" rel="nofollow">{{post.title}}</a></li>
           {% endif %}
         {% endfor %}
         </ul>
