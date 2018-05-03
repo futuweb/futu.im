@@ -2,7 +2,7 @@
 title: 分享会直播第十弹之年末双重分享
 date: 2016-12-30 23:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Cynthia
 ---
 细心的朋友可能会问，第九弹在哪？怎么直接跳到第十弹了？只想说，在写本文时，它还在coco的脑海里。

@@ -1,7 +1,7 @@
 ---
 title: 【译】Node.js之HTTP/2服务器推送
 date: 2017-09-01 20:00
-category: Node.js
+categories: [Node.js]
 tags: [HTTP/2,Nodejs,JavaScript,Server Push]
 author: Jin
 ---

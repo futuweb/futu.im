@@ -1,7 +1,7 @@
 ---
 title: 【译】如何做好错误提示
 date: 2018-02-09 10:00
-category: 翻译
+categories: [设计]
 tags: [JS,技术]
 author: Diandian
 ---

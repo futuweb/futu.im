@@ -1,8 +1,7 @@
 ---
 title: 面向对象设计原则之依赖倒置原则
 date: 2018-04-26 13:00
-tags: []
-category: 设计模式
+categories: [后端]
 author: Ivanxiao
 ---
 

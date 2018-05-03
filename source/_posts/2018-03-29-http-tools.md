@@ -1,7 +1,7 @@
 ---
 title: HTTP常用工具——Chrome DevTools与Fiddler 4使用介绍
 date: 2018-03-29 20:00
-category: 工具
+categories: [工具]
 tags: [HTTP,Fiddler]
 author: WillWang
 ---

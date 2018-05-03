@@ -3,7 +3,7 @@ title: http缓存
 date: 2018-04-14 20:59:00
 tags: [网络]
 author: tony
-categories: HTTP
+categories: 后端
 ---
 
 ### **什么是web缓存**

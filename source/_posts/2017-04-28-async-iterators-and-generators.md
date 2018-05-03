@@ -1,8 +1,7 @@
 ---
 title: 【译】异步迭代器及生成器
 date: 2017-04-28 10:30
-category: 翻译
-tags: [JS,技术]
+categories: [前端]
 author: Linda
 ---
 Chrome，Edge，Safari都支持了流式获取，有点像这样：

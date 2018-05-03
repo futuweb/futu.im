@@ -1,7 +1,7 @@
 ---
 title: 【译】Node.js之对象流（Stream）权威指南
 date: 2017-05-21 14:00
-category: 翻译
+categories: [Node.js]
 tags: [nodejs,tutorial,gulp.js,object streams]
 author: Jin
 ---

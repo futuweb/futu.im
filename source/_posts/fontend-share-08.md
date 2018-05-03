@@ -2,7 +2,7 @@
 title: 分享会直播第八弹之天哥与css的故事
 date: 2016-12-19 17:20
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Allen
 ---
 

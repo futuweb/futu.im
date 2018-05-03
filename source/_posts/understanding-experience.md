@@ -2,7 +2,7 @@
 title: 某个程序员眼中的用户体验设计
 date: 2017-03-10 10:00
 tags: [用户体验设计]
-category: 读书笔记
+categories: [设计]
 author: Young
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 面向对象设计原则之迪米特原则
 date: 2018-04-19 20:00
-category: 设计模式
+categories: [后端]
 tags: [技术,原创]
 author: Jin
 ---

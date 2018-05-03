@@ -14,6 +14,7 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ config.language }}">
 
+  {# 目前只用谷歌统计 #}
   {% include '_scripts/third-party/analytics.swig' %}
 
   {% set container_class = "container one-collumn " %}
@@ -24,6 +25,7 @@
   <div class="{{ container_class }} {% block page_class %}{% endblock %} ">
     <div class="headband"></div>
 
+    {# 头部head #}
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"> {%- include '_partials/header.swig' %} </div>
     </header>

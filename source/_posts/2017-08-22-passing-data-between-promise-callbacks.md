@@ -1,7 +1,7 @@
 ---
 title: 【译】在Promise回调之间传值的方法
 date: 2017-08-22 13:00:00
-category: 翻译
+categories: [前端]
 tags: [JavaScript,Promise,异步]
 author: TooBug
 ---

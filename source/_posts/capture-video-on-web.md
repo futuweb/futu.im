@@ -2,7 +2,7 @@
 title: 如何使用web录制视频
 date: 2016-09-25 12:41
 tags: [Video,WebRTC]
-category: 技术预研
+categories: [前端]
 author: TooBug
 ---
 

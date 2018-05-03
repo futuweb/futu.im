@@ -1,7 +1,7 @@
 ---
 title: 【译】Css流式布局
 date: 2018-03-27 10:00
-category: 翻译
+categories: [前端]
 tags: [CSS,技术]
 author: Diandian
 ---

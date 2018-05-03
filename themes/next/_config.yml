@@ -31,13 +31,23 @@ canonical: true
 
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
-  home: /
-  categories: /categories
+  设计: /categories/设计
+  前端: /categories/前端
+  后端: /categories/后端
+  Node.js: /categories/Node-js
+  工具: /categories/工具
+  其它: /categories/其它
+  团队活动: /categories/团队活动
+  归档: /archives
+  # categories: /categories
   #about: /about
-  archives: /archives
+
   #tags: /tags
   #commonweal: /404.html
 
+default_category: uncategorized
+
+category_map:
 
 # Enable/Disable menu icons.
 # Icon Mapping:

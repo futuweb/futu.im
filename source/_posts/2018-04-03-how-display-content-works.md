@@ -1,7 +1,7 @@
 ---
 title: 【译】display:content; 的工作方式
 date: 2018-04-03 11:16:45
-category: 翻译
+categories: [前端]
 tags: [CSS, HTML]
 author: evanyan
 ---

@@ -2,7 +2,7 @@
 title: 关于通过H5页面唤起Native客户端的介绍
 date: 2016-11-02 10:00
 tags: [H5,Native,schema]
-category: 技术预研
+categories: [前端]
 author: AlanZhang
 ---
 

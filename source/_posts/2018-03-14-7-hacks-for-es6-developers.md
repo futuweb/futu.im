@@ -1,7 +1,7 @@
 ---
 title: 【译】ES6开发过程中的7个小技巧
 date: 2018-03-14 12:00
-category: 翻译
+categories: [前端]
 tags: [web前端, es6, javascript]
 author: Elly
 ---

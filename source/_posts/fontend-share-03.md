@@ -2,7 +2,7 @@
 title: 分享会直播之双十一狂欢勿忘学习
 date: 2016-11-11 17:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Diandian
 ---
 

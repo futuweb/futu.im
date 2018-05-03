@@ -1,7 +1,7 @@
 ---
 title: HTTPS自建CA及自签名证书不完全指南（实战篇）
 date: 2017-08-03 18:00
-category: 网络安全
+categories: [后端]
 tags: [OpenSSL,HTTPS,Node.js,nginx]
 author: Jin
 ---

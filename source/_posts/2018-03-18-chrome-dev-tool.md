@@ -1,7 +1,7 @@
 ---
 title: 【译】使用chrome dev tool的代码覆盖率功能
 date: 2018-03-28 15:00
-category: 翻译
+categories: [工具]
 tags: [chrome tools]
 author: Linda
 ---

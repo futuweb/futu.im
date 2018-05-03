@@ -1,7 +1,7 @@
 ---
 title: touchstart与click不得不说的故事
 date: 2017-09-29 20:00
-category: JavaScript
+categories: [前端]
 tags: [touchstart,click]
 author: AlanZhang
 ---

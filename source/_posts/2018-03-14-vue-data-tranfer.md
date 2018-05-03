@@ -1,7 +1,7 @@
 ---
 title: vue组件之间的数据传递
 date: 2018-03-14 18:00
-category: JavaScript
+categories: [前端]
 tags: [web前端, vue, javascript]
 author: Elly
 ---

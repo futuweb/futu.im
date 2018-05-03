@@ -2,7 +2,7 @@
 title: 分享会直播第七弹之迟到的幸福
 date: 2016-12-08 14:30
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: AlanZhang
 ---
 

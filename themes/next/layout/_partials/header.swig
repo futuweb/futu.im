@@ -31,7 +31,7 @@
 
   {% if theme.menu %}
     <ul id="menu" class="menu">
-      {% for name, path in theme.menu %}
+      {# {% for name, path in theme.menu %}
         {% set itemName = name.toLowerCase() %}
         <li class="menu-item menu-item-{{ itemName }}">
           <a href="{{ url_for(path) }}" rel="section">
@@ -41,8 +41,12 @@
             {{ __('menu.' + itemName) }}
           </a>
         </li>
+      {% endfor %} #}
+      {% for name, path in theme.menu %}
+        <li class="menu-item">
+          <a href="{{ url_for(path) }}" rel="section">{{name}}</a>
+        </li>
       {% endfor %}
-
       {# {% if hasSearch %}
         <li class="menu-item menu-item-search">
           {% if theme.swiftype_key %}

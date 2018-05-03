@@ -1,7 +1,7 @@
 ---
 title: 【译】vue 自定义指令的魅力
 date: 2017-10-31 10:00
-category: 翻译
+categories: [前端]
 tags: [JS,技术]
 author: Diandian
 ---

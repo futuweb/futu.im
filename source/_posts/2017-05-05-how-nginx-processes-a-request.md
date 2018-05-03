@@ -1,8 +1,7 @@
 ---
 title: 【译】nginx是如何处理请求的
 date: 2017-05-05 12:55
-category: 翻译
-tags: [nginx]
+categories: [后端]
 author: TooBug
 ---
 

@@ -2,7 +2,7 @@
 title: 分享会直播第二弹之仓促的分享
 date: 2016-11-04 17:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Cynthia
 ---
 

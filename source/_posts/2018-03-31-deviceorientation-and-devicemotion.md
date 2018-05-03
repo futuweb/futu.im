@@ -1,7 +1,7 @@
 ---
 title: 设备方向检测和加速传感器的运用
 date: 2018-03-31 15:05:53
-category: 技术预研
+categories: [前端]
 tags: [JavaScript,API,DeviceOrientationEvent,DeviceMotionEvent]
 author: Cynthia
 ---

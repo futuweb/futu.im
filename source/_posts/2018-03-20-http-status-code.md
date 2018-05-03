@@ -1,7 +1,7 @@
 ---
 title: HTTP常见状态码学习
 date: 2018-03-20 10:00
-category: 科普
+categories: [后端]
 tags: [http,www]
 author: Diandian
 ---

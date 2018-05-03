@@ -1,7 +1,7 @@
 ---
 title: 【译】passive 事件监听
 date: 2017-06-06 10:30
-category: 翻译
+categories: [前端]
 tags: [JavaScript,事件,性能]
 author: Linda
 ---

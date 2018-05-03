@@ -1,7 +1,7 @@
 ---
 title: 【译】Vue 中的方法,计算和侦听者
 date: 2018-04-11 10:00
-category: 翻译
+categories: [前端]
 tags: [Js,技术,Vue]
 author: Diandian
 ---

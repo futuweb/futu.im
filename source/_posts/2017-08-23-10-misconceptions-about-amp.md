@@ -1,7 +1,7 @@
 ---
 title: 【译】澄清对AMP的十个误解
 date: 2017-08-23 10:30
-category: 翻译
+categories: [前端]
 tags: [AMP]
 author: TooBug
 ---

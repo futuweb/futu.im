@@ -1,7 +1,7 @@
 ---
 title: 简单讨论 querySelectorAll Vs getElementsByTagName 区别
 date: 2018-01-20 12:00
-category: JavaScript
+categories: [前端]
 tags: [web前端,html,document,javascript]
 author: Jin
 ---

@@ -1,7 +1,7 @@
 ---
 title: 浮点数计算引发的血泪史——以此为戒
 date: 2017-11-30 21:00
-category: JavaScript
+categories: [前端]
 tags: [number,float,JavaScript]
 author: Jin
 ---

@@ -2,7 +2,7 @@
 title: 分享美食季
 date: 2016-11-24 17:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Diandian
 ---
 

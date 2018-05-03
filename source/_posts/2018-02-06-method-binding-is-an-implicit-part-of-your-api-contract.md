@@ -1,7 +1,7 @@
 ---
 title: 【译】对外提供API时做this的绑定
 date: 2018-02-06 10:00
-category: 翻译
+categories: [前端]
 tags: [JS,技术]
 author: Diandian
 ---

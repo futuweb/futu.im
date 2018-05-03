@@ -1,7 +1,7 @@
 ---
 title: 【译】你需要知道的有关Node.js Error对象的变化
 date: 2017-08-24 20:00
-category: Node.js
+categories: [Node.js]
 tags: [Error,Nodejs,JavaScript]
 author: Jin
 ---

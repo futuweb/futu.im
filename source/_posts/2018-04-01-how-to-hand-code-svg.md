@@ -1,7 +1,7 @@
 ---
 title: 【译】如何手写 SVG
 date: 2018-04-01 16:26:45
-category: 翻译
+categories: [前端]
 tags: [CSS, HTML, SVG, 技术]
 author: WillWang
 ---

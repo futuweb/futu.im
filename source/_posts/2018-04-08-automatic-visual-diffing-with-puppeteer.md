@@ -1,7 +1,7 @@
 ---
 title: 【译】使用puppeteer进行截图对比测试
 date: 2018-04-08 10:00
-category: 翻译
+categories: [Node.js]
 tags: [Js,技术]
 author: Diandian
 ---

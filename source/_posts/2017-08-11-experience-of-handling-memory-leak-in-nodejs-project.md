@@ -1,7 +1,7 @@
 ---
 title: 处理 Crocodile(NodeJs 脚手架)内存泄露经验小结
 date: 2017-08-11 10:00:00
-category: Node.js
+categories: [Node.js]
 tags: [Node.js]
 author: Mark
 ---

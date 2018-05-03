@@ -1,7 +1,7 @@
 ---
 title: 正则表达式RegExp.prototype.test方法使用不当笔记
 date: 2018-03-10 12:00
-category: JavaScript
+categories: [前端]
 tags: [web前端,RegExp,regexp.test,javascript]
 author: Jin
 ---

@@ -1,8 +1,7 @@
 ---
 title: 面向对象设计原则之单一职责原则和接口隔离原则
 date: 2018-04-29 19:00
-tags: []
-category: 设计模式
+categories: [后端]
 author: Arlvin
 ---
 

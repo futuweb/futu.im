@@ -2,7 +2,7 @@
 title: 文件hash作为静态资源版本组件的改进-gulp-rev-hash3
 date: 2016-11-02 10:00
 tags: [gulp-rev-hash3]
-category: 技术预研
+categories: [工具]
 author: AlanZhang
 ---
 

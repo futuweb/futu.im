@@ -1,8 +1,7 @@
 ---
 title: 【译】使用async/await玩函数式编程
 date: 2017-05-06 14:00
-category: 翻译
-tags: [aysnc/await]
+categories: [前端]
 author: Jin
 ---
 

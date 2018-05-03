@@ -2,7 +2,7 @@
 title: 记一次分享的收获
 date: 2016-11-17 17:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Young
 ---
 

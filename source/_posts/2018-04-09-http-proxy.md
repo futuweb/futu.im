@@ -1,7 +1,7 @@
 ---
 title: HTTP代理模式应用简介
 date: 2018-04-09 22:00
-category: HTTP
+categories: [后端]
 tags: [代理,HTTP]
 author: Arlvin
 ---

@@ -1,7 +1,7 @@
 ---
 title: 【译】4种javascript的内存泄露及避免方法
 date: 2017-05-25 10:30
-category: 翻译
+categories: [前端]
 tags: [JS,技术]
 author: Linda
 ---

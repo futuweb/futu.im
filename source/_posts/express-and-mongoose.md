@@ -2,7 +2,7 @@
 title: 如何搭建Express和Mongoose
 date: 2016-09-18 13:56
 tags: [Express,Mongodb,mongoose]
-category: Node.js
+categories: [Node.js]
 author: Elly
 ---
 

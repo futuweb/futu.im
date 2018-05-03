@@ -1,7 +1,7 @@
 ---
 title: 移动端字体放大问题的研究
 date: 2017-10-24 12:00
-category: 前端
+categories: [前端]
 tags: [css,字体大小]
 author: AlanZhang
 ---

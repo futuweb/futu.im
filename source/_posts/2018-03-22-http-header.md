@@ -1,7 +1,7 @@
 ---
 title: HTTP报文首部格式简介
 date: 2018-03-22 12:00
-category: 科普
+categories: [后端]
 tags: [http,requset,response]
 author: Jin
 ---

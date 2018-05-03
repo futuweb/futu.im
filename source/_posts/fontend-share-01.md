@@ -2,7 +2,7 @@
 title: 分享会直播首趴之不能把天聊死
 date: 2016-10-31 12:00
 tags: [FE,Share,Gossip]
-category: 分享会直播
+categories: [团队活动]
 author: Diandian
 ---
 

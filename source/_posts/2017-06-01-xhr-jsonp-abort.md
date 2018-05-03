@@ -1,7 +1,7 @@
 ---
 title: xhr/jsonp请求之abort详解
 date: 2017-06-01 22:30
-category: JavaScript
+categories: [前端]
 tags: [abort,ajax,jsonp,XMLHttpRequest]
 author: Jin
 ---

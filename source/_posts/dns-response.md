@@ -1,7 +1,7 @@
 ---
 title: DNS 响应报文详解
 date: 2016-11-18 18:00
-category: Node.js
+categories: [Node.js]
 tags: [dns,dgram,JavaScript]
 author: Jin
 ---

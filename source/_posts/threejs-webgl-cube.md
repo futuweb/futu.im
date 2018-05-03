@@ -2,7 +2,7 @@
 title: ThreeJS四步制作一个简易魔方
 date: 2017-03-03 14:00
 tags: [ThreeJS,WebGL]
-category: 技术预研
+categories: [前端]
 author: Young
 ---
 

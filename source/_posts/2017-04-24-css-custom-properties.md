@@ -1,8 +1,7 @@
 ---
 title: 【译】下一代CSS--CSS自定义属性(CSS变量)使用
 date: 2017-04-24 10:30
-category: 翻译
-tags: [CSS,技术]
+categories: [前端]
 author: Jin
 ---
 
