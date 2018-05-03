@@ -47,6 +47,13 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  设计: design
+  前端: frontend
+  后端: backend
+  Node.js: nodejs
+  工具: tool
+  其它: other
+  团队活动: team
 tag_map:
 
 # Date / Time format
