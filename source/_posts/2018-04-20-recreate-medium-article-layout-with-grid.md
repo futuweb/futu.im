@@ -29,7 +29,7 @@ author: Suny
 <h1>Running any NPM package in the browser locally</h1>
 <p>JavaScript has never had any official solution for distributing packages, and every web platform (Rails, Django etc) has their own idea of how to structure and package JavaScript. In the last few years NPM has started becoming the canonical way of distribution, with Webpack as the build system, but there’s no way to load NPM packages in the browser without a server-side component.</p>
 <blockquote>
-<p>Scrimba is a platform for interactive coding screencast where         
+<p>Scrimba is a platform for interactive coding screencast where
 you can run the code at any moment in time.</p>
 </blockquote>
 <figure>
@@ -97,9 +97,9 @@ article > figure {
 
 然而，这并没有为我们解决所有的问题，Medium上还有一些其他类型的布局需要我们考虑。我们一起来看几个：
 
-### 中间尺寸图片
+### 中型尺寸图片
 
-这是一种介于常规图片和全屏宽图片之间的图片，我们称之为中间尺寸图片。如下所示：
+这是一种介于常规图片和全屏宽图片之间的图片，我们称之为中型尺寸图片。如下所示：
 
 <p style="width: -webkit-calc(50vw + 50%);width: calc(50vw + 50%);margin-left:-webkit-calc(25% - 25vw);margin-left:calc(25% - 25vw);"><a href="/images/2018-04-20-recreate-medium-article-layout-with-grid/6.jpeg" class="fancybox" rel="group"><img src="/images/2018-04-20-recreate-medium-article-layout-with-grid/6.jpeg" alt=""></a></p>
 <p style="text-align: center;"><strong>提示：</strong><em>在移动端，此类图片和全屏宽图片表现一致。本文中，我们只关注桌面端布局</em></p>
