@@ -1,7 +1,7 @@
 ---
 title: git merge 和 git rebase
 date: 2018-05-02 16:26:45
-category: 原创
+category: [工具]
 tags: [git, 技术]
 author: WillWang
 ---
