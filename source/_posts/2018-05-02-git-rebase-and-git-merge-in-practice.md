@@ -6,7 +6,7 @@ tags: [git, 技术]
 author: WillWang
 ---
 
-在使用 `git` 进行版本管理的项目中，当完成一个特性的开发并将其合并到 `master` 分支时，我们有两种方式：`git merge` 和 `git rebase`。通常，我们对 `git merge` 使用的较多，而对于 `git rebase` 使用的较少，其实 `git rebase` 也是极其强大的一种方法。下面我们就来讲一讲 `git merge` 和 `git rebase` 的差别和在实际的使用。
+在使用 `git` 进行版本管理的项目中，当完成一个特性的开发并将其合并到 `master` 分支时，我们有两种方式：`git merge` 和 `git rebase`。通常，我们对 `git merge` 使用的较多，而对于 `git rebase` 使用的较少，其实 `git rebase` 也是极其强大的一种方法。下面我们就来讲一讲 `git merge` 和 `git rebase` 的差别和在实际中的使用。
 
 <!-- more -->
 
@@ -44,7 +44,9 @@ author: WillWang
 - 将分支切换到 `master` 上去：`git checkout master`
 - 将分支 `feature` 合并到当前分支（即 `master` 分支）上：`git merge feature`
 
-通常，`git merge` 有如下特点：
+![merge](/images/2018-05-02-git-rebase-and-git-merge-in-practice/merge.png)
+
+如上图所示，`git merge` 有如下特点：
 
 - 只处理一次冲突
 - 引入了一次合并的历史记录，合并后的所有 `commit` 会按照提交时间从旧到新排列
@@ -60,7 +62,11 @@ author: WillWang
 
 ## git rebase 的合并操作
 
-与 `git merge` 一致，`git rebase` 的目的也是将一个分支的更改并入到另外一个分支中去。他的主要特点如下：
+与 `git merge` 一致，`git rebase` 的目的也是将一个分支的更改并入到另外一个分支中去。
+
+![merge](/images/2018-05-02-git-rebase-and-git-merge-in-practice/rebase.png)
+
+如上图所示，他的主要特点如下：
 
 - 改变当前分支从 `master` 上拉出分支的位置
 - 没有多余的合并历史的记录，且合并后的 `commit` 顺序不一定按照 `commit` 的提交时间排列
