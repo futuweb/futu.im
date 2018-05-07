@@ -79,7 +79,7 @@ author: WillWang
 
 ![进行 `git rebase --continue`](/images/2018-05-02-git-rebase-and-git-merge-in-practice/git_rebase_2.png)
 
-继续重复先解决冲突，再 `git rebase --comtinue` 的步骤，直到遇到：
+继续重复先解决冲突，再 `git rebase --continue` 的步骤，直到遇到：
 
 ![完成 `git rebase --continue`](/images/2018-05-02-git-rebase-and-git-merge-in-practice/git_rebase_3.png)
 
