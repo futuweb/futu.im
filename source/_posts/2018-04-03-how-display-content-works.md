@@ -18,11 +18,11 @@ author: evanyan
 
 ## 当你使用display:content;时会发生什么
 
-理解display: contents; 最简单的方法，就是想象元素的开始标记和结束标记被删除，只剩下内容。在[规范](https://www.w3.org/TR/css-display-3/#box-generation)中，它规定 -
+理解display: contents; 最简单的方法，就是想象元素的开始标签和结束标签被删除，只剩下内容。在[规范](https://www.w3.org/TR/css-display-3/#box-generation)中，它规定 -
 
 >For the purposes of box generation and layout, the element must be treated as if it had been replaced in the element tree by its contents
 
-例如下面的标记 -
+例如下面的标签 -
 
 ```html
 <div class="outer">
