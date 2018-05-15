@@ -1,5 +1,5 @@
 {
-  "name": "hexo-site",
+  "name": "futu.im",
   "version": "0.0.0",
   "private": true,
   "hexo": {
@@ -20,5 +20,25 @@
   "devDependencies": {
     "@cray/pyramid": "^1.0.8",
     "hexo-cli": "^1.1.0"
-  }
+  },
+  "description": "## URL",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/futuweb/futu.im.git"
+  },
+  "keywords": [
+    "futu.im",
+    "futuweb",
+    "blog"
+  ],
+  "author": "futu.im",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/futuweb/futu.im/issues"
+  },
+  "homepage": "https://github.com/futuweb/futu.im#readme"
 }
