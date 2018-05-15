@@ -8,10 +8,12 @@ before_install:
   - npm config set user 0
   - npm config set unsafe-perm true
   - npm install hexo-cli -g
+  - npm install @cray/pyramid -g
 install:
   - npm install
 script:
   - hexo g
+  - pyramid
 after_script:
   - bash scp.sh
 branches:

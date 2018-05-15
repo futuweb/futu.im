@@ -18,6 +18,7 @@
     "hexo-server": "^0.2.0"
   },
   "devDependencies": {
+    "@cray/pyramid": "^1.0.5",
     "hexo-cli": "^1.1.0"
   }
 }
