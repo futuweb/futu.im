@@ -12,17 +12,17 @@ author: evanyan
 
 <!-- more -->
 
-通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。通过display:inline，我们可以将这个盒子放在其兄弟姐妹中，就像文本一样。通过display:table，我们可以欺骗盒子，使其表现的像table元素一样。我们甚至可以将盒子放置在完全不同的Z轴上。
+通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。通过display:inline，我们可以将这个盒子放在其兄弟姐妹中，就像文本一样。通过display:table，我们可以欺骗盒子，使其表现的像table元素一样。
 
 对于display属性，有两个值可以控制元素是否构成盒子。none值将导致盒子与其内容不在页面上绘制。另一方面，新规则display:contents; 会令盒子周围的框会被完全省略，但其内容会被正常绘制。
 
 ## 当你使用display:content;时会发生什么
 
-理解display: contents; 最简单的方法，就是想象元素的开始标记和结束标记被删除，只剩下内容。在[规范](https://www.w3.org/TR/css-display-3/#box-generation)中，它规定 -
+理解display: contents; 最简单的方法，就是想象元素的开始标签和结束标签被删除，只剩下内容。在[规范](https://www.w3.org/TR/css-display-3/#box-generation)中，它规定 -
 
 >For the purposes of box generation and layout, the element must be treated as if it had been replaced in the element tree by its contents
 
-例如下面的标记 -
+例如下面的标签 -
 
 ```html
 <div class="outer">
@@ -147,13 +147,13 @@ author: evanyan
 
 ## display: contents; 有何用处？
 
-在过去，我们不得不以一种既语义化，又可让CSS完成样式实现的方式来布局HTML。这导致我们要么包装了太多的元素，要么元素太少以至于需要启用兄弟元素选择器。那些需要使用兄弟元素选择器的情况，是引入CSS Grid Layout的重要原因。
+在过去，我们必须以语义化和CSS样式化的方式来设计HTML。这导致我们要么包装了太多的元素，要么元素太少以至于需要启用兄弟元素选择器。那些需要使用兄弟元素选择器的情况，是引入CSS Grid Layout的重要原因。
 
 举个例子，我们来看这个布局 -
 
 ![](/images/2018-04-03-how-display-content-works/Screen-Shot-2018-03-27-at-10.27.27-am.png)
 
-我们有两张彼此相邻的“卡片”，每张都有一个标题，一个段落和一个页脚。我们想要的是每张卡内的每个部分都是相同的高度，而不管每个部分的内容如何（例如，第一张卡片的标题只有1行，而第三张卡片的标题有3行，但是第一张卡片的标题部分高度应该与第三个卡片相匹配）。
+我们有两张彼此相邻的“卡片”，每张都有一个标题，一个段落和一个页脚。我们想要的是每张卡内的每个部分都是相同的高度，而不管每个部分的内容如何（例如，第一张卡片的标题只有1行，而第二张卡片的标题有3行，但是第一张卡片的标题部分高度应该与第二张卡片相匹配）。
 
 我们可以使用CSS Grid来实现这种布局，但是我们需要每个“卡片”中的所有元素成为彼此的兄弟元素。所以，我们可能需要像这样布局我们的HTML -
 
