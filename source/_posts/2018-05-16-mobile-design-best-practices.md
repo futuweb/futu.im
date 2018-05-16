@@ -1,7 +1,7 @@
 ---
 title: 【译】移动设计最佳实践
 date: 2018-05-16 10:30
-categories: [前端]
+categories: [设计]
 author: Diandian
 ---
 
