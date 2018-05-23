@@ -137,9 +137,7 @@ author: Jin
 
 感同身受有木有！！！
 
-超喜欢：[云龙老师的演讲实录](https://mp.weixin.qq.com/s/zWPjfHiYxx0HH9lE99Yijw)。
-
-好像要微信打开。
+**推荐阅读：[云龙老师的演讲实录](https://mp.weixin.qq.com/s/zWPjfHiYxx0HH9lE99Yijw)。**
 
 ### 4. 支付宝小程序的开放架构
 讲师：何一鸣（承玉）-支付宝高级前端技术专家，小程序前端框架负责人
