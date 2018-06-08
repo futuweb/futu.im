@@ -1,6 +1,10 @@
 // Header
 // --------------------------------------------------
-.header { background: $whitesmoke; }
+.header { 
+  background: linear-gradient(0deg,white, #041f3a); 
+  
+}
+
 .header-inner {
   padding: 25px 0 20px;
   clearfix();
@@ -13,17 +17,19 @@
 }
 
 .site-meta {
-  float: left;
-  margin-left: -20px;
-  line-height: normal;
+    text-align: center;
+    margin:0 auto;
 
   +mobile() {
     margin-left: 10px;
+    float:left;
+
   }
 
   .brand {
     padding: 2px 1px;
     background: none;
+    color:#fff;
 
     +mobile() { display: block; }
   }
@@ -31,10 +37,10 @@
   .logo { display: none; }
 
   .site-title {
-    font-size: 22px;
-    font-weight: bolder;
+    font-size: 26px;
+    padding:20px 0;
 
-    +mobile() { line-height: 34px; }
+    +mobile() { line-height: 34px;     padding:0;}
   }
 }
 

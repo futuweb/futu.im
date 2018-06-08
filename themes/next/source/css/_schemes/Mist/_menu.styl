@@ -7,7 +7,6 @@
 
 
 .menu {
-  float: right;
   margin: 8px 0 0 0;
 
   +mobile() {
@@ -18,7 +17,7 @@
   br { display: none; }
 
   .menu-item {
-    margin: 0;
+    margin: 10px;
     +mobile() { display: block; }
   }
 
@@ -33,7 +32,10 @@
       text-align: left;
     }
 
-    &:hover { background: #e1e1e1; }
+    &:hover { 
+      background: #041f3a; 
+      color:#fff;
+    }
   }
 
   a::before {
