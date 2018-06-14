@@ -33,14 +33,14 @@ author: evanyan
 
 在这个阶段，设计师和开发者之间的合作是至关重要的 -- 但许多设计师可能都不知道这些选择的存在，所以得提醒开发人员将这些选择提供给设计人员。
 
-通过在方块的比例上添加一些细微的扭曲，我们可以在动画中添加很多内容：
+通过在方块上添加一些轻微的变形，我们可以令动画丰满许多：
 
 <iframe height='450' scrolling='no' title='Bouncing Box 4' src='//codepen.io/pulpexploder/embed/YNMJyb/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/YNMJyb/'>Bouncing Box 4</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 现在，盒子是一个活着的角色。仍有很多事情需要调整，但这已经比原来的动画更进一步 -- 以一种非常好的方式。
 
-现在我们更进一步，在跳转结束时添加一点反弹：
+现在我们更进一步，在跳跃结束时添加一点反弹：
 
 <iframe height='450' scrolling='no' title='Bouncing Box 5' src='//codepen.io/pulpexploder/embed/MJRPKE/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/MJRPKE/'>Bouncing Box 5</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -50,9 +50,9 @@ author: evanyan
 <iframe height='450' scrolling='no' title='Bouncing Box 6' src='//codepen.io/pulpexploder/embed/QdPZNp/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/QdPZNp/'>Bouncing Box 6</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-最终的微妙扭曲使得反弹看起来更加自然。总体而言，第一个例子中我们的基本线性反弹有了巨大的改善。
+最终的微妙变形使得反弹看起来更加自然。总体而言，第一个例子中我们的基本线性反弹有了巨大的改善。
 
-这正是我们正在寻找的东西，但是可以用定制的三次Bézier曲线进一步调整移动速率：
+这正是我们正在寻找的东西，但我们仍可以用定制的三次Bézier曲线进一步调整移动速率：
 
 <iframe height='450' scrolling='no' title='Bouncing Box 7' src='//codepen.io/pulpexploder/embed/ypYXwb/?height=265&theme-id=dark&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/pulpexploder/pen/ypYXwb/'>Bouncing Box 7</a> by Brandon Gregory (<a href='https://codepen.io/pulpexploder'>@pulpexploder</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
