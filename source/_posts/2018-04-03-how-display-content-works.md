@@ -10,6 +10,8 @@ author: evanyan
 
 ![](/images/2018-04-03-how-display-content-works/Group-3.png)
 
+
+
 <!-- more -->
 
 通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。通过display:inline，我们可以将这个盒子放在其兄弟姐妹中，就像文本一样。通过display:table，我们可以欺骗盒子，使其表现的像table元素一样。
