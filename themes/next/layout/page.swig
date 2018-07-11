@@ -1,3 +1,6 @@
+
+
+
 {% extends '_layout.swig' %}
 {% import '_macro/sidebar.swig' as sidebar_template %}
 
@@ -14,44 +17,86 @@
 {% endblock %}
 
 {% block content %}
+<style>
+@media (min-width: 1600px){
+	.container .main-inner {
+		width: 100%;
+	}
+}
+.main-inner {
+    margin-top: 0px;
+}
+.homepageWrap{
+  	width:100%;
+  	min-height:1000px;
+	font-size:18px;
+}
+.homepageWrap .banner{
+	background-image:url(https://pubimg.futunn.com/20171100006970e32da0ea05c.jpg);
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	width:100%;
+	min-height:500px;
+}
+.homepageWrap .aboutWeb{
+	width:900px;
+	margin:0 auto;
+}
+.homepageWrap .aboutWeb h1{
+	font-size:24px;
+	padding: 50px 0 30px;
+    border-bottom: 2px solid #ccc;
+    width: 300px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+.homepageWrap .aboutWeb li{
+	margin-bottom:50px;
+}
+.homepageWrap .aboutWeb h3{
+	font-size:22px;
+}
+</style>
+<div class="homepageWrap">
+	<div class="banner">
 
-  <div id="posts" class="posts-expand">
-    {# tagcloud page support #}
-    {% if page.type === "tags" %}
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            {{ _p('counter.tag_cloud', site.tags.length) }}
-        </div>
-        <div class="tag-cloud-tags">
-          {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
-        </div>
-      </div>
-    {% elif page.type === 'categories' %}
-      <div class="category-all-page">
-        <div class="category-all-title">
-            {{ _p('counter.categories', site.categories.length) }}
-        </div>
-        <div class="category-all">
-          {{ list_categories() }}
-        </div>
-      </div>
-    {% else %}
-      {% if page.path.indexOf('author/') > -1 %}
-        <h1>{{page.author}}</h1>
-      {% endif %}
-      {{ page.content }}
-      {% if page.path.indexOf('author/') > -1 %}
-        <h2>文章列表</h2>
-        <ul>
-        {% for post in site.posts.sort('-date') %}
-          {% if page.author == post.author %}
-            <li>{{post.date.format('YYYY-MM-DD')}} <a href="{{url_for(post.path)}}" target="_blank" rel="nofollow">{{post.title}}</a></li>
-          {% endif %}
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endif %}
-  </div>
+	</div>
+	<div class="aboutWeb">
+		<h1>关于富途WEB团队</h1>
+		<ul>
+			<li>
+				<h3>Who we are？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+			<li>
+				<h3>What we do？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+			<li>
+				<h3>Where is our future？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+		</ul>
+	</div>
+	<div class="aboutWeb">
+		<h1>大家眼中的我们</h1>
+		<ul>
+			<li>
+				<h3>Who we are？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+			<li>
+				<h3>What we do？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+			<li>
+				<h3>Where is our future？</h3>
+				<p>富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala.</p>
+			</li>
+		</ul>
+	</div>
+</div>
 
 {% endblock %}
 
