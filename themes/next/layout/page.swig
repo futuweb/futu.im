@@ -23,11 +23,13 @@
 		width: 100%;
 	}
 }
+
 body,html{
-	background:#f4f3de
+	background:#f4f3de;
 }
 .main-inner {
     margin-top: 0px;
+	width:100%;
 }
 .homepageWrap{
   	width:100%;
@@ -119,6 +121,51 @@ body,html{
 .homepageWrap .friendLink li a:hover{
 	color:#008972;
 }
+
+@media (max-width: 767px){
+	.content{
+		margin-top:-50px;
+	}
+	.header {
+		width:100%;
+	}
+	.homepageWrap .aboutWeb,
+	.homepageWrap .otherComment,
+	.homepageWrap .environment,
+	.homepageWrap .joinUs,
+	.homepageWrap .friendLink
+	{
+		width:100% !important;
+		margin:0 auto;
+	}
+	.main-inner {
+		margin-top: 0px;
+		width:100%;
+	}
+	.homepageWrap .aboutWeb ul,
+	.homepageWrap .otherComment ul,
+	.homepageWrap .environment ul,
+	.homepageWrap .joinUs ul,
+	.homepageWrap .friendLink ul
+	{
+		padding-left:0;
+		padding-right:0;
+		width:100%;
+		margin:0 auto;
+	}
+	.homepageWrap .aboutWeb p,
+	.homepageWrap .aboutWeb h3
+	{
+		padding:0 15px;
+	}
+	.homepageWrap .joinUs .joinbox li {
+   	 	padding: 0px;
+	}
+	.homepageWrap .friendLink ul {
+    	padding: 0;
+	}
+}
+
 </style>
 <div class="homepageWrap">
 	<div class="banner">
@@ -158,8 +205,6 @@ body,html{
 				富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabal</li>
 			<li>某产品经理说：<br/>
 				富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala</li>
-			<li>某产品经理说：<br/>
-				富途WEB研发团队是balabala，整点字占位富途WEB研发团队是balabala</li>
 		</ul>
 		<ul class="flexBox">
 			<li>
@@ -177,9 +222,6 @@ body,html{
 			</li>
 		</ul>
 		<ul class="envPic">
-			<li>
-				<img src="https://pubimg.futunn.com/20171100006970e32da0ea05c.jpg"/>
-			</li>
 			<li>
 				<img src="https://pubimg.futunn.com/20171100006970e32da0ea05c.jpg"/>
 			</li>
@@ -234,12 +276,14 @@ body,html{
 			<li>
 				<a href="javascripyt:;">我是链接</a>
 				<a href="javascripyt:;">我是链接</a>
-				<a href="javascripyt:;">我是链接</a>
+			</li>
+			<li>
 				<a href="javascripyt:;">我是链接</a>
 				<a href="javascripyt:;">我是链接</a>
 			</li>
 		</ul>
 	</div>
+
 </div>
 
 
