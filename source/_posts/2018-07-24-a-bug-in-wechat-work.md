@@ -66,7 +66,7 @@ var VConsole = require('vconsole');
 new VConsole();
 ```
 
-![VConsole界面](/images/2018-07-24-a-bug-in-wechat-work/1.png)
+![VConsole界面](/images/2018-07-24-a-bug-in-wechat-work/2.png)
 
 展示一下项目的Vue代码：
 
