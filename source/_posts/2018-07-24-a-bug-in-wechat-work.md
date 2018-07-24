@@ -145,7 +145,11 @@ hasTouch: 'ontouchstart' in window,
 hasPointer: !!(window.PointerEvent || window.MSPointerEvent), // IE10 is prefixed
 ```
 
-因此`hasTouch`和`hasPointer`的值不同会导致上述选项`disableTouch`和`disableMouse`的不同。再接下来就简单了，将这两个值分别打印出来，很快就能发现，正是旧版企业微信的`hasTouch`判断失误，导致了后续`disableMouse`为`true`，导致鼠标事件相关处理函数没有被调用。
+因此`hasTouch`和`hasPointer`的值不同会导致上述选项`disableTouch`和`disableMouse`的不同。再接下来就简单了，将这两个值分别打印出来，很快就能发现，正是旧版企业微信的`hasTouch`判断失误，导致了后续`disableMouse`为`true`，导致鼠标`mousedown`/`mouseup`事件相关处理函数没有被调用。
+
+值得注意的是，没有问题的浏览器，`disableMouse`也为`true`。这里经过调试跟踪，发现这部分浏览器也没有走鼠标事件`mousedown`/`mouseup`，而是走了`pointerdown`/`pointerup`事件。于是caniuse了一下，发现`Pointer`事件从Chrome 55开始支持的，而出问题的企业微信的webview使用的是Chrome 49。因此这个最后的保险，`Pointer`事件也失效了。
+
+![Pointer事件兼容性](/images/2018-07-24-a-bug-in-wechat-work/3.png)
 
 ### 修复
 
