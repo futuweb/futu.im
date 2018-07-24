@@ -9,6 +9,7 @@ author: TooBug
 
 咱们在企业微信上开发了一个简单的选课系统，用于让公司内的同学在企业微信上进行选课。昨天下午HR的同学很开心地推送了8月份的课程列表，让大家报名。然后就炸锅了：企业微信中点击课程没反应，报不了名！
 
+![用户反馈](/images/2018-07-24-a-bug-in-wechat-work/1.png)
 
 收到消息第一时间感觉确认了一下问题，发现Mac下使用完全没有任何问题。于是打听了一下，出问题的都是Windows电脑的企业微信。直接使用Chrome浏览器访问或者在手机企业微信上访问都是没有问题的。
 
@@ -64,6 +65,8 @@ npm install vconsole
 var VConsole = require('vconsole');
 new VConsole();
 ```
+
+![VConsole界面](/images/2018-07-24-a-bug-in-wechat-work/1.png)
 
 展示一下项目的Vue代码：
 
