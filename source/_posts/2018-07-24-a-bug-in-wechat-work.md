@@ -28,7 +28,7 @@ author: TooBug
 好的，说重点：
 
 1. Windows企业微信某个版本的webview有bug，导致`'ontouchstart' in windows`为true，事实上它并不支持触控事件。
-2. 这会导致第三方库`iscroll`产生误差，认为这是一个触控设置，从而错误地将`disableMouse`设为`true`，进而忽略`mousedown/mouseup`事件，导致内部不向外发出`click`事件。
+2. 这会导致第三方库`iscroll`产生误判，认为这是一个触控设备，从而错误地将`disableMouse`设为`true`，进而忽略`mousedown/mouseup`事件，导致内部不向外发出`click`事件。
 3. 最终导致外层绑定的`click`事件处理函数不触发，点击无效。
 
 ## 排查过程
