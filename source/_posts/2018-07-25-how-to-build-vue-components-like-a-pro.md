@@ -1,10 +1,10 @@
 ---
-title: 【译】使用SVG动画书法
-date: 2018-06-28 10:30
+title: 【译】如何像Pro一样构建Vue组件
+date: 2018-07-25 10:30
 categories: [前端]
 author: Diandian
 ---
-# 如何像Pro一样构建Vue组件
+
 
 ![](/images/2018-07-25-how-to-build-vue-components-like-a-pro/1.png)
 <!-- more -->
