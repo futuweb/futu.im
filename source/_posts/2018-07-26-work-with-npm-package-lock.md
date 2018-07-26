@@ -1,7 +1,7 @@
 ---
 title: 如何与NPM package-lock.json愉快地玩耍
 date: 2018-07-26 19:40
-categories: [工具]
+categories: [Node.js]
 author: TooBug
 ---
 
