@@ -1,6 +1,6 @@
 ---
 title: 移动端弹窗输入密码的那些事
-date: 2018-08-28 15:30
+date: 2018-08-27 15:30
 categories: [前端]
 author: Jin
 ---
@@ -14,11 +14,12 @@ author: Jin
 ## 入坑前
 很happy，果然和心里想的一样。新股认购上线没啥问题。视觉稿的输入交易密码大概就是下图的样子。新股认购的原稿找不到了，就找了一张bug单代替吧。很简单，只要校验输入的交易密码是否符合校验逻辑后提交，没有多余的操作。这样的设计其实前端要做的事并没有[多?]少。
 
-![pwd](/images/2018-08-27-input-pwd-on-mobile-browser-dialog/pwd_01.png)
+<!-- more -->
 
+![pwd](/images/2018-08-27-input-pwd-on-mobile-browser-dialog/pwd_01.png)
 > 旧版WEB输入交易密码
 
-<!-- more -->
+
 
 嗯，没错。今天说的就是我和上面那个不起眼的输入交易密码框的故事。
 
