@@ -8,3 +8,4 @@ public/
 .vscode
 .history
 package-lock.json
+source/images/.DS_Store
