@@ -1,5 +1,5 @@
 ---
-title: 【译】复选框和切换按钮
+title: 【译】复选框和切换按钮的7个使用案例
 date: 2018-08-22 10:30
 categories: [设计]
 author: Diandian
@@ -30,8 +30,7 @@ author: Diandian
 - 用户选择后不必审核确认就可以执行生效。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/2.png)
-
-需要即刻响应时最好用toggle
+> 需要即刻响应时最好用toggle
 
 ### 案例二：设置需要确认
 #### 以下这些情况需要用checkbox
@@ -40,8 +39,7 @@ author: Diandian
 - 用户必须执行额外的操作才能使更改的变化生效。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/3.png)
-
-如果需要一些明确的操作才能使得应用失效，首选checkbox
+> 如果需要一些明确的操作才能使得应用失效，首选checkbox
 
 ### 案例三：多选
 #### 以下这些情况需要用checkbox
@@ -49,17 +47,16 @@ author: Diandian
 - 如果用toggle的话，需要一个一个的点击，而每一次点击都需要有额外的时间等待才能看到效果。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/4.png)
-
-在列表中选择多个选项可使用checkbox
+> 在列表中选择多个选项可使用checkbox
 
 ###  案例四：不确定的状态
+“使用更好的切换开关设计可以解决此问题。 显示开/关声明将提高清晰度。 微软有正确的想法：[https：//docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/toggles](https：//docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/toggles)”
+
 #### 以下这些情况需要用checkbox
 - 不确定选择状态时需要有多个子选项在父选项的分组里。这个不确定的状态意味着子选项是需要被选择的（不是全部都必选）。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/5.png)
-
-不确定的状态最好用checkbox展示
-
+> 不确定的状态最好用checkbox展示
 
 ### 案例五：清晰的视觉
 #### 以下这些情况需要用checkbox
@@ -67,44 +64,44 @@ author: Diandian
 - 需要提供一个清晰的选择和未选择的状态区别。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/6.png)
+> 有时候toggle不能很清晰的表示出它是一个状态还是需要操作。
 
-有时候toggle不能很清晰的表示出它是一个状态还是需要操作。
+“这是toggle切换开关的主要问题。 它们（还）没有像复选框那样强大的约定来表明它们的状态。 由于不良的视觉设计和切换标签，这种模式错误也会变得更糟。
 
-### 需要选中相似的选项
+在最近对桌面应用程序中的独立切换开关的测试中，我们观察到大约200％的人中约有20％的人在他们意味着“关闭”时点击切换到开启状态。 我们认为这是因为toggle切换看起来太像按钮了：一个说关闭的按钮会让它被点击动作它（因为这就是一个按钮会做什么）。 然后用户无法从错误中恢复，因为按钮的状态现在对他们来说是正确的（现在它说'打开'因为我已将其关闭）。
+
+直到明白左/右切换按钮的原理才会停止切换，所以最好避免暂时在桌面应用程序上切换。”
+
+### 案例六：需要选中相似的选项
 #### 以下这些情况需要用checkbox
 - 用户需要在选出列表中的相似选项
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/7.png)
-
-在列表中选出相似的选项需要用checkbox
+> 在列表中选出相似的选项需要用checkbox
 
 #### 以下这些情况需要用toggle
 - 用户需要切换不同的特性或者操作。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/8.png)
+> 相互独立无交集的一些操作需要用toggle
 
-相互独立无交集的一些操作需要用toggle
-
-### 选项单一独立
+### 案例七：选项单一独立
 #### 以下这些情况需要用checkbox
 - 不管这个选项的选择与否会记录一个是或者否的结果。  
 - 当只有一个选项时，你可以选择也可以不选择，但是选不选择的效果区别比较明显。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/9.png)
-
-选择意味着表示是/否选择用checkbox
+> 选择意味着表示是/否选择用checkbox
 
 #### 以下这些情况需要用toggle
 - 只有一个选择，并且开关代表不同的选择。
 
 ![图片](/images/2018-08-22-checkbox-and-toggle-switch/10.png)
-
-用toggle能更好的表示出开关的选择
+> 用toggle能更好的表示出开关的选择
 
 ### 结论
 
 在合适的情形下使用合适的控件可以使界面更加友好。因为表单可能会有比较多的选项需要选择，当用户点击选择这些选项来完善信息时会觉得很枯燥。以上这些例子可以帮助你在表单中添加控件时，可以更好的选择用checkbox和toggle。
-
 
 
 原文：[https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8](https://uxplanet.org/checkbox-vs-toggle-switch-7fc6e83f10b8)
