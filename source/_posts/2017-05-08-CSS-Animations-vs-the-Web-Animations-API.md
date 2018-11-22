@@ -1,5 +1,6 @@
 ---
 title: 【译】CSS动画 vs Web动画API
+subtitle: web动画API为开发者们提供了一个直接用JavaScript操作浏览器动画引擎的方法。
 date: 2017-05-08 12:22
 categories: [前端]
 tags: [JS,技术,css,animation]

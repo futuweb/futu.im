@@ -1,0 +1,30 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" >
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="author" content="<%=config.author%>" />
+  <meta name="designer" content="<%=config.author%>" />
+  <meta name="rating" content="general" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Title -->
+  <%
+      var title = [];
+      if (page.current > 1) {
+        title.push(__('page', page.current));
+      }
+      else if (page.title) {
+        title.push(page.title);
+      }else if ( page.category ){
+        title.push(page.category);
+      }
+      title.push(config.title);
+  %>
+  <title><%= title.join(' | ') %></title>
+  <%- css('css/f25.css') %>
+  <%- css('css/highlight.css') %>
+</head>

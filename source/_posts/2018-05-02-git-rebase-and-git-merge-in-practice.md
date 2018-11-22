@@ -1,5 +1,6 @@
 ---
 title: git merge 和 git rebase
+subtitle: 就来讲一讲 `git merge` 和 `git rebase` 的差别和在实际中的使用。
 date: 2018-05-02 16:26:45
 category: [工具]
 tags: [git, 技术]

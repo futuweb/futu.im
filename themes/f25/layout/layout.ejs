@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%- partial('_partial/head') %>
+</head>
+<body>
+    <%- partial('_partial/header' , {cates:config.menu}) %>
+    <div class="body-wrapper">
+        <%-body%>
+        <%- partial('_partial/footer') %>
+    </div>
+    <%- js('js/f25.js') %>
+</body>
+</html>

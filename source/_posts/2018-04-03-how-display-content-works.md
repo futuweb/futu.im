@@ -1,5 +1,6 @@
 ---
 title: 【译】display:content; 的工作方式
+subtitle: 通过CSS的display属性，我们可以控制元素及其子元素在页面绘制时的表现。
 date: 2018-04-03 11:16:45
 categories: [前端]
 tags: [CSS, HTML]

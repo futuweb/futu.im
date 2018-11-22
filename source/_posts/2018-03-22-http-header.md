@@ -1,5 +1,6 @@
 ---
 title: HTTP报文首部格式简介
+subtitle: HTTP属于应用层协议，HTTP传输的信息被称为HTTP报文。
 date: 2018-03-22 12:00
 categories: [后端]
 tags: [http,requset,response]

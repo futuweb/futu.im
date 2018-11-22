@@ -1,5 +1,6 @@
 ---
 title: 【译】使用chrome dev tool的代码覆盖率功能
+subtitle: 这是一个令人兴奋的特性，在使用javascript css时非常有用，所以我认为我可以做一个快速演示，来探索它是如何有用的。
 date: 2018-03-28 15:00
 categories: [工具]
 tags: [chrome tools]

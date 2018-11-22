@@ -1,5 +1,6 @@
 ---
 title: 【译】复选框和切换按钮的7个使用案例
+subtitle: 在表单设计时，恰当的使用合适的控件也是一项挑战。
 date: 2018-08-22 10:30
 categories: [设计]
 author: Diandian

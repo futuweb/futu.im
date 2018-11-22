@@ -1,5 +1,6 @@
 ---
 title: 移动端弹窗输入密码的那些事
+subtitle: 在移动端浏览器的新股认购页面里面让用户输入交易密码。
 date: 2018-08-27 15:30
 categories: [前端]
 author: Jin

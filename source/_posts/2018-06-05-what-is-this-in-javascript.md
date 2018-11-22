@@ -1,5 +1,6 @@
 ---
 title: 【译】JavaScript中的“this”是什么？
+subtitle: 如果你用Javascript库构建东西，你可能会注意到一个特定的关键字`this`.
 date: 2018-06-05 10:30
 categories: [前端]
 author: Diandian

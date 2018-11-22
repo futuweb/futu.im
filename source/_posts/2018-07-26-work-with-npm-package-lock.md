@@ -1,5 +1,6 @@
 ---
 title: 如何与NPM package-lock.json愉快地玩耍
+subtitle: 最近我们前端代码打包正在接入Gitlab CI，使用Docker来作为Executor，也就是在Docker中进行前端代码打包，然后收集打包结果，以备发布时使用。
 date: 2018-07-26 19:40
 categories: [Node.js]
 author: TooBug

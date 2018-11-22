@@ -1,0 +1,13 @@
+<div class="post-i-wrapper">
+    <a href="<%- url_for(item.path)%>" class="wrapper post-i-link" title="<%=item.title%>">
+        <div class="wrapper cover">
+            <img src="<%- url_for(item.cover || theme.default_cover)%>" alt="<%=item.title%>">
+        </div>
+        <div class="wrapper">
+            <h3 class="title" title="<%=item.title%>"><%=item.title%></h3>
+        </div>
+        <div class="wrapper subtitle">
+            <%-item.subtitle%>
+        </div>
+    </a>
+</div>

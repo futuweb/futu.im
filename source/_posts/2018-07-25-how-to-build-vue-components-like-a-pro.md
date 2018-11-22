@@ -1,5 +1,6 @@
 ---
 title: 【译】如何专业的构建Vue组件
+subtitle: Vue遵循模型-视图-视图-模型系统。
 date: 2018-07-25 10:30
 categories: [前端]
 author: Diandian

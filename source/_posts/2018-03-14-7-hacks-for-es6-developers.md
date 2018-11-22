@@ -1,5 +1,6 @@
 ---
 title: 【译】ES6开发过程中的7个小技巧
+subtitle: 在2018年码JavaScript其实是件非常有趣的事情。
 date: 2018-03-14 12:00
 categories: [前端]
 tags: [web前端, es6, javascript]

@@ -1,5 +1,6 @@
 ---
 title: 【译】Css流式布局
+subtitle: 流式布局在前端发展中出现好几年了。然而流式排版的概念还比较新，尚未得到充分的探索。
 date: 2018-03-27 10:00
 categories: [前端]
 tags: [CSS,技术]
@@ -25,7 +26,7 @@ author: Diandian
 - 在大布局中h1可能是34px
 
 可以通过[media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)来限定css最小值来实现
-```
+```css
 h1{
     font-size:22px;
 }
@@ -61,7 +62,7 @@ h1{
 ![1-can-i-use-viewports-opt](/images/2018-03-27-css-poly-fluid-sizing/1-can-i-use-viewports-opt.png)
 
 但是，Viewport单元的可行性非常依赖于网页的原创创意设计。只需要使用vw设置字体大小并完成就可以。
-```
+```css
 h1{
     font-size:2vw;
 }
@@ -123,7 +124,7 @@ h1{
 
 你可以这样运用趋势方程式：
 
-```
+```scss
 h1{
     font-size:calc({slope}*100vw+{y-intercept}px);
 }
@@ -136,7 +137,7 @@ h1{
 ### 这个可以自动化吗？
 
 我将最小二乘法运用到一个易于使用的Sass函数中：
-```
+```scss
 //最小二乘法
 //计算提供值的最小二乘拟合线性回归
 //@param {map} $ map  - 视口宽度和大小值组合的Sass值
@@ -208,7 +209,7 @@ h1{
 
 你想要的曲线越精确，公式就越复杂。不幸的是，你不能再CSS中这样做。`calc()`根本没有办法计算这样的高级数学公式。具体而言，你不能计算指数：
 
-```
+```scss
 font-size:calc(3vw*3vw);/*在css中不生效*/
 ```
 
@@ -224,7 +225,7 @@ font-size:calc(3vw*3vw);/*在css中不生效*/
 
 所以在这个例子中，我们将计算22px和24px之间的直线，然后在计算24px和34px之间的直线，Sass是这样的：
 
-```
+```scss
 // SCSS
 h1 {
   @media (min-width:576px) {
@@ -247,7 +248,7 @@ h1 {
 ![10-slope-linear-equation-opt](/images/2018-03-27-css-poly-fluid-sizing/10-slope-linear-equation-opt.png)
 
 这是一个sass功能：
-```
+```scss
 /// 线性插值
 /// 计算两点直接的直线
 /// @param $map --一个视口宽度和尺寸值的Sass地图
@@ -279,7 +280,7 @@ h1 {
 
 现在，只需要在Sass中的多个断点上使用线性插值函数即可。另外，让我们投入一些最小和最大的`font-size`：
 
-```
+```scss
 // SCSS
 h1 {
   // 最小 font-size
@@ -302,7 +303,7 @@ h1 {
 ```
 他会生成这样的CSS：
 
-```
+```scss
 h1 {
   font-size: 22px;
 }
@@ -329,7 +330,7 @@ h1 {
 
 让我们把这一切都包装在一个很好的Sass mixin中（对于懒惰和高效！）。我们正在创造这种方法Poly Fluid Sizing:
 
-```
+```scss
 /// poly-fluid-sizing
 /// 通过多个断点生成线性插值大小值
 /// @param $property - 一个字符串CSS属性名称
@@ -389,7 +390,7 @@ h1 {
 
 - 这种方法提供的不仅仅是`font-size`,也适用于任何unit/length属性（`margin`,`padding`等）你可以将所需要的属性名称作为字符串传给类函数就可以。
 - 视口宽度+尺寸值对的Sass映射可以按任意顺序传递到`poly-fluid-sizing()`类函数中。它将根据视口宽度从最低到最高对值自动进行排序。所以你可以像这样传递一个值，就会生效：
-```
+```scss
  $map: (576px: 22px, 320px: 18px, 992px: 34px, 768px: 24px);
   @include poly-fluid-sizing('font-size', $map);
 ```

@@ -1,5 +1,6 @@
 ---
 title: 【译】澄清对AMP的十个误解
+subtitle: AMP 是一套开源的 web 组件格式和类库。
 date: 2017-08-23 10:30
 categories: [前端]
 tags: [AMP]

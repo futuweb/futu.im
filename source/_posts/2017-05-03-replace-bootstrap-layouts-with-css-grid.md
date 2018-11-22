@@ -1,5 +1,6 @@
 ---
 title: 【译】使用CSS Grid替换Bootstrap布局
+subtitle: Grid，它是一个二维的网页布局系统，允许开发者在浏览器中创建内部布局图案。
 date: 2017-05-03 10:30
 categories: [前端]
 author: Linda

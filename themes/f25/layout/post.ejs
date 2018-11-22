@@ -1,0 +1,9 @@
+<div class="wrapper post-banner">
+    <div class="container post-banner-container">
+        <h2 class="wrapper title"><%-page.title%></h2>
+        <div class="wrapper tips">
+            <span>Author：</span><span><%= page.author%></span> | <span>Date: </span><span><%- full_date(page.date, 'YYYY-MM-DD')%></span> | <span>Category：</span><span><%- show_cate()%></span>
+        </div>
+    </div>
+</div>
+<%- partial('_partial/post-tpl' , {page:page}) %>

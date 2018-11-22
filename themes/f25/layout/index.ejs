@@ -1,0 +1,10 @@
+<%- partial('_partial/banner') %>
+<%- partial('_partial/menu' , {cate:'all'}) %>
+
+<div class="wrapper index-wrapper">
+    <div class="container list-container">
+    <%page.posts && page.posts.forEach(function(item){ %>
+        <%- partial('_partial/post-i', {item: item}) %>
+    <%})%>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 ---
 title: 【译】Node.js之对象流（Stream）权威指南
+subtitle: Node.js的`Srtream`具有强大的功能：你可以使用异步的方式处理输入和输出，可以根据所依赖的步骤来对数据进行转换。
 date: 2017-05-21 14:00
 categories: [Node.js]
 tags: [nodejs,tutorial,gulp.js,object streams]

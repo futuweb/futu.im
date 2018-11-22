@@ -1,5 +1,6 @@
 ---
 title: xhr/jsonp请求之abort详解
+subtitle: 前端开发中向后端发起xhr（`XMLHttpRequest`）请求（代表性的就是熟悉的`ajax`）是再正常不过的事。
 date: 2017-06-01 22:30
 categories: [前端]
 tags: [abort,ajax,jsonp,XMLHttpRequest]

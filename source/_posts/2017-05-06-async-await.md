@@ -1,5 +1,6 @@
 ---
 title: 【译】使用async/await玩函数式编程
+subtitle: 在JavaScript的内置数组函数封装为`async`异步函数时遇到的一些陷阱以及如何解决它
 date: 2017-05-06 14:00
 categories: [前端]
 author: Jin

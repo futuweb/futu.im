@@ -1,5 +1,6 @@
 ---
 title: HTTPS自建CA及自签名证书不完全指南（实战篇）
+subtitle: 我们讲解了HTTPS自建CA及自签名证书相关的一些理论知识。本文将使用OpenSSL进行实战。
 date: 2017-08-03 18:00
 categories: [后端]
 tags: [OpenSSL,HTTPS,Node.js,nginx]

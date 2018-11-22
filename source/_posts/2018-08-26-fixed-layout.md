@@ -1,5 +1,6 @@
 ---
 title: 移动端页面滚动position:fixed;踩坑实记
+subtitle: 这次接到了校招页面的需求，主要在移动端传播。
 date: 2018-08-26 17:00
 categories: [前端]
 tags: [css]

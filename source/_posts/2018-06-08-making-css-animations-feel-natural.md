@@ -1,5 +1,6 @@
 ---
 title: 【译】如何让CSS动画更自然
+subtitle: 设计师负责设计，程序员负责编码。他们间互不干涉。
 date: 2018-06-08 19:30
 categories: [前端]
 author: evanyan

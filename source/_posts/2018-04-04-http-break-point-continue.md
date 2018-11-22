@@ -1,5 +1,6 @@
 ---
 title: HTTP文件断点续传理论
+subtitle: 大家都有在网上下载文件的经历。文件下载到一半时，如果发生网络中断。
 date: 2018-04-04 22:00
 categories: [后端]
 tags: [文件下载,HTTP]

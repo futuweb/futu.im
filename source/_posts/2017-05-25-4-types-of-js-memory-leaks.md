@@ -1,5 +1,6 @@
 ---
 title: 【译】4种javascript的内存泄露及避免方法
+subtitle: 内存泄漏是每个开发者最终必须面对的问题。
 date: 2017-05-25 10:30
 categories: [前端]
 tags: [JS,技术]

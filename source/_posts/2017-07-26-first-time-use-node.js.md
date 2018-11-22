@@ -1,5 +1,6 @@
 ---
 title: 小马的大前端之路——Node.js初探
+subtitle: 很荣幸在经历了2个月的努力，第一个Node.js项目落地了
 date: 2017-07-26 20:00
 categories: [Node.js]
 tags: [angular.js v1.x,koa2,webpack2]

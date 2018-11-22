@@ -1,5 +1,6 @@
 ---
 title: 【译】使用SVG动画书法
+subtitle: stroke作用于fill属性的svg动画。
 date: 2018-06-28 10:30
 categories: [前端]
 author: Diandian

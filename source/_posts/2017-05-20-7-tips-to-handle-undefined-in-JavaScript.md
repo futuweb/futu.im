@@ -1,5 +1,6 @@
 ---
 title: 【译】7个处理javascript的`undefined`的tips
+subtitle: 在8年前，我刚开始学习javascript时，让我觉得有点奇怪的是，`undefined`和`null`同样代表空值。
 date: 2017-05-20 16:30
 categories: [前端]
 tags: [javascript,undefined]

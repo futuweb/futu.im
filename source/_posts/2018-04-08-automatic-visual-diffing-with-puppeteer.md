@@ -1,5 +1,6 @@
 ---
 title: 【译】使用puppeteer进行截图对比测试
+subtitle: Puppeteer可以非常容易地获取屏幕截图.
 date: 2018-04-08 10:00
 categories: [Node.js]
 tags: [Js,技术]
@@ -18,7 +19,7 @@ Puppeteer是一个可以让你控制Chrome的npm库。你知道，就像一个�
 
 如果你想用Puppeteer测试，你必须为测试设置一些东西，也就是一个能启动网站的服务器，然后Puppeteer去查找你的那个网站。我在我的package.json中用这样的内容来解决这些问题：
 
-```
+```json
 "devDependencies": {
   "chai": "^4.1.2",
   "mocha": "^5.0.0",
@@ -43,7 +44,8 @@ Puppeteer是一个可以让你控制Chrome的npm库。你知道，就像一个�
 3.  并在每个测试中告诉Puppeteer要做些什么
 
 我的设置如下所示：
-```
+
+```js
 const puppeteer = require('puppeteer');
 const expect = require('chai').expect;
 const {startServer} = require('polyserve');
@@ -106,7 +108,7 @@ describe('👀 screenshots are correct', function() {
 ### 提交
 所有复杂的工作（其实也不是很复杂）是在takeAndCompareScreenshot中完成：
 
-```
+```js
 // - 页面是对Puppeteer页面的引用.
 // - 路由是你正在加载的路径，我用它来命名文件。
 // - filePrefix不是宽就是窄，因为我自动测试两者。
@@ -131,7 +133,7 @@ async function takeAndCompareScreenshot(page, route, filePrefix) {
 
 这是compareScreenshots中的逻辑，它基本上直接出自[Pixelmatch文档](https://github.com/mapbox/pixelmatch#nodejs)：
 
-```
+```js
 function compareScreenshots(fileName) {
   return new Promise((resolve, reject) => {
     const img1 = fs.createReadStream(`${testDir}/${fileName}.png`).pipe(new PNG()).on('parsed', doneReading);

@@ -1,5 +1,6 @@
 ---
 title: 【译】passive 事件监听
+subtitle: 对于web，尤其是移动设备上的web来说，流畅的滚动性能会直接决定用户体验。
 date: 2017-06-06 10:30
 categories: [前端]
 tags: [JavaScript,事件,性能]

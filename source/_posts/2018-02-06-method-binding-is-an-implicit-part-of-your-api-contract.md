@@ -1,5 +1,6 @@
 ---
 title: 【译】对外提供API时做this的绑定
+subtitle: 这里，一般对象框架时不会提的。也就是说，对象API不会去表现对象内部的实现机制
 date: 2018-02-06 10:00
 categories: [前端]
 tags: [JS,技术]
