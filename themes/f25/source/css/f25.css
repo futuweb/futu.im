@@ -319,6 +319,7 @@ html , body{
     font-size: 14px;
     text-decoration: none;
     color: #000;
+    user-select: none;
 }
 /****************************/
 
@@ -370,7 +371,7 @@ html , body{
         margin: 26px 0;
     }
     .post-i-wrapper .cover{
-        width: 193px;
+        height: 193px;
     }
     .logo .title{
         padding: 0 10px;
