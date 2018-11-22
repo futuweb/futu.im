@@ -365,8 +365,12 @@ html , body{
         padding: 10px 2px;
     }
     .post-i-wrapper{
+        height: 320px;
         width: 100%;
         margin: 26px 0;
+    }
+    .post-i-wrapper .cover{
+        width: 193px;
     }
     .logo .title{
         padding: 0 10px;
@@ -384,8 +388,9 @@ html , body{
         height: 200px;
     }
     .post-banner-container .title{
-        margin-top: 70px;
-        font-size: 16px;
+        margin-top: 80px;
+        font-size: 18px;
+        line-height: 24px;
     }
     .post-banner-container .tips{
         font-size: 12px;

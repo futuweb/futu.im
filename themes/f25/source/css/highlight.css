@@ -121,6 +121,7 @@ hr {
 }
 
 pre {
+  overflow: scroll;
   font-family: monospace, monospace;
   font-size: 1em;
 }
