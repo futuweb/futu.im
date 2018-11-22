@@ -3,7 +3,7 @@
 const path = require('path');
 
 module.exports = {
-  blogName:'富途Web开发团队',
+  blogName:'FutuWeb',
   root: path.resolve(process.cwd() , 'source/_posts'), //bolg markdown file path
   url: 'https://futu.im/statistics/static',
   viewPath: path.resolve(process.cwd() , 'public/statistics'), //html path you want
