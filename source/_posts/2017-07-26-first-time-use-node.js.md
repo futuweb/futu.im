@@ -379,7 +379,3 @@ node --inspect server/index.js
 作为一个初学者，我只能说Node.js在做接入层上，确实是可以做到如鱼得水，关键点就是契机。抛开Node.js接入层，前端的工程化是完全可以做的。但是服务器同构渲染是没有办法做到的，除非与后端同学配合；使用Node.js接入层，那么前端在处理一些棘手的问题时就会游刃有余，而且后端服务会得到更深一层的保护，不至于说后端服务直面攻击，因为多了一层Node.js接入层在前面。
 
 如果你正在考虑要不要使用Node.js，我是无法给出答案的。
-
-原创：Jin
-
-原文链接：[https://futu.im/posts/2017-07-26-first-time-use-node.js](https://futu.im/posts/2017-07-26-first-time-use-node.js)

@@ -244,6 +244,10 @@ html , body{
     color: #333;
     list-style-position: inside;
 }
+.post-content p{
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
 .footer-wrapper{
     width: 100%;
     position: absolute;

@@ -1,7 +1,3 @@
 User-agent: *
 Allow: /
-Allow: /archives/
-Allow: /categories/
-Disallow: /tags/
-Disallow: /page/
 Disallow: /statistics/
