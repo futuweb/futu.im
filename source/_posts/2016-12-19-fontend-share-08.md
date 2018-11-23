@@ -1,6 +1,7 @@
 ---
 title: 分享会直播第八弹之天哥与css的故事
 subtitle: 很高兴能在富途前端前行的道路上留下自己的足迹。
+cover: /images/2016-12-19-fontend-share-08/cover.jpg
 date: 2016-12-19 17:20
 tags: [FE,Share,Gossip]
 categories: [团队活动]

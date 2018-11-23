@@ -1,6 +1,7 @@
 ---
 title: 某个程序员眼中的用户体验设计
 subtitle: 在公司的图书角找到了一本漂亮，纸质很好的书。
+cover: /images/2017-03-10-understanding-experience/cover.jpg
 date: 2017-03-10 10:00
 tags: [用户体验设计]
 categories: [设计]

@@ -1,6 +1,7 @@
 ---
 title: ThreeJS四步制作一个简易魔方
 subtitle: 魔方的外型很简单，就是由一些小正方体组成的一个大正方体而已。
+cover: /images/Young/young.png
 date: 2017-03-03 14:00
 tags: [ThreeJS,WebGL]
 categories: [前端]

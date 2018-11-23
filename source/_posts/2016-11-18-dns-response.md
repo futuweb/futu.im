@@ -1,6 +1,7 @@
 ---
 title: DNS 响应报文详解
 subtitle: 从DNS服务器的角度来解释，如何自己创建响应报文返回给客户端。
+cover: /images/2016-11-18-dns-response/cover.jpg
 date: 2016-11-18 18:00
 categories: [Node.js]
 tags: [dns,dgram,JavaScript]

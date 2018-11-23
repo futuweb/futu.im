@@ -1,6 +1,7 @@
 ---
 title: 分享会直播第十弹之年末双重分享
 subtitle: 2016年就剩最后一天了！！！你2016的小(f)小(l)目(a)标(g)都实现了吗
+cover: /images/2016-12-30-fontend-share-10/cover.png
 date: 2016-12-30 23:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

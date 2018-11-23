@@ -1,6 +1,7 @@
 ---
 title: 如何搭建Express和Mongoose
 subtitle: express是一个高度包容，快速，极简的nodeJs应用程序框架。
+cover: /images/expressMongoose/cover.jpg
 date: 2016-09-18 13:56
 tags: [Express,Mongodb,mongoose]
 categories: [Node.js]

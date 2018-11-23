@@ -1,6 +1,7 @@
 ---
 title: 分享会直播第九弹之tcp协议
 subtitle: 这次分享的主题是tcp协议，说到tcp协议，大家首先想到的肯定是其“三次握手”和“四次挥手”的连接建立和断开机制。
+cover: /images/share/9-2.jpg
 date: 2016-12-22 16:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

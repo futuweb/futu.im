@@ -1,6 +1,7 @@
 ---
 title: 分享会直播首趴之不能把天聊死
 subtitle: 所谓分享是快乐的前提。作为富途FE团队的GG&MM们，为何如此欢乐祥和，最重要的是我们有着一种高贵的品质，那就是sharing精神。
+cover: /images/2016-10-31-fontend-share-01/cover.jpg
 date: 2016-10-31 12:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

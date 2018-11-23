@@ -1,6 +1,7 @@
 ---
 title: 分享会直播第七弹之迟到的幸福
 subtitle: 最近，总是在感慨时光流转飞快，转眼加入富途已经整整六个月，也很庆幸能加入这样一个温（dou）暖（bi）的团队中。
+cover: /images/share/7-2.png
 date: 2016-12-08 14:30
 tags: [FE,Share,Gossip]
 categories: [团队活动]

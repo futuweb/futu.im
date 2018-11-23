@@ -1,6 +1,7 @@
 ---
 title: 如何使用web录制视频
 subtitle: 最近在某个需求的评审会上，产品同学脑洞大开，提出了使用web录制视频的想法。
+cover: /images/capture-video-on-web/1.png
 date: 2016-09-25 12:41
 tags: [Video,WebRTC]
 categories: [前端]

@@ -1,6 +1,7 @@
 ---
 title: 【译】异步迭代器及生成器
 subtitle: 异步迭代器和常规迭代器的工作方式非常相似。
+cover: /images/2017-04-28-async-iterators-and-generators/cover.png
 date: 2017-04-28 10:30
 categories: [前端]
 author: Linda

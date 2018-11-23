@@ -1,6 +1,7 @@
 ---
 title: 【译】下一代CSS--CSS自定义属性(CSS变量)使用
 subtitle: 今日，在web开发中使用css预处理器已经成为一种标准。预处理器其中最大的优势就是可以让开发者自定属性。
+cover: /images/2017-04-24-css-custom-properties/cover.jpg
 date: 2017-04-24 10:30
 categories: [前端]
 author: Jin

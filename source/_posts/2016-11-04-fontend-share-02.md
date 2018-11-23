@@ -1,6 +1,7 @@
 ---
 title: 分享会直播第二弹之仓促的分享
 subtitle: 直播？？录播？？在上一篇的首趴中有单纯的童鞋评论求直播地址，想说，当各位在看到本文时，就是在看直播啦，（被骗了？不怪我...）
+cover: /images/share/2-1.jpg
 date: 2016-11-04 17:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

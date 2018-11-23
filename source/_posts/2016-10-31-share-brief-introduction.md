@@ -1,6 +1,7 @@
 ---
 title: 写在前面的简介
 subtitle:  截止到今天，我刚好入职FUTU一年半的时间，收获满满，一句话也说不清楚，写在前面的一堆话主要是想介绍下目前我们的前端团队的小伙伴们，当然都是我眼里的他们。
+cover: /images/2016-10-31-share-brief-introduction/cover.jpg
 date: 2016-10-31 11:50
 tags: [FE,Share,Gossip]
 categories: [团队活动]

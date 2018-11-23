@@ -1,6 +1,7 @@
 ---
 title: 分享美食季2-披萨季
 subtitle: 好激动，好兴奋，又是一周的分享（吃货期盼的日子）。
+cover: /images/share/6-1.png
 date: 2016-12-01 17:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

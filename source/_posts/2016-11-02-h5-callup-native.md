@@ -1,6 +1,7 @@
 ---
 title: 关于通过H5页面唤起Native客户端的介绍
 subtitle: 目前通过H5页面唤起native App的场景十分常见，比如常见的分享功能。
+cover: /images/2016-11-02-h5-callup-native/cover.jpg
 date: 2016-11-02 10:00
 tags: [H5,Native,schema]
 categories: [前端]

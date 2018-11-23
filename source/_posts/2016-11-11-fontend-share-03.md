@@ -1,6 +1,7 @@
 ---
 title: 分享会直播之双十一狂欢勿忘学习
 subtitle: 居然又选在了这样一个特殊的日子里前端分享，由于小编上周身体比较蓝瘦香菇，所以就错过了上周的分享，深感遗憾。
+cover: /images/share/2-2.png
 date: 2016-11-11 17:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

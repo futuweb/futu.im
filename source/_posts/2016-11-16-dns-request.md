@@ -1,6 +1,7 @@
 ---
 title: DNS 请求报文详解
 subtitle: DNS目的就是把对应服务器IP给客户端。最后客户端与服务器通信就没DNS什么事了。
+cover: /images/2016-11-16-dns-request/cover.png
 date: 2016-11-16 18:00
 categories: [Node.js]
 tags: [dns,dgram,JavaScript]

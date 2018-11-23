@@ -1,6 +1,7 @@
 ---
 title: 记一次分享的收获
 subtitle: 在写这段文字之前，我不断的和自己说，下次不要装逼了，下次不要装逼了，下次不要装逼了......（懂的自然懂）
+cover: /images/share/2-6.png
 date: 2016-11-17 17:00
 tags: [FE,Share,Gossip]
 categories: [团队活动]

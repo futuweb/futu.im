@@ -1,6 +1,7 @@
 ---
 title: 【译】rem和em，可能你并不需要它们
 subtitle: 每当要定义页面上元素的尺寸时，别人都说你应该使用 `em` 或 `rem` ，而不是`px`。
+cover: /images/2017-04-26-rems-and-ems-and-why-you-probably-don’t-need-them/cover.png
 date: 2017-04-24 16:30
 categories: [前端]
 author: Timi
