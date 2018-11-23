@@ -1,6 +1,7 @@
 ---
 title: 【译】Node.js之HTTP/2服务器推送
 subtitle: Node.js v8.4+版本发布带来了体验版的HTTP/2
+cover: /images/2017-09-01-node-js-http-2-push/1.png
 date: 2017-09-01 20:00
 categories: [Node.js]
 tags: [HTTP/2,Nodejs,JavaScript,Server Push]

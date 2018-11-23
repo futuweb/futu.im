@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="633" height="300" viewBox="0 0 633 300">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1 {
+        fill: #eee;
+      }
+
+      .cls-2, .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #d4d7dc;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        fill-rule: evenodd;
+      }
+
+      .cls-4 {
+        fill: #c3c8d1;
+      }
+
+      .cls-5 {
+        opacity: 0.7;
+        filter: url(#filter);
+      }
+
+      .cls-7 {
+        fill: #4dba87;
+      }
+
+      .cls-8 {
+        fill: #435466;
+      }
+    </style>
+    <filter id="filter" x="403" y="230" width="381" height="324" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dy="1" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="5.196"/>
+      <feFlood result="flood" flood-opacity="0.08"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feOffset result="offset-2" dy="7" in="SourceAlpha"/>
+      <feGaussianBlur result="blur-2" stdDeviation="4.472"/>
+      <feFlood result="flood-2" flood-opacity="0.12"/>
+      <feComposite result="composite-2" operator="in" in2="blur-2"/>
+      <feBlend result="blend" mode="multiply" in2="composite"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="vue-components">
+    <circle class="cls-1" cx="609" cy="102" r="24"/>
+    <circle class="cls-1" cx="570" cy="176" r="46"/>
+    <circle class="cls-1" cx="508" cy="94" r="65"/>
+    <circle class="cls-1" cx="32.5" cy="170.5" r="32.5"/>
+    <circle class="cls-1" cx="332" cy="195" r="65"/>
+    <circle class="cls-1" cx="155" cy="158" r="78"/>
+    <circle class="cls-2" cx="95" cy="217" r="15"/>
+    <path class="cls-3" d="M382.924,463.979v0.009h-6.915v-2h-6.034v-2.006h6.034v-3.99h-6.034v-2.027h6.034v-1.955h6.915v0.009a6.415,6.415,0,0,1,5.8,4.962h5.225c0.022,0.338.051,0.674,0.051,1.017s-0.029.677-.051,1.014h-5.208A6.357,6.357,0,0,1,382.924,463.979Z" transform="translate(-284 -241)"/>
+    <circle class="cls-2" cx="131.5" cy="150.5" r="33.5"/>
+    <path class="cls-3" d="M424.246,405.006v0.021H409.028v-5H394.971V395.99h14.057v-9H394.971v-3.971h14.057v-5.041h15.218v0.021c6.289,0.18,11.513,5.025,12.985,11.019H448.9c0.061,0.822.1,1.65,0.1,2.487s-0.042,1.675-.1,2.5H437.258A14.1,14.1,0,0,1,424.246,405.006Z" transform="translate(-284 -241)"/>
+    <circle class="cls-2" cx="493.5" cy="70.5" r="21.5"/>
+    <path class="cls-3" d="M783.363,320.966v0.014H773.008v-3.969L763.993,317V314l9.015,0.007v-6l-9.015-.022v-2.982l9.015-.017v-3h10.355V302a9.342,9.342,0,0,1,8.658,7.01h6.824a20.087,20.087,0,0,1,0,4.957h-6.823A9.324,9.324,0,0,1,783.363,320.966Z" transform="translate(-284 -241)"/>
+    <circle class="cls-2" cx="194" cy="225" r="48"/>
+    <path class="cls-4" d="M490.534,485.976v0.03H469.022V478H447.973v-6.018h21.049V459.982H447.973v-5.976h21.049v-8.012h21.512v0.03a19.571,19.571,0,0,1,18.6,14.948h16.6a48.195,48.195,0,0,1,0,10.037H509.17A19.461,19.461,0,0,1,490.534,485.976Z" transform="translate(-284 -241)"/>
+    <path class="cls-5" d="M755,411.5a72.49,72.49,0,0,1-128.887,45.554L587,524,431,257H567.052L587,293.427,608.069,257H743l-48.5,83.005A72.507,72.507,0,0,1,755,411.5Z" transform="translate(-284 -241)"/>
+    <path class="cls-6" d="M608.069,257L587,293.427,567.052,257H431L587,524,743,257H608.069Z" transform="translate(-284 -241)"/>
+    <path class="cls-7" d="M618.252,269L587,322.425,556.747,269H456L587,496,718,269H618.252Z" transform="translate(-284 -241)"/>
+    <path class="cls-8" d="M617.715,269L587.5,321.347,557.285,269H509l78.5,136L666,269H617.715Z" transform="translate(-284 -241)"/>
+    <circle class="cls-2" cx="398.5" cy="170.5" r="72.5"/>
+    <path class="cls-8" d="M754.85,415.957q-0.13,2.038-.363,4.048H730.355a30.187,30.187,0,0,1-28.3,22.973V443H668.979V431.99H638v-9.97h30.979V402.99H638v-10h30.979V382h33.072v0.022a30.188,30.188,0,0,1,28.3,22.957h24.343c0.094,1.063.17,2.131,0.222,3.206,0.05,1.1.084,2.2,0.084,3.315,0,1.422-.047,2.833-0.132,4.233C754.863,415.808,754.855,415.882,754.85,415.957Z" transform="translate(-284 -241)"/>
+  </g>
+</svg>

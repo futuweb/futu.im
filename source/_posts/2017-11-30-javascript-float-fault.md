@@ -1,6 +1,7 @@
 ---
 title: 浮点数计算引发的血泪史——以此为戒
 subtitle: 最近遇到很头疼的一件事，比较2个浮点数的大小，可能想想应该很简单。
+cover: /images/2017-11-30-javascript-float-fault/1130_02.jpg
 date: 2017-11-30 21:00
 categories: [前端]
 tags: [number,float,JavaScript]

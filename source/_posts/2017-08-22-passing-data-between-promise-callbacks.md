@@ -1,6 +1,7 @@
 ---
 title: 【译】在Promise回调之间传值的方法
 subtitle: 在基于 Promise 编写的代码中，经常会有很多回调函数，它们都有各自的变量作用域。
+cover: /images/2017-08-22-passing-data-between-promise-callbacks/cover.png
 date: 2017-08-22 13:00:00
 categories: [前端]
 tags: [JavaScript,Promise,异步]

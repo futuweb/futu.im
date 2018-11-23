@@ -1,6 +1,7 @@
 ---
 title: 【译】你需要知道的有关Node.js Error对象的变化
 subtitle: 变化来自Node.js运行时抛出的错误。
+cover: /images/2017-08-24-node-js-errors-changes-you-need-to-know-about/1.png
 date: 2017-08-24 20:00
 categories: [Node.js]
 tags: [Error,Nodejs,JavaScript]

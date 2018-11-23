@@ -1,6 +1,7 @@
 ---
 title: touchstart与click不得不说的故事
 subtitle: 最近给公司做了个自适应的的费用介绍页，主要是关于收费标准的调整，老板表示很重视，适用人群也很多，所以也反馈得到几个不常遇到的问题。
+cover: /images/2017-09-29-touchstart-click/cover.jpg
 date: 2017-09-29 20:00
 categories: [前端]
 tags: [touchstart,click]

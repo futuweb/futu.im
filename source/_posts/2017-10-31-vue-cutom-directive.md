@@ -1,6 +1,7 @@
 ---
 title: 【译】vue 自定义指令的魅力
 subtitle: 在你初次接触一个新的Javascript框架时，会像第一次进糖果店的孩子一样。
+cover: /images/2017-10-31-vue-cutom-directive/cover.svg
 date: 2017-10-31 10:00
 categories: [前端]
 tags: [JS,技术]

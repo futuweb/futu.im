@@ -1,6 +1,7 @@
 ---
 title: 移动端字体放大问题的研究
 subtitle: 很多webview提供了调整页面字体大小的功能
+cover: /images/2017-10-24-mobile-browser-font-size/5.jpg
 date: 2017-10-24 12:00
 categories: [前端]
 tags: [css,字体大小]

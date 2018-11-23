@@ -1,6 +1,7 @@
 ---
 title: 简单讨论 querySelectorAll Vs getElementsByTagName 区别
 subtitle: 虽然表面上看没有很大区别，但是往往现实却并非如此。
+cover: /images/2018-01-20-querySelectorAll-vs-getElementsByTagName/cover.png
 date: 2018-01-20 12:00
 categories: [前端]
 tags: [web前端,html,document,javascript]
