@@ -1,6 +1,7 @@
 ---
 title: docker 初探
 subtitle: 最近搞了几个域名，想着玩一下。碰到了`CoreOS`然后就扒出了docker。
+cover: /images/first-use-docker/cover.png
 date: 2018-05-28 20:00
 categories: [后端]
 author: Jin

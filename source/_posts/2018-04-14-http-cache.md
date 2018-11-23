@@ -1,6 +1,7 @@
 ---
 title: http缓存
 subtitle: Web缓存是指一个Web资源（如html页面，图片，js，数据等）存在于Web服务器和客户端（浏览器）之间的副本。
+cover: /images/2018-04-14-http-cache/181722532916918.png
 date: 2018-04-14 20:59:00
 tags: [网络]
 author: tony

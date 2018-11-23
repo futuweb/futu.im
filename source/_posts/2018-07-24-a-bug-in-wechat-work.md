@@ -1,6 +1,7 @@
 ---
 title: 记一次企业微信webview bug排查
 subtitle: 炸锅了：企业微信中点击课程没反应，报不了名！
+cover: /images/2018-07-24-a-bug-in-wechat-work/1.png
 date: 2018-07-24 10:40
 categories: [前端]
 author: TooBug

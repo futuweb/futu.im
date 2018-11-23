@@ -1,6 +1,7 @@
 ---
 title: 【译】CSS Grid重构Medium的文章布局
 subtitle: 当人们想起CSS Grid的时候，想到的通常是图片网格布局和全屏页面。
+cover: /images/2018-04-20-recreate-medium-article-layout-with-grid/2.png
 date: 2018-04-20 20:04:45
 tags: [CSS, HTML]
 categories: [前端]

@@ -1,6 +1,7 @@
 ---
 title: 记一次pvuv与vConsole在IE上的打架
 subtitle: 这周在开发一个答题测评需求，只有一个页面，很开心地写完了，然后一顿自测，各种浏览器安卓端IOS端，然后IE又没有让人失望地报错了，整个页面出不来。
+cover: /images/2018-09-20-conflict-between-pvuv-and-vConsole/cover.jpg
 date: 2018-09-20 16:59:16
 categories: [前端]
 author: WendySun

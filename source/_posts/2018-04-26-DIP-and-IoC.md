@@ -1,6 +1,7 @@
 ---
 title: 面向对象设计原则之依赖倒置原则
 subtitle: 依赖反转原则（Dependency inversion principle，DIP）
+cover: /images/2018-04-26-DIP-and-IoC/2.png
 date: 2018-04-26 13:00
 categories: [后端]
 author: Ivanxiao

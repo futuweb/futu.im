@@ -1,6 +1,7 @@
 ---
 title: 移动端页面分享快照生成总结
 subtitle: 在活动页面中生成一张分享图片（带用户专属二维码的），引导用户分享传播。
+cover: /images/2018-09-04-create-snapshot/cover.jpg
 date: 2018-09-04 10:27:39
 categories: [前端]
 author: Cynthia

@@ -1,6 +1,7 @@
 ---
 title: 面向对象设计原则之迪米特原则
 subtitle: 通过引入一个合理的第三者来降低现有对象之间的耦合度。
+cover: /images/2018-04-19-law-of-demeter/01.jpg
 date: 2018-04-19 20:00
 categories: [后端]
 tags: [技术,原创]

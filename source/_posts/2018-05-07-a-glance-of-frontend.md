@@ -1,6 +1,7 @@
 ---
 title: 大前端分享总结
 subtitle: 确切的说，算是对当前js(ECMAScript)能力的概括。
+cover: /images/2018-05-07-a-glance-of-frontend/1.png
 date: 2018-05-07 17:49:51
 tags: [JS]
 categories: [前端]
