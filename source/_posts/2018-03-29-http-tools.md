@@ -1,6 +1,7 @@
 ---
 title: HTTP常用工具——Chrome DevTools与Fiddler 4使用介绍
 subtitle: Chrome DevTools和Fiddler应该都不会陌生。在日常的开发调试中经常会使用到。
+cover: /images/2018-03-29-http-tools/01.jpg
 date: 2018-03-29 20:00
 categories: [工具]
 tags: [HTTP,Fiddler]

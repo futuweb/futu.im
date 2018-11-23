@@ -1,6 +1,7 @@
 ---
 title: 【译】使用puppeteer进行截图对比测试
 subtitle: Puppeteer可以非常容易地获取屏幕截图.
+cover: /images/2018-04-08-automatic-visual-diffing-with-puppeteer/cover.jpg
 date: 2018-04-08 10:00
 categories: [Node.js]
 tags: [Js,技术]

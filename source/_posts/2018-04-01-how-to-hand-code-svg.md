@@ -1,6 +1,7 @@
 ---
 title: 【译】如何手写 SVG
 subtitle: 只要很少的几行代码你就可以拥有你的自定义图标，而且你还很清楚每个图标是怎么组合出来的。
+cover: /images/2018-04-01-how-to-hand-code-svg/usesymbols.png
 date: 2018-04-01 16:26:45
 categories: [前端]
 tags: [CSS, HTML, SVG, 技术]

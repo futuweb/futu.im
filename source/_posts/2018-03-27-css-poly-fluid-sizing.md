@@ -1,6 +1,7 @@
 ---
 title: 【译】Css流式布局
 subtitle: 流式布局在前端发展中出现好几年了。然而流式排版的概念还比较新，尚未得到充分的探索。
+cover: /images/2018-03-27-css-poly-fluid-sizing/1-can-i-use-viewports-opt.png
 date: 2018-03-27 10:00
 categories: [前端]
 tags: [CSS,技术]

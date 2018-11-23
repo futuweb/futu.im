@@ -1,6 +1,7 @@
 ---
 title: HTTP代理模式应用简介
 subtitle: 要理解HTTP代理，首先需要理解什么是“代理”？
+cover: /images/2018-04-09-http-proxy/01.png
 date: 2018-04-09 22:00
 categories: [后端]
 tags: [代理,HTTP]

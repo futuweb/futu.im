@@ -1,6 +1,7 @@
 ---
 title: HTTP文件断点续传理论
 subtitle: 大家都有在网上下载文件的经历。文件下载到一半时，如果发生网络中断。
+cover: /images/2018-04-04-http-break-point-continue/cover.png
 date: 2018-04-04 22:00
 categories: [后端]
 tags: [文件下载,HTTP]
@@ -102,7 +103,7 @@ Last-Modified: Wed, 03 Sep 2014 10:00:27 GMT
 Server: Apache
 ```
 
-最重要的是第一行：返回状态码`206`表示支持断点续传。[状态码相关](/posts/2018-03-20-http-status-code/)。里面也包含了上面我们是提到的`Content-Range`。
+最重要的是第一行：返回状态码`206`表示支持断点续传。[状态码相关](/article/http-status-code/)。里面也包含了上面我们是提到的`Content-Range`。
 
 ```txt
 Content-Range: bytes 0-2000/7877

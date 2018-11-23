@@ -1,6 +1,7 @@
 ---
 title: HTTP常见状态码学习
 subtitle: HTTP状态码（英语：HTTP Status Code）是用以表示网页服务器 超文本传输协议响应状态的3位数字代码。
+cover: /images/2018-03-20-http-status-code/cover.jpg
 date: 2018-03-20 10:00
 categories: [后端]
 tags: [http,www]
