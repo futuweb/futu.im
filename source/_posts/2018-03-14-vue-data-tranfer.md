@@ -1,6 +1,7 @@
 ---
 title: vue组件之间的数据传递
 subtitle: 在组件之间数据传递遇到了问题，所以做了这次总结，如有不对的地方，望指正。
+cover: /images/2018-03-14-vue-data-tranfer/cover.png
 date: 2018-03-14 18:00
 categories: [前端]
 tags: [web前端, vue, javascript]

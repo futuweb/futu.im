@@ -1,6 +1,7 @@
 ---
 title: 正则表达式RegExp.prototype.test方法使用不当笔记
 subtitle: 遇到了`RegExp.prototype.test`方法使用不当的问题。
+cover: /images/2018-03-10-regexp-test/01.png
 date: 2018-03-10 12:00
 categories: [前端]
 tags: [web前端,RegExp,regexp.test,javascript]

@@ -1,6 +1,7 @@
 ---
 title: 【译】如何做好错误提示
 subtitle: 没有什么系统是不会出错的。
+cover: /images/2018-02-09-how-to-write-a-perfect-error-message/1.png
 date: 2018-02-09 10:00
 categories: [设计]
 tags: [JS,技术]
