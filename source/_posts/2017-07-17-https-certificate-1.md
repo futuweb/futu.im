@@ -1,6 +1,7 @@
 ---
 title: HTTPS自建CA及自签名证书不完全指南（理论篇）
 subtitle: HTTPS 全称 HTTP over SSL，即工作于SSL层之上的HTTP协议。
+cover: /images/2017-07-17-https-certificate/02-steps.png
 date: 2017-07-17 18:00
 categories: [后端]
 tags: [OpenSSL,HTTPS,Node.js,nginx]

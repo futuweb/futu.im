@@ -1,6 +1,7 @@
 ---
 title: 【译】nginx是如何处理请求的
 subtitle: Nginx首先需要确定由哪个`server`来处理请求。
+cover: /images/2017-05-05-how-nginx-processes-a-request/cover.jpg
 date: 2017-05-05 12:55
 categories: [后端]
 author: TooBug
