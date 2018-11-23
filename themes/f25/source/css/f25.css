@@ -242,6 +242,8 @@ html , body{
     font-weight: 500;
     line-height: 2;
     color: #333;
+    -ms-word-break: break-all;
+    word-break: break-all;
     list-style-position: inside;
 }
 .post-content p{
