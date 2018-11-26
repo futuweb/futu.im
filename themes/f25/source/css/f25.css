@@ -196,13 +196,12 @@ html , body{
 
 .post-banner{
     height: 400px;   
-    background-color: #0bb0ff;
+    background: url(/images/bg_max.jpg) no-repeat;
+    background-position: center;
+    background-size: 100% auto;
 }
 .post-banner-container{
     height: 100%;
-    background: url(/images/bg_post.png) no-repeat;
-    background-position: center;
-    background-size: 100% auto;
 }
 .post-banner-container .title{
     width: 100%;
@@ -213,6 +212,7 @@ html , body{
     margin-top: 160px;
     font-weight: 500;
     color: #333;
+    text-shadow: 0px 0px 2px #000;
 }
 .post-banner-container .tips {
     text-align: center;
@@ -245,6 +245,21 @@ html , body{
     -ms-word-break: break-all;
     word-break: break-all;
     list-style-position: inside;
+}
+.post-content table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+.post-content table th{
+    background: #eee;
+    padding: 4px;
+    border: 1px solid #999;
+}
+.post-content table td{
+    border: 1px solid #999;
+    padding: 4px;
 }
 .post-content p{
     -ms-word-break: break-all;
