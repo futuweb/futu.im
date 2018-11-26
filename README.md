@@ -44,6 +44,20 @@ npm install -g hexo-cli --registry=http://registry.npm.taobao.org
 
 所有的文件夹都是针对source目录来的。文章放在_post目录。
 
+案例：
+
+```md
+---
+title: 如何搭建Express和Mongoose
+subtitle: express是一个高度包容，快速，极简的nodeJs应用程序框架。
+cover: /images/expressMongoose/cover.jpg
+date: 2016-09-18 13:56
+tags: [Express,Mongodb,mongoose]
+categories: [Node.js]
+author: Elly
+---
+```
+
 编写好后提交master。
 
 ## 文章分类
