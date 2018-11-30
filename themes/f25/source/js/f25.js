@@ -41,7 +41,7 @@ function hasClassName(element , className){
  * @return {[type]} [description]
  */
 function scrollToWindowTop(){
-    return document.body.scrollTop = 0;
+    return window.scroll(0,0);
 }
 
 var closeClassName = 'btn-close';

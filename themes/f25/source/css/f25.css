@@ -6,10 +6,10 @@ body{
     -ms-text-size-adjust: 100%;
     text-rendering: optimizelegibility;
     -webkit-overflow-scrolling: touch;
+    overflow: scroll;
 }
 html , body{
     height: 100%;
-    /* overflow: scroll; */
 }
 .header-wrapper{
     height: 64px;
@@ -108,7 +108,6 @@ html , body{
     box-sizing: border-box;
     padding: 64px 0 60px 0;
     position: relative;
-    /* overflow: scroll; */
 }
 .banner-wrapper{
     height: 250px;
