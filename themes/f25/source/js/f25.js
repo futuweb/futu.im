@@ -36,7 +36,13 @@ function hasClassName(element , className){
     return false;
 }
 
-
+/**
+ * [scrollToWindowTop 返回顶部]
+ * @return {[type]} [description]
+ */
+function scrollToWindowTop(){
+    return document.body.scrollTop = 0;
+}
 
 var closeClassName = 'btn-close';
 var showClassName = 'show';
