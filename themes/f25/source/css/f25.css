@@ -9,7 +9,7 @@ body{
 }
 html , body{
     height: 100%;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .header-wrapper{
     height: 64px;
@@ -108,7 +108,7 @@ html , body{
     box-sizing: border-box;
     padding: 64px 0 60px 0;
     position: relative;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 .banner-wrapper{
     height: 250px;
