@@ -8,7 +8,7 @@ tags: [OpenSSL,HTTPS,Node.js,nginx]
 author: Jin
 ---
 
-在[上一篇](/article/https-certificate/)文章中，我们讲解了HTTPS自建CA及自签名证书相关的一些理论知识。本文将使用OpenSSL进行实战。
+在[上一篇](/article/https-certificate-1/)文章中，我们讲解了HTTPS自建CA及自签名证书相关的一些理论知识。本文将使用OpenSSL进行实战。
 
 首先，需要安装好OpenSSL。Mac / Linux都有内置OpenSSL，但是版本并不是很新，建议自己再安装一个新版。
 
