@@ -188,11 +188,19 @@ html , body{
     text-indent: 28px;
     font-size: 14px;
     font-weight: 400;
-    max-height: 64px;
+    max-height: 44px;
     overflow: hidden;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0 10px;
     color: #666;
+}
+.post-i-wrapper .time{
+    color: #999;
+    font-size: 12px;
+    padding: 10px;
+    display: block;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .post-banner{
