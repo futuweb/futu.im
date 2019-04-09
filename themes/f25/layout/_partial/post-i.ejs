@@ -1,4 +1,4 @@
-<div class="post-i-wrapper">
+<li class="post-i-wrapper">
     <a href="<%- url_for(item.path)%>" class="wrapper post-i-link" title="<%=item.title%>">
         <div class="wrapper cover">
             <img src="<%- url_for(item.cover || theme.default_cover)%>" alt="<%=item.title%>">
@@ -6,9 +6,9 @@
         <div class="wrapper">
             <h3 class="title" title="<%=item.title%>"><%=item.title%></h3>
         </div>
-        <div class="wrapper subtitle">
+        <p class="wrapper subtitle">
             <%-item.subtitle%>
-        </div>
+        </p>
         <span class="wrapper time"><%- full_date(item.date, 'YYYY-MM-DD') %></span>
     </a>
-</div>
+</li>

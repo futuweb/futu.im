@@ -1,11 +1,11 @@
-<div class="wrapper header-wrapper">
+<header class="wrapper header-wrapper">
     <div class="container header-nav-wrapper">
         <div class="logo"><a href="/"><h1 class="title">FutuWeb</h1></a></div>
-        <div class="nav-wrapper">
+        <nav class="nav-wrapper">
             <% for (var i in cates){%>
                 <a href="<%- url_for(cates[i])%>"><%=i%></a>
             <%}%>
-        </div>
+        </nav>
         <span class="btn-menu" id="J_header_menu">
             <div class="inner">
                 <span class="line line-01"></span>
@@ -14,11 +14,11 @@
             </div>
         </span>
         <div class="wrapper mb-nav-wrapper" id="J_header_menu_list">
-            <div class="wrapper mb-nav-container">
+            <nav class="wrapper mb-nav-container">
                 <% for (var i in cates){%>
                     <a href="<%- url_for(cates[i])%>"><%=i%></a>
                 <%}%>
-            </div>
+            </nav>
         </div>
     </div>
-</div>
+</header>
