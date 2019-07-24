@@ -3,6 +3,7 @@
 title: serviceworker离线缓存在种子项目上的实践
 subtitle: 在种子农场站点下首次引入service-worker建设pwa，来实现资源的缓存
 date: 2019-07-16 20:10:43
+cover: /images/2019-07-16-seed-with-service-worker-md/seed.png
 tags: service-worker
 ---
 
